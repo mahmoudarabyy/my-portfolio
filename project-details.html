@@ -23,8 +23,8 @@
         
         <!-- Right side: Consultation CTA -->
         <div class="header-right">
-          <button class="btn-consultation" id="openConsultationBtn" aria-label="طلب استشارة">
-            <span>اطلب استشارة</span>
+          <button class="btn-consultation" id="openConsultationBtn" aria-label="تواصل معي">
+            <span>تواصل معي</span>
           </button>
         </div>
 
@@ -58,127 +58,122 @@
         </a>
       </div>
 
-      <!-- 2. Category & Year Tag below it on its own line -->
-      <div class="case-tag-line">
-        <span id="projectCategoryBadge">تصميم واجهة وتجربة المستخدم</span>
-        <span class="tag-separator">•</span>
-        <span id="projectYearBadge">2026</span>
-      </div>
-
       <!-- Project Hero Header -->
       <section class="case-hero-intro">
         
-        <div class="case-hero-split">
-          <!-- Main Column: Title + Summary -->
-          <div class="case-hero-main-col">
-            <!-- Big Display Title (Spanning 2 lines) -->
-            <h1 class="case-main-title" id="projectMainTitle">
-              تطبيق النيابة الإدارية — التحول الرقمي للخدمات القضائية
-            </h1>
+        <!-- Big Display Title (Max 2 lines) -->
+        <h1 class="case-main-title" id="projectMainTitle">
+          الموقع الرسمي لنقابة المهندسين المصرية
+        </h1>
 
-            <!-- Intro / Overview Paragraph -->
-            <p class="case-intro-paragraph" id="projectSummaryText">
-              منظومة رقمية متكاملة تهدف إلى رقمنة وتيسير إجراءات الشكاوى والخدمات القضائية للمواطنين والموظفين، مع التركيز على خلق تجربة استخدام واضحة، سريعة، وموثوقة تقلل من زمن إنجاز المعاملات بنسبة تتجاوز 40%.
-            </p>
+        <!-- Metadata Grid directly below the title -->
+        <div class="case-meta-grid-horizontal">
+          <div class="case-meta-cell">
+            <span class="meta-label">العميل</span>
+            <span class="meta-val" id="metaClient">نقابة المهندسين المصرية</span>
           </div>
-
-          <!-- Metadata Side Grid (2x2 on same level as title, without stroke) -->
-          <div class="case-meta-grid-2x2">
-            <div class="case-meta-cell">
-              <span class="meta-label">العميل</span>
-              <span class="meta-val" id="metaClient">النيابة الإدارية المصرية</span>
-            </div>
-            <div class="case-meta-cell">
-              <span class="meta-label">الدور والمسؤولية</span>
-              <span class="meta-val" id="metaRole">مصمم تجربة وواجهة المستخدم (Lead UX/UI)</span>
-            </div>
-            <div class="case-meta-cell">
-              <span class="meta-label">المدة الزمنية</span>
-              <span class="meta-val" id="metaTimeline">8 أسابيع</span>
-            </div>
-            <div class="case-meta-cell">
-              <span class="meta-label">المجال</span>
-              <span class="meta-val" id="metaField">القطاع الحكومي والخدمات القضائية</span>
-            </div>
+          <div class="case-meta-cell">
+            <span class="meta-label">الدور والمسؤولية</span>
+            <span class="meta-val" id="metaRole">مصمم تجربة المستخدم وبنية المعلومات (UX/UI Lead)</span>
+          </div>
+          <div class="case-meta-cell">
+            <span class="meta-label">المدة الزمنية</span>
+            <span class="meta-val" id="metaTimeline">10 أسابيع</span>
+          </div>
+          <div class="case-meta-cell">
+            <span class="meta-label">المجال</span>
+            <span class="meta-val" id="metaField">النقابات المهنية والخدمات المؤسسية</span>
           </div>
         </div>
 
-        <!-- Full-Width Cover Image (No border/frame) -->
+        <!-- Full-Width Cover Image right below Metadata Grid -->
         <div class="case-hero-image-wrap">
-          <img src="صور مشاريع/النيابة الادارية.png" alt="غلاف المشروع" class="case-clean-image" id="projectCoverImage" />
+          <img src="صور مشاريع/نقابه المهندسين المصرية.png" alt="غلاف المشروع" class="case-clean-image" id="projectCoverImage" />
         </div>
 
       </section>
 
-      <!-- Section 01: 01. البحث والاستكشاف -->
-      <section class="case-text-section">
-        <h2 class="case-section-heading">01. البحث والاستكشاف</h2>
+      <!-- Section 01: 01. عن المشروع -->
+      <section class="case-text-section" id="aboutSection">
+        <h2 class="case-section-heading">01. عن المشروع</h2>
+        
+        <div class="case-section-content">
+          <p id="aboutText">
+            إعادة تصميم وبناء البوابة الرقمية الرسمية لنقابة المهندسين لتوفير منظومة خدمات متكاملة تشمل الاشتراكات، الرعاية الصحية، الشهادات الهندسية، والمعاملات النقابية لأكثر من 800,000 عضو.
+          </p>
+        </div>
+
+        <!-- Section Image -->
+        <div class="case-section-image-wrap">
+          <img src="نقابه المهندسين/Pro Display 089عهخ.png" alt="عن المشروع" class="case-clean-image" id="aboutImage" />
+        </div>
+      </section>
+
+      <!-- Section 02: 02. البحث والاستكشاف -->
+      <section class="case-text-section" id="researchSection">
+        <h2 class="case-section-heading">02. البحث والاستكشاف</h2>
         
         <div class="case-section-content">
           <p id="researchLeadText">
-            بدأنا المشروع بتحليل معمق لرحلة المواطن والموظف في تقديم ومتابعة الشكاوى القضائية، لفهم التحديات اليومية ونقاط الاحتكاك في الإجراءات التقليدية وصياغة مسار رقمي سلس ومباشر.
+            قمنا بإجراء تدقيق شامل لهيكل المعلومات للموقع السابق، وتحليل أكثر من 45 خدمة نقابية لتصنيفها وتجميعها في مسارات واضحة يسهل الوصول إليها بأقل عدد من النقرات.
           </p>
           <p id="researchExtraText">
-            قمنا بإجراء 16 مقابلة ميدانية مع مراجعين من مختلف الفئات، إلى جانب تحليل بيانات الاستخدام للمنظومة القديمة، مما ساعدنا على تحديد العقبات الأساسية وبناء هيكل معلومات واضح يختصر الوقت والجهد على المواطن.
+            أظهرت استطلاعات الرأي مع أكثر من 300 مهندس أن 82% يواجهون صعوبة في معرفة شروط تجديد الرعاية الصحية، مما جعل أولوية التصميم تتجه نحو الشفافية والوصول السريع للخدمات الحيوية.
           </p>
         </div>
 
         <!-- Section Image -->
         <div class="case-section-image-wrap">
-          <img src="صور مشاريع/النيابة الادارية.png" alt="البحث والاستكشاف" class="case-clean-image" id="researchImage" />
+          <img src="نقابه المهندسين/خدماتي4564.png" alt="البحث والاستكشاف" class="case-clean-image" id="researchImage" />
         </div>
       </section>
 
-      <!-- Section 02: 02. المشكلة -->
-      <section class="case-text-section">
-        <h2 class="case-section-heading">02. المشكلة</h2>
+      <!-- Section 03: 03. المشكلة والتحديات -->
+      <section class="case-text-section" id="problemSection">
+        <h2 class="case-section-heading">03. المشكلة والتحديات</h2>
         
         <div class="case-section-content">
           <p id="problemLeadText">
-            كان التحدي الرئيسي يتمثل في تعقيد الإجراءات البيروقراطية وتشتت البيانات عبر مراحل متعددة، مما يتسبب في إرباك المستخدم وارتفاع معدلات التخلي عن إتمام الطلب في منتصف الطريق.
+            صعوبة العثور على الخدمات الحيوية، تشابك الإجراءات الورقية مع الرقمية، وبطء استخراج الشهادات والموافقات الرسمية مما تسبب في ازدحام الفروع والنقابات الفرعية.
           </p>
           <p id="problemExtraText">
-            غياب مؤشر زمني واضح لحالة البلاغ وعدم وجود تنبيهات فورية كان يضطر المواطن إلى الاتصال المتكرر أو الحضور الشخصي لمقار النيابة، وهو ما خلق عبئاً تشغيلياً كبيراً على موظفي الاستقبال وأبطأ من سرعة معالجة القضايا.
+            النظام السابق كان يفتقر إلى حساب موحد للمهندس، مما يتطلب إدخال البيانات الشخصية ورقم القيد مراراً وتكراراً مع كل طلب أو تجديد اشتراك.
           </p>
         </div>
 
         <!-- Section Image -->
         <div class="case-section-image-wrap">
-          <img src="صور مشاريع/نقابه المهندسين المصرية.png" alt="المشكلة والتحديات" class="case-clean-image" id="problemImage" />
+          <img src="نقابه المهندسين/خدماتيفغعفغعف.png" alt="المشكلة والتحديات" class="case-clean-image" id="problemImage" />
         </div>
       </section>
 
-      <!-- Section 03: 03. الحل المقترح -->
-      <section class="case-text-section">
-        <h2 class="case-section-heading">03. الحل المقترح</h2>
+      <!-- Section 04: 04. الحل المقترح -->
+      <section class="case-text-section" id="solutionSection">
+        <h2 class="case-section-heading">04. الحل المقترح</h2>
         
         <div class="case-section-content">
           <p id="solutionLeadText">
-            صممنا بنية تفاعلية حديثة ترتكز على تبسيط تدفق تقديم الشكاوى إلى 3 خطوات ذكية فقط مع التحقق الفوري من صحة المستندات قبل الإرسال.
+            ابتكرنا بنية معلوماتية حديثة تعتمد على ملف شخصي موحد لكل مهندس، مع بوابة خدمات ذاتية سريعة ودعم الدفع الإلكتروني وتتبع الطلبات المباشر.
           </p>
           <p id="solutionExtraText">
-            تم تزويد المنصة بلوحة تحكم فورية تتيح تتبع مسار المعاملة لحظة بلحظة مع إشعارات مباشرة عبر الهاتف، بالإضافة إلى بناء نظام تصميم (Design System) موحد يضمن تجربة سلسة ومتجاوبة عبر الهواتف الذكية وأجهزة الحاسوب.
+            تم تطوير لوحة مستخدم تفاعلية تعرض حالة الاشتراكات، البطاقة العلاجية الرقمية، وتتيح طلب الشهادات الهندسية واستلامها إلكترونياً بأعلى معايير الأمان.
           </p>
         </div>
-      </section>
 
-      <!-- Section: معرض الشاشات (Full Screen Showcase) -->
-      <section class="case-screens-section">
-        <h2 class="case-section-heading">معرض الشاشات والتفاصيل البصرية</h2>
-        
-        <div class="case-screens-flow">
-          <div class="case-screen-item">
-            <img src="صور مشاريع/النيابة الادارية.png" alt="شاشات التطبيق" class="case-clean-image" id="galleryImg1" />
-          </div>
-          <div class="case-screen-item">
-            <img src="صور مشاريع/نقابه المهندسين المصرية.png" alt="لوحة التحكم والواجهات" class="case-clean-image" id="galleryImg2" />
-          </div>
-          <div class="case-screen-item">
-            <img src="صور مشاريع/Apply Seo.png" alt="الأنظمة التفاعلية" class="case-clean-image" id="galleryImg3" />
-          </div>
+        <!-- Section Image -->
+        <div class="case-section-image-wrap">
+          <img src="نقابه المهندسين/خدماتيفثقفغ.png" alt="الحل المقترح" class="case-clean-image" id="solutionImage" />
         </div>
       </section>
 
+      <!-- Section 05: معرض الشاشات والتفاصيل البصرية (2 images per row) -->
+      <section class="case-screens-section" id="gallerySection">
+        <h2 class="case-section-heading">معرض الشاشات والتفاصيل البصرية</h2>
+        
+        <div class="case-gallery-grid-2col" id="galleryGridContainer">
+          <!-- Dynamically populated 2-column image cards -->
+        </div>
+      </section>
 
     </main>
 
@@ -413,9 +408,7 @@
 
         <button type="submit" class="submit-btn">
           <span>إرسال الطلب</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+          <img src="arrow big.svg" alt="سهم" class="btn-arrow-img" />
         </button>
       </form>
     </div>
@@ -429,7 +422,7 @@
   <script>
     async function loadProjectDetails() {
       const urlParams = new URLSearchParams(window.location.search);
-      const projectId = urlParams.get("id") || urlParams.get("project") || "prosecution";
+      const projectId = urlParams.get("id") || urlParams.get("project") || "engineers";
       
       let projectsList = [];
       try {
@@ -449,33 +442,55 @@
 
       if (!data) return;
 
-      document.title = data.title || (data.mainTitle + " — دراسة حالة | محمود عربي");
-      if (document.getElementById("projectMainTitle")) document.getElementById("projectMainTitle").textContent = data.mainTitle;
-      if (document.getElementById("projectCategoryBadge")) document.getElementById("projectCategoryBadge").textContent = data.category;
-      if (document.getElementById("projectYearBadge")) document.getElementById("projectYearBadge").textContent = data.year;
-      if (document.getElementById("projectSummaryText")) document.getElementById("projectSummaryText").textContent = data.summary;
-      if (document.getElementById("metaClient")) document.getElementById("metaClient").textContent = data.client;
-      if (document.getElementById("metaRole")) document.getElementById("metaRole").textContent = data.role;
-      if (document.getElementById("metaTimeline")) document.getElementById("metaTimeline").textContent = data.timeline;
-      if (document.getElementById("metaField")) document.getElementById("metaField").textContent = data.field;
-      if (document.getElementById("projectCoverImage")) document.getElementById("projectCoverImage").src = data.coverImage || data.cardImage;
+      const displayTitle = data.mainTitle || data.title || "دراسة حالة المشروع";
+      document.title = displayTitle + " | محمود عربي";
       
-      if (document.getElementById("researchLeadText")) document.getElementById("researchLeadText").textContent = data.researchLead;
-      if (document.getElementById("researchExtraText")) document.getElementById("researchExtraText").textContent = data.researchExtra || '';
+      if (document.getElementById("projectMainTitle")) {
+        document.getElementById("projectMainTitle").textContent = displayTitle;
+      }
+      if (document.getElementById("metaClient")) document.getElementById("metaClient").textContent = data.client || "—";
+      if (document.getElementById("metaRole")) document.getElementById("metaRole").textContent = data.role || "—";
+      if (document.getElementById("metaTimeline")) document.getElementById("metaTimeline").textContent = data.timeline || "—";
+      if (document.getElementById("metaField")) document.getElementById("metaField").textContent = data.field || "—";
+      if (document.getElementById("projectCoverImage")) document.getElementById("projectCoverImage").src = data.coverImage || data.cardImage || "";
+
+      // Section 01: About
+      if (document.getElementById("aboutText")) document.getElementById("aboutText").textContent = data.summary || data.cardDescription || "";
+      const aboutImgEl = document.getElementById("aboutImage");
+      if (aboutImgEl) {
+        const aboutImgSrc = data.aboutImg || (data.gallery && data.gallery[0]) || data.coverImage;
+        aboutImgEl.src = aboutImgSrc;
+      }
+
+      // Section 02: Research
+      if (document.getElementById("researchLeadText")) document.getElementById("researchLeadText").textContent = data.researchLead || "";
+      if (document.getElementById("researchExtraText")) document.getElementById("researchExtraText").textContent = data.researchExtra || "";
       if (document.getElementById("researchImage")) document.getElementById("researchImage").src = data.researchImg || data.coverImage;
 
-      if (document.getElementById("problemLeadText")) document.getElementById("problemLeadText").textContent = data.problemLead;
-      if (document.getElementById("problemExtraText")) document.getElementById("problemExtraText").textContent = data.problemExtra || '';
+      // Section 03: Problem
+      if (document.getElementById("problemLeadText")) document.getElementById("problemLeadText").textContent = data.problemLead || "";
+      if (document.getElementById("problemExtraText")) document.getElementById("problemExtraText").textContent = data.problemExtra || "";
       if (document.getElementById("problemImage")) document.getElementById("problemImage").src = data.problemImg || data.coverImage;
 
-      if (document.getElementById("solutionLeadText")) document.getElementById("solutionLeadText").textContent = data.solutionLead;
-      if (document.getElementById("solutionExtraText")) document.getElementById("solutionExtraText").textContent = data.solutionExtra || '';
+      // Section 04: Solution
+      if (document.getElementById("solutionLeadText")) document.getElementById("solutionLeadText").textContent = data.solutionLead || "";
+      if (document.getElementById("solutionExtraText")) document.getElementById("solutionExtraText").textContent = data.solutionExtra || "";
+      if (document.getElementById("solutionImage")) document.getElementById("solutionImage").src = data.solutionImg || (data.gallery && data.gallery[1]) || data.coverImage;
 
-      const gallery = data.gallery || [];
-      if(document.getElementById("galleryImg1")) document.getElementById("galleryImg1").src = gallery[0] || data.coverImage;
-      if(document.getElementById("galleryImg2")) document.getElementById("galleryImg2").src = gallery[1] || data.coverImage;
-      if(document.getElementById("galleryImg3")) document.getElementById("galleryImg3").src = gallery[2] || data.coverImage;
+      // Section 05: Gallery (2 images per row)
+      const galleryContainer = document.getElementById("galleryGridContainer");
+      if (galleryContainer) {
+        galleryContainer.innerHTML = "";
+        const galleryImages = data.gallery && data.gallery.length > 0 ? data.gallery : [data.coverImage, data.researchImg, data.problemImg];
+        galleryImages.forEach((imgSrc, idx) => {
+          const card = document.createElement("div");
+          card.className = "case-gallery-card";
+          card.innerHTML = `<img src="${imgSrc}" alt="${displayTitle} - شاشة ${idx + 1}" class="case-clean-image" loading="lazy" />`;
+          galleryContainer.appendChild(card);
+        });
+      }
 
+      // Next Project Link
       const nextLink = document.getElementById("nextProjectLink");
       if (nextLink && data.nextId) {
         nextLink.href = "project-details.html?id=" + data.nextId;
