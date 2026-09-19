@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">تطبيق النيابة الإدارية — دراسة حالة | محمود عربي</title>
+  <meta name="description" content="دراسة حالة وتفاصيل تصميم تجربة وواجهة المستخدم لمشروع النيابة الإدارية بواسطة محمود عربي UX/UI Designer" />
+  
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/png" href="Logo.png" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="case-study-body">
+
+  <!-- Page Container -->
+  <div class="site-wrapper">
+
+    <!-- Minimal Header / Navigation Bar -->
+    <header class="site-header case-site-header">
+      <div class="header-container">
+        
+        <!-- Right side: Consultation CTA -->
+        <div class="header-right">
+          <button class="btn-consultation" id="openConsultationBtn" aria-label="طلب استشارة">
+            <span>اطلب استشارة</span>
+          </button>
+        </div>
+
+        <!-- Center: Logo -->
+        <div class="header-center">
+          <a href="index.html" class="logo-link" aria-label="الرئيسية">
+            <img src="Logo.png" alt="عربي" class="logo-img" />
+          </a>
+        </div>
+
+        <!-- Left side: Menu Icon -->
+        <div class="header-left">
+          <button class="menu-toggle-btn" id="openMenuBtn" aria-label="فتح القائمة الرئيسية">
+            <img src="Menu Icon.svg" alt="قائمة" class="menu-icon-img" />
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Main Editorial Case Study Container -->
+    <main class="case-study-container">
+
+      <!-- 1. Back Button on its own row -->
+      <div class="case-back-wrapper">
+        <a href="index.html" class="case-back-icon-btn" aria-label="العودة للصفحة الرئيسية" title="رجوع">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- 2. Category & Year Tag below it on its own line -->
+      <div class="case-tag-line">
+        <span id="projectCategoryBadge">تصميم واجهة وتجربة المستخدم</span>
+        <span class="tag-separator">•</span>
+        <span id="projectYearBadge">2026</span>
+      </div>
+
+      <!-- Project Hero Header -->
+      <section class="case-hero-intro">
+        
+        <div class="case-hero-split">
+          <!-- Main Column: Title + Summary -->
+          <div class="case-hero-main-col">
+            <!-- Big Display Title (Spanning 2 lines) -->
+            <h1 class="case-main-title" id="projectMainTitle">
+              تطبيق النيابة الإدارية — التحول الرقمي للخدمات القضائية
+            </h1>
+
+            <!-- Intro / Overview Paragraph -->
+            <p class="case-intro-paragraph" id="projectSummaryText">
+              منظومة رقمية متكاملة تهدف إلى رقمنة وتيسير إجراءات الشكاوى والخدمات القضائية للمواطنين والموظفين، مع التركيز على خلق تجربة استخدام واضحة، سريعة، وموثوقة تقلل من زمن إنجاز المعاملات بنسبة تتجاوز 40%.
+            </p>
+          </div>
+
+          <!-- Metadata Side Grid (2x2 on same level as title, without stroke) -->
+          <div class="case-meta-grid-2x2">
+            <div class="case-meta-cell">
+              <span class="meta-label">العميل</span>
+              <span class="meta-val" id="metaClient">النيابة الإدارية المصرية</span>
+            </div>
+            <div class="case-meta-cell">
+              <span class="meta-label">الدور والمسؤولية</span>
+              <span class="meta-val" id="metaRole">مصمم تجربة وواجهة المستخدم (Lead UX/UI)</span>
+            </div>
+            <div class="case-meta-cell">
+              <span class="meta-label">المدة الزمنية</span>
+              <span class="meta-val" id="metaTimeline">8 أسابيع</span>
+            </div>
+            <div class="case-meta-cell">
+              <span class="meta-label">المجال</span>
+              <span class="meta-val" id="metaField">القطاع الحكومي والخدمات القضائية</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full-Width Cover Image (No border/frame) -->
+        <div class="case-hero-image-wrap">
+          <img src="صور مشاريع/النيابة الادارية.png" alt="غلاف المشروع" class="case-clean-image" id="projectCoverImage" />
+        </div>
+
+      </section>
+
+      <!-- Section 01: 01. البحث والاستكشاف -->
+      <section class="case-text-section">
+        <h2 class="case-section-heading">01. البحث والاستكشاف</h2>
+        
+        <div class="case-section-content">
+          <p id="researchLeadText">
+            بدأنا المشروع بتحليل معمق لرحلة المواطن والموظف في تقديم ومتابعة الشكاوى القضائية، لفهم التحديات اليومية ونقاط الاحتكاك في الإجراءات التقليدية وصياغة مسار رقمي سلس ومباشر.
+          </p>
+          <p id="researchExtraText">
+            قمنا بإجراء 16 مقابلة ميدانية مع مراجعين من مختلف الفئات، إلى جانب تحليل بيانات الاستخدام للمنظومة القديمة، مما ساعدنا على تحديد العقبات الأساسية وبناء هيكل معلومات واضح يختصر الوقت والجهد على المواطن.
+          </p>
+        </div>
+
+        <!-- Section Image -->
+        <div class="case-section-image-wrap">
+          <img src="صور مشاريع/النيابة الادارية.png" alt="البحث والاستكشاف" class="case-clean-image" id="researchImage" />
+        </div>
+      </section>
+
+      <!-- Section 02: 02. المشكلة -->
+      <section class="case-text-section">
+        <h2 class="case-section-heading">02. المشكلة</h2>
+        
+        <div class="case-section-content">
+          <p id="problemLeadText">
+            كان التحدي الرئيسي يتمثل في تعقيد الإجراءات البيروقراطية وتشتت البيانات عبر مراحل متعددة، مما يتسبب في إرباك المستخدم وارتفاع معدلات التخلي عن إتمام الطلب في منتصف الطريق.
+          </p>
+          <p id="problemExtraText">
+            غياب مؤشر زمني واضح لحالة البلاغ وعدم وجود تنبيهات فورية كان يضطر المواطن إلى الاتصال المتكرر أو الحضور الشخصي لمقار النيابة، وهو ما خلق عبئاً تشغيلياً كبيراً على موظفي الاستقبال وأبطأ من سرعة معالجة القضايا.
+          </p>
+        </div>
+
+        <!-- Section Image -->
+        <div class="case-section-image-wrap">
+          <img src="صور مشاريع/نقابه المهندسين المصرية.png" alt="المشكلة والتحديات" class="case-clean-image" id="problemImage" />
+        </div>
+      </section>
+
+      <!-- Section 03: 03. الحل المقترح -->
+      <section class="case-text-section">
+        <h2 class="case-section-heading">03. الحل المقترح</h2>
+        
+        <div class="case-section-content">
+          <p id="solutionLeadText">
+            صممنا بنية تفاعلية حديثة ترتكز على تبسيط تدفق تقديم الشكاوى إلى 3 خطوات ذكية فقط مع التحقق الفوري من صحة المستندات قبل الإرسال.
+          </p>
+          <p id="solutionExtraText">
+            تم تزويد المنصة بلوحة تحكم فورية تتيح تتبع مسار المعاملة لحظة بلحظة مع إشعارات مباشرة عبر الهاتف، بالإضافة إلى بناء نظام تصميم (Design System) موحد يضمن تجربة سلسة ومتجاوبة عبر الهواتف الذكية وأجهزة الحاسوب.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section: معرض الشاشات (Full Screen Showcase) -->
+      <section class="case-screens-section">
+        <h2 class="case-section-heading">معرض الشاشات والتفاصيل البصرية</h2>
+        
+        <div class="case-screens-flow">
+          <div class="case-screen-item">
+            <img src="صور مشاريع/النيابة الادارية.png" alt="شاشات التطبيق" class="case-clean-image" id="galleryImg1" />
+          </div>
+          <div class="case-screen-item">
+            <img src="صور مشاريع/نقابه المهندسين المصرية.png" alt="لوحة التحكم والواجهات" class="case-clean-image" id="galleryImg2" />
+          </div>
+          <div class="case-screen-item">
+            <img src="صور مشاريع/Apply Seo.png" alt="الأنظمة التفاعلية" class="case-clean-image" id="galleryImg3" />
+          </div>
+        </div>
+      </section>
+
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Main Footer Grid -->
+        <div class="footer-main-grid">
+          <!-- Col 1: Brand & Bio -->
+          <div class="footer-brand-col">
+            <a href="index.html" class="footer-logo-link" aria-label="محمود عربي">
+              <img src="Logo.png" alt="عربي" class="footer-logo-img" />
+            </a>
+            <p class="footer-bio">
+              محمود عربي — مصمم تجربة وواجهة مستخدم (UX/UI Lead) بخبرة تمتد لأكثر من 8 سنوات في بناء الأنظمة الرقمية المتقنة، تطبيقات الهاتف، ومنصات SaaS الحكومية والخاصة.
+            </p>
+            <div class="footer-status-pill">
+              <span class="status-pulse-dot"></span>
+              <span>متاح للمشاريع الجديدة والاستشارات</span>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation -->
+          <div class="footer-col">
+            <h4 class="footer-heading">التنقل</h4>
+            <ul class="footer-nav-list">
+              <li><a href="index.html" class="footer-nav-link">الرئيسية</a></li>
+              <li><a href="projects.html" class="footer-nav-link">جميع المشاريع</a></li>
+              <li><a href="index.html#about" class="footer-nav-link">عن محمود</a></li>
+              <li><a href="index.html#services" class="footer-nav-link">الخدمات والتخصصات</a></li>
+              <li><a href="https://arabyux.tabbio.com/" target="_blank" rel="noopener noreferrer" class="footer-nav-link">السيرة الذاتية (CV)</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Selected Work -->
+          <div class="footer-col">
+            <h4 class="footer-heading">أبرز المشاريع</h4>
+            <ul class="footer-nav-list">
+              <li><a href="project-details.html?project=prosecution" class="footer-nav-link">تطبيق النيابة الإدارية</a></li>
+              <li><a href="project-details.html?project=engineers" class="footer-nav-link">نقابة المهندسين المصرية</a></li>
+              <li><a href="project-details.html?project=applyseo" class="footer-nav-link">منصة Apply SEO</a></li>
+              <li><a href="project-details.html?project=rawafed" class="footer-nav-link">منصة روافد التعليمية</a></li>
+              <li><a href="project-details.html?project=emdad" class="footer-nav-link">لوحة تحكم إمداد</a></li>
+              <li><a href="project-details.html?project=sanad" class="footer-nav-link">منظومة سند للمدفوعات</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Contact & Socials -->
+          <div class="footer-col">
+            <h4 class="footer-heading">تواصل معي</h4>
+            <ul class="footer-nav-list">
+              <li>
+                <a href="mailto:arabyux@gmail.com" class="footer-contact-link">
+                  <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>arabyux@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/201000000000" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                  <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                  <span>واتساب (WhatsApp)</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                  <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                  <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 8h6a3 3 0 0 1 3 3 3 3 0 0 1-3 3H3V8z"></path>
+                  <path d="M3 14h7a3 3 0 0 1 3 3 3 3 0 0 1-3 3H3V14z"></path>
+                  <path d="M15 13a4 4 0 1 0 7.8 1.5H15"></path>
+                  <line x1="16" y1="9" x2="21" y2="9"></line>
+                </svg>
+                <span>Behance</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path>
+                  <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path>
+                  <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path>
+                </svg>
+                <span>Dribbble</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Sub-Footer Bar -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">© 2026 جميع الحقوق محفوظة لـ <strong>محمود عربي</strong>.</p>
+        <p class="footer-note">صُمم وبُني بعناية فائقة وشغف بتصميم المنتجات الرقمية.</p>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+
+  <!-- Floating Quick Actions -->
+  <div class="floating-quick-actions">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201000000000" target="_blank" rel="noopener noreferrer" class="btn-floating-action btn-whatsapp" aria-label="تواصل عبر واتساب">
+      <img src="Whatsapp-02.svg" alt="WhatsApp" class="whatsapp-icon-img" />
+    </a>
+
+    <!-- Scroll to top button -->
+    <button class="btn-floating-action btn-scroll-top" id="scrollTopBtn" aria-label="العودة لأعلى الصفحة" title="العودة لأعلى الصفحة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Studio X-Style Fullscreen Navigation Menu Overlay -->
+  <div class="menu-overlay" id="menuDrawer" aria-hidden="true">
+    <div class="menu-fullscreen-content">
+      <!-- Top Bar: Logo & Close Button -->
+      <div class="menu-top-bar">
+        <a href="index.html" class="menu-logo-link" aria-label="محمود عربي">
+          <img src="Logo.png" alt="عربي" class="menu-logo-img" />
+        </a>
+        <button class="menu-close-btn" id="closeMenuBtn" aria-label="إغلاق القائمة">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Center: Main Navigation Links -->
+      <nav class="fullscreen-nav">
+        <ul class="fullscreen-nav-list">
+          <li class="fullscreen-nav-item">
+            <a href="index.html" class="fullscreen-nav-link" data-text="الرئيسية">
+              <span class="nav-num">01</span>
+              <span class="nav-label">الرئيسية</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="projects.html" class="fullscreen-nav-link" data-text="جميع المشاريع">
+              <span class="nav-num">02</span>
+              <span class="nav-label">جميع المشاريع</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="index.html#about" class="fullscreen-nav-link" data-text="عن محمود">
+              <span class="nav-num">03</span>
+              <span class="nav-label">عن محمود</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="index.html#services" class="fullscreen-nav-link" data-text="الخدمات">
+              <span class="nav-num">04</span>
+              <span class="nav-label">الخدمات</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="index.html#contact" class="fullscreen-nav-link" data-text="تواصل معي">
+              <span class="nav-num">05</span>
+              <span class="nav-label">تواصل معي</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Bottom Bar: Social & Info -->
+      <div class="menu-bottom-bar">
+        <div class="menu-social-links">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="menu-social-item">LinkedIn</a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="menu-social-item">Behance</a>
+          <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="menu-social-item">Dribbble</a>
+          <a href="https://wa.me/201000000000" target="_blank" rel="noopener noreferrer" class="menu-social-item">WhatsApp</a>
+        </div>
+        <p class="menu-copyright">© 2026 محمود عربي. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consultation Modal -->
+  <div class="modal-backdrop" id="consultationModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeConsultationBtn" aria-label="إغلاق النافذة">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-badge">لنبدأ رحلة تصميم استثنائية</div>
+        <h2 class="modal-title">اطلب استشارة مجانية</h2>
+        <p class="modal-subtitle">شاركني تفاصيل فكرتك أو مشروعك وسأتواصل معك خلال 24 ساعة لمناقشة خطة العمل.</p>
+      </div>
+
+      <form class="consultation-form" id="consultationForm">
+        <div class="form-group">
+          <label for="clientName">الاسم الكريم</label>
+          <input type="text" id="clientName" placeholder="مثال: أحمد محمد" required />
+        </div>
+
+        <div class="form-group">
+          <label for="clientContact">البريد الإلكتروني أو الواتساب</label>
+          <input type="text" id="clientContact" placeholder="name@example.com أو +966..." required />
+        </div>
+
+        <div class="form-group">
+          <label for="projectType">نوع المشروع</label>
+          <select id="projectType">
+            <option value="uiux">تصميم تجربة وواجهة مستخدم كاملة (UI/UX Design)</option>
+            <option value="mobile">تطبيق هاتف ذكي (Mobile App)</option>
+            <option value="web">موقع ويب / منصة SaaS (Web App / Platform)</option>
+            <option value="redesign">إعادة تصميم وتطوير منتج حالي (Product Redesign)</option>
+            <option value="system">نظام تصميم متكامل (Design System)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="projectDetails">نبذة عن المشروع أو الهدف</label>
+          <textarea id="projectDetails" rows="3" placeholder="اشرح باختصار فكرة المشروع والتحديات التي ترغب في حلها..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>إرسال الطلب</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Main JS Script & Dynamic Project Data Loader -->
+  <script src="script.js"></script>
+  <script>
+    async function loadProjectDetails() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get("id") || urlParams.get("project") || "prosecution";
+      
+      let projectsList = [];
+      try {
+        const response = await fetch('projects.json');
+        if (response.ok) {
+          const jsonData = await response.json();
+          projectsList = jsonData.projects || [];
+        }
+      } catch (err) {
+        console.warn('Could not fetch projects.json directly:', err);
+      }
+
+      let data = projectsList.find(p => p.id === projectId);
+      if (!data && projectsList.length > 0) {
+        data = projectsList[0];
+      }
+
+      if (!data) return;
+
+      document.title = data.title || (data.mainTitle + " — دراسة حالة | محمود عربي");
+      if (document.getElementById("projectMainTitle")) document.getElementById("projectMainTitle").textContent = data.mainTitle;
+      if (document.getElementById("projectCategoryBadge")) document.getElementById("projectCategoryBadge").textContent = data.category;
+      if (document.getElementById("projectYearBadge")) document.getElementById("projectYearBadge").textContent = data.year;
+      if (document.getElementById("projectSummaryText")) document.getElementById("projectSummaryText").textContent = data.summary;
+      if (document.getElementById("metaClient")) document.getElementById("metaClient").textContent = data.client;
+      if (document.getElementById("metaRole")) document.getElementById("metaRole").textContent = data.role;
+      if (document.getElementById("metaTimeline")) document.getElementById("metaTimeline").textContent = data.timeline;
+      if (document.getElementById("metaField")) document.getElementById("metaField").textContent = data.field;
+      if (document.getElementById("projectCoverImage")) document.getElementById("projectCoverImage").src = data.coverImage || data.cardImage;
+      
+      if (document.getElementById("researchLeadText")) document.getElementById("researchLeadText").textContent = data.researchLead;
+      if (document.getElementById("researchExtraText")) document.getElementById("researchExtraText").textContent = data.researchExtra || '';
+      if (document.getElementById("researchImage")) document.getElementById("researchImage").src = data.researchImg || data.coverImage;
+
+      if (document.getElementById("problemLeadText")) document.getElementById("problemLeadText").textContent = data.problemLead;
+      if (document.getElementById("problemExtraText")) document.getElementById("problemExtraText").textContent = data.problemExtra || '';
+      if (document.getElementById("problemImage")) document.getElementById("problemImage").src = data.problemImg || data.coverImage;
+
+      if (document.getElementById("solutionLeadText")) document.getElementById("solutionLeadText").textContent = data.solutionLead;
+      if (document.getElementById("solutionExtraText")) document.getElementById("solutionExtraText").textContent = data.solutionExtra || '';
+
+      const gallery = data.gallery || [];
+      if(document.getElementById("galleryImg1")) document.getElementById("galleryImg1").src = gallery[0] || data.coverImage;
+      if(document.getElementById("galleryImg2")) document.getElementById("galleryImg2").src = gallery[1] || data.coverImage;
+      if(document.getElementById("galleryImg3")) document.getElementById("galleryImg3").src = gallery[2] || data.coverImage;
+
+      const nextLink = document.getElementById("nextProjectLink");
+      if (nextLink && data.nextId) {
+        nextLink.href = "project-details.html?id=" + data.nextId;
+        if (document.getElementById("nextProjectTitle")) {
+          document.getElementById("nextProjectTitle").textContent = data.nextTitle || "المشروع التالي";
+        }
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadProjectDetails);
+  </script>
+</body>
+</html>

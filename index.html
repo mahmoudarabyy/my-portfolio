@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>محمود عربي | UX/UI Designer</title>
+  <meta name="description" content="محمود عربي - مصمم UX/UI بخبرة أكثر من 4 سنوات، أساعد في تحويل الأفكار إلى مواقع وتطبيقات ومنتجات رقمية واضحة، سهلة الاستخدام، ومصممة بعناية." />
+  
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/png" href="Logo.png" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient Lighting Effects -->
+  <div class="ambient-glow purple-glow"></div>
+  <div class="ambient-glow top-glow"></div>
+
+  <!-- Background Decorative Grid Lines -->
+  <div class="grid-overlay" aria-hidden="true">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+  </div>
+
+  <!-- Page Container -->
+  <div class="site-wrapper">
+
+    <!-- Header / Navigation Bar -->
+    <header class="site-header">
+      <div class="header-container">
+        
+        <!-- Right side: CTA Button -->
+        <div class="header-right">
+          <button class="btn-consultation" id="openConsultationBtn" aria-label="طلب استشارة">
+            <span>اطلب استشارة</span>
+          </button>
+        </div>
+
+        <!-- Center: Logo -->
+        <div class="header-center">
+          <a href="#" class="logo-link" aria-label="الرئيسية">
+            <img src="Logo.png" alt="عربي" class="logo-img" />
+          </a>
+        </div>
+
+        <!-- Left side: Menu Icon -->
+        <div class="header-left">
+          <button class="menu-toggle-btn" id="openMenuBtn" aria-label="فتح القائمة الرئيسية">
+            <img src="Menu Icon.svg" alt="قائمة" class="menu-icon-img" />
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="hero-section">
+      <div class="hero-container">
+        
+        <!-- Large Display Headline -->
+        <h1 class="hero-title">
+          <span class="purple-highlight">أصمّم</span> تجارب رقمية تجمع
+          <br class="title-break" />
+          بين البساطة، الوظيفة، <span class="green-highlight">والتأثير.</span>
+        </h1>
+
+        <!-- Subtitle Description -->
+        <p class="hero-description">
+          مصمم UX/UI بخبرة أكثر من 4 سنوات، أساعد في تحويل الأفكار إلى مواقع وتطبيقات ومنتجات رقمية واضحة، سهلة الاستخدام، ومصممة بعناية.
+        </p>
+
+        <!-- Hero CTA: View Projects Button -->
+        <div class="hero-cta-wrapper">
+          <a href="projects.html" class="btn-hero-projects">
+            <span>عرض المشاريع</span>
+            <svg class="hero-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Mouse Scroll Indicator -->
+      <div class="scroll-indicator-container">
+        <a href="#projects" class="scroll-indicator" aria-label="التمرير للأسفل">
+          <div class="mouse-wrapper">
+            <svg class="mouse-icon" width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="22" height="30" rx="11" stroke="#D6D6D6" stroke-width="1.8"/>
+              <circle class="mouse-wheel-dot" cx="12" cy="9" r="3.5" fill="#D6D6D6"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Programs / Projects Section in its own dedicated container with #000000 background -->
+  <section class="programs-section" id="projects">
+      <div class="programs-container-border">
+        
+        <!-- Section Header -->
+        <div class="programs-header">
+          <h2 class="programs-title">مشاريع كبرى</h2>
+          <p class="programs-subtitle">مجموعة متنوعة من المشاريع المتخصصة التي تلبي اهتمامات مختلفة وتقدم تجربة رقمية هادفة ومميزة</p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="programs-grid">
+          
+          <!-- Card 1 (Right in RTL): Administrative Prosecution App (Mobile - Tall w440) -->
+          <a href="project-details.html?id=prosecution" class="program-card card-tall">
+            <div class="program-preview-wrapper">
+              <img src="صور مشاريع/النيابة الادارية.png" alt="ابلكيشن النيابة الادارية" class="project-card-image" />
+            </div>
+
+            <!-- Card Info Footer -->
+            <div class="program-info">
+              <div class="program-title-row">
+                <h3 class="program-title">ابلكيشن النيابة الادارية</h3>
+                <img src="بادج السنه.png" alt="2026" class="program-badge-img" />
+              </div>
+              <p class="program-description">
+                منظومة رقمية متكاملة لرقمنة وتيسير إجراءات الشكاوى والخدمات القضائية للمواطنين والموظفين، مع تقليل زمن المعاملات بنسبة تتجاوز 40%.
+              </p>
+            </div>
+          </a>
+
+          <!-- Card 2 (Middle): Egyptian Engineers Syndicate (Desktop - Wide w556) -->
+          <a href="project-details.html?id=engineers" class="program-card card-wide">
+            <div class="program-preview-wrapper">
+              <img src="صور مشاريع/نقابه المهندسين المصرية.png" alt="الموقع الرسمي لنقابة المهندسين المصرية" class="project-card-image" />
+            </div>
+
+            <!-- Card Info Footer -->
+            <div class="program-info">
+              <div class="program-title-row">
+                <h3 class="program-title">الموقع الرسمي لنقابة المهندسين المصرية</h3>
+                <img src="بادج السنه.png" alt="2026" class="program-badge-img" />
+              </div>
+              <p class="program-description">
+                إعادة تصميم وبناء البوابة الرقمية الرسمية لنقابة المهندسين لتوفير خدمات الاشتراكات والرعاية الصحية والمعاملات لأكثر من 800,000 عضو.
+              </p>
+            </div>
+          </a>
+
+          <!-- Card 3 (Left in RTL): MAAS Website (Desktop - Wide w556) -->
+          <a href="project-details.html?id=maas" class="program-card card-wide">
+            <div class="program-preview-wrapper">
+              <img src="mass/Cover.png" alt="تصميم موقع MAAS" class="project-card-image" />
+            </div>
+
+            <!-- Card Info Footer -->
+            <div class="program-info">
+              <div class="program-title-row">
+                <h3 class="program-title">تصميم موقع MAAS</h3>
+                <img src="بادج السنه.png" alt="2026" class="program-badge-img" />
+              </div>
+              <p class="program-description">
+                تصميم متجر ومنصة تجارة إلكترونية متكاملة للعلامة التجارية MAAS، بتجربة تسوق عصرية تركز على انسيابية التصفح والتحويل وسهولة سلة الشراء.
+              </p>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- View All Button -->
+        <div class="programs-footer">
+          <a href="projects.html" class="btn-view-all" id="viewAllProjectsBtn">
+            <span>عرض الكل</span>
+            <span class="arrow-symbol">←</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  <!-- About Me ("من أنا") Section matching exact design mockup from تصميم القسم.png -->
+  <section class="about-section" id="about">
+    <div class="about-container-border">
+      
+      <!-- Right Content Column (Logo, Bio, 3 Stats) -->
+      <div class="about-content-column">
+        
+        <!-- Top: Logo Mark (عربي) -->
+        <div class="about-logo-wrapper">
+          <img src="Logo.png" alt="عربي" class="about-brand-logo" />
+        </div>
+
+        <!-- Middle: Large Statement Text -->
+        <div class="about-statement-wrapper">
+          <div class="about-statement-text">
+            <p class="about-statement-lead">
+              أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب الرقمية، من المواقع الإلكترونية وتطبيقات الموبايل إلى لوحات التحكم والأنظمة الرقمية.
+            </p>
+            <p class="about-statement-desc">
+              أحب تحويل الأفكار والمشكلات المعقدة إلى تجارب بسيطة، واضحة وسهلة الاستخدام، مع الاهتمام بالتفاصيل البصرية وجودة تجربة المستخدم.
+            </p>
+            <p class="about-statement-desc">
+              بالنسبة لي، التصميم ليس مجرد شكل، لكنه طريقة لخلق منتج يخدم المستخدم ويحقق أهدافه بشكل فعّال.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom: 3 Key Metrics / Stats Row & CV Action Button -->
+        <div class="about-bottom-actions-wrap">
+          <div class="about-stats-row">
+            
+            <!-- Stat 1: 20 عميل سعيد -->
+            <div class="about-stat-item">
+              <span class="stat-number">20</span>
+              <span class="stat-label">عميل سعيد</span>
+            </div>
+
+            <!-- Stat 2: 25 مشروع مكتمل -->
+            <div class="about-stat-item">
+              <span class="stat-number">25</span>
+              <span class="stat-label">مشروع مكتمل</span>
+            </div>
+
+            <!-- Stat 3: +4 سنوات خبرة -->
+            <div class="about-stat-item">
+              <span class="stat-number">+4</span>
+              <span class="stat-label">سنوات خبرة</span>
+            </div>
+
+          </div>
+
+          <!-- CV Action Button (زر السيرة الذاتية) -->
+          <div class="about-cv-btn-wrapper">
+            <a href="https://arabyux.tabbio.com/" target="_blank" rel="noopener noreferrer" class="btn-about-cv" aria-label="عرض السيرة الذاتية - محمود عربي">
+              <span>السيرة الذاتية</span>
+              <svg class="cv-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Left Visual Column (Portrait Photo sticking to Left Border) -->
+      <div class="about-visual-column">
+        <div class="about-portrait-wrapper">
+          <img src="Container.png" alt="محمود عربي - UX/UI Designer" class="about-portrait-img" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services ("خدماتي") Section matching Figma design -->
+  <section class="services-section" id="services">
+    <div class="services-container">
+      
+      <!-- Section Header -->
+      <div class="services-header">
+        <h2 class="services-title">خدماتي</h2>
+        <p class="services-subtitle">مجموعة متنوعة من البرامج المتخصصة التي تلبي اهتمامات مختلفة وتقدم محتوى هادف ومميز</p>
+      </div>
+
+      <!-- Services Stacked Cards List -->
+      <div class="services-list">
+        
+        <!-- Service 1: تصميم تجربة المستخدم (01) -->
+        <article class="service-card" data-service="1">
+          <div class="service-badge">01</div>
+          <div class="service-content">
+            <h3 class="service-title">تصميم تجربة المستخدم</h3>
+            <p class="service-description">
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+            </p>
+          </div>
+          <div class="service-mockup-wrap">
+            <img src="خدماتي/Pro Display XDR6547567.png" alt="تصميم تجربة المستخدم" class="service-mockup-img" loading="lazy" />
+          </div>
+        </article>
+
+        <!-- Service 2: تصميم واجهة المستخدم (02) -->
+        <article class="service-card" data-service="2">
+          <div class="service-badge">02</div>
+          <div class="service-content">
+            <h3 class="service-title">تصميم واجهة المستخدم</h3>
+            <p class="service-description">
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+            </p>
+          </div>
+          <div class="service-mockup-wrap">
+            <img src="خدماتي/Pro Display XDR.png" alt="تصميم واجهة المستخدم" class="service-mockup-img" loading="lazy" />
+          </div>
+        </article>
+
+        <!-- Service 3: تصميم الهوية البصرية (03) -->
+        <article class="service-card" data-service="3">
+          <div class="service-badge">03</div>
+          <div class="service-content">
+            <h3 class="service-title">تصميم الهوية البصرية</h3>
+            <p class="service-description">
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+            </p>
+          </div>
+          <div class="service-mockup-wrap">
+            <img src="خدماتي/Pro Display XDR7568.png" alt="تصميم الهوية البصرية" class="service-mockup-img" loading="lazy" />
+          </div>
+        </article>
+
+        <!-- Service 4: التطوير (04) -->
+        <article class="service-card" data-service="4">
+          <div class="service-badge">04</div>
+          <div class="service-content">
+            <h3 class="service-title">التطوير</h3>
+            <p class="service-description">
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+            </p>
+          </div>
+          <div class="service-mockup-wrap">
+            <img src="خدماتي/90890-ب.png" alt="التطوير البرمجي" class="service-mockup-img" loading="lazy" />
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Main Footer Grid -->
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo-link" aria-label="محمود عربي">
+            <img src="Logo.png" alt="عربي" class="footer-logo-img" />
+          </a>
+          <p class="footer-bio">
+            محمود عربي — مصمم تجربة وواجهة مستخدم (UX/UI Lead) بخبرة تمتد لأكثر من 8 سنوات في بناء الأنظمة الرقمية المتقنة، تطبيقات الهاتف، ومنصات SaaS الحكومية والخاصة.
+          </p>
+          <div class="footer-status-pill">
+            <span class="status-pulse-dot"></span>
+            <span>متاح للمشاريع الجديدة والاستشارات</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-heading">التنقل</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" class="footer-nav-link">الرئيسية</a></li>
+            <li><a href="projects.html" class="footer-nav-link">جميع المشاريع</a></li>
+            <li><a href="#about" class="footer-nav-link">عن محمود</a></li>
+            <li><a href="#services" class="footer-nav-link">الخدمات والتخصصات</a></li>
+            <li><a href="https://arabyux.tabbio.com/" target="_blank" rel="noopener noreferrer" class="footer-nav-link">السيرة الذاتية (CV)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Selected Work -->
+        <div class="footer-col">
+          <h4 class="footer-heading">أبرز المشاريع</h4>
+          <ul class="footer-nav-list">
+            <li><a href="project-details.html?project=prosecution" class="footer-nav-link">تطبيق النيابة الإدارية</a></li>
+            <li><a href="project-details.html?project=engineers" class="footer-nav-link">نقابة المهندسين المصرية</a></li>
+            <li><a href="project-details.html?project=applyseo" class="footer-nav-link">منصة Apply SEO</a></li>
+            <li><a href="project-details.html?project=rawafed" class="footer-nav-link">منصة روافد التعليمية</a></li>
+            <li><a href="project-details.html?project=emdad" class="footer-nav-link">لوحة تحكم إمداد</a></li>
+            <li><a href="project-details.html?project=sanad" class="footer-nav-link">منظومة سند للمدفوعات</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Socials -->
+        <div class="footer-col">
+          <h4 class="footer-heading">تواصل معي</h4>
+          <ul class="footer-nav-list">
+            <li>
+              <a href="mailto:arabyux@gmail.com" class="footer-contact-link">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>arabyux@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/201000000000" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                <span>واتساب (WhatsApp)</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 8h6a3 3 0 0 1 3 3 3 3 0 0 1-3 3H3V8z"></path>
+                  <path d="M3 14h7a3 3 0 0 1 3 3 3 3 0 0 1-3 3H3V14z"></path>
+                  <path d="M15 13a4 4 0 1 0 7.8 1.5H15"></path>
+                  <line x1="16" y1="9" x2="21" y2="9"></line>
+                </svg>
+                <span>Behance</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path>
+                  <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path>
+                  <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path>
+                </svg>
+                <span>Dribbble</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Sub-Footer Bar -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">© 2026 جميع الحقوق محفوظة لـ <strong>محمود عربي</strong>.</p>
+        <p class="footer-note">صُمم وبُني بعناية فائقة وشغف بتصميم المنتجات الرقمية.</p>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+
+  <!-- Specializations Popup Modal (مجالات التخصص) -->
+  <div class="modal-backdrop" id="specializationsModal" aria-hidden="true">
+    <div class="modal-card specializations-modal-card">
+      <button class="modal-close-btn" id="closeSpecializationsBtn" aria-label="إغلاق النافذة">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-badge">الخبرات والمهارات</div>
+        <h2 class="modal-title">مجالات التخصص</h2>
+        <p class="modal-subtitle">نظرة شاملة على مجالات التخصص والخبرات العملية في بناء وتطوير المنتجات الرقمية.</p>
+      </div>
+
+      <!-- 8 Specializations Grid -->
+      <div class="specializations-grid">
+        
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8664F7" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">UI/UX Design</h3>
+            <p class="spec-description">تصميم واجهات وتجارب مستخدم احترافية تركز على سهولة الاستخدام والجاذبية البصرية.</p>
+          </div>
+        </div>
+
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#66E299" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">UX Strategy</h3>
+            <p class="spec-description">بناء وتوجيه استراتيجيات تجربة المستخدم المتوافقة مع أهداف الأعمال ونمو المنتجات.</p>
+          </div>
+        </div>
+
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8664F7" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">Design Systems</h3>
+            <p class="spec-description">تأسيس مكتبات وأنظمة تصميم متكاملة ومعيارية لتوحيد الهوية وتسريع الإنتاج.</p>
+          </div>
+        </div>
+
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#66E299" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">User Research</h3>
+            <p class="spec-description">إجراء المقابلات واختبارات الاستخدام وتحليل رحلات المستخدمين لاكتشاف أدق الاحتياجات.</p>
+          </div>
+        </div>
+
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8664F7" stroke-width="2">
+              <path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">Design Thinking</h3>
+            <p class="spec-description">تطبيق التفكير التصميمي لحل التحديات المعقدة والابتكار المستمر في تجربة المنتج.</p>
+          </div>
+        </div>
+
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#66E299" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">تصميم المنتجات الرقمية</h3>
+            <p class="spec-description">إدارة وتصميم دورة حياة المنتج الرقمي من الفكرة المبدئية وصولاً إلى الإطلاق والنمو.</p>
+          </div>
+        </div>
+
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8664F7" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">قيادة الفرق</h3>
+            <p class="spec-description">إدارة وتوجيه فرق التصميم والتعاون الوثيق مع المطورين لضمان أعلى معايير الجودة.</p>
+          </div>
+        </div>
+
+        <div class="specialization-card">
+          <div class="spec-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#66E299" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="spec-details">
+            <h3 class="spec-title">التدريب والتطوير</h3>
+            <p class="spec-description">تقديم ورش العمل ونقل المعرفة والخبرات لتطوير مهارات المصممين والكوادر الإبداعية.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Consultation Modal -->
+  <div class="modal-backdrop" id="consultationModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeConsultationBtn" aria-label="إغلاق النافذة">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-badge">لنبدأ رحلة تصميم استثنائية</div>
+        <h2 class="modal-title">اطلب استشارة مجانية</h2>
+        <p class="modal-subtitle">شاركني تفاصيل فكرتك أو مشروعك وسأتواصل معك خلال 24 ساعة لمناقشة خطة العمل.</p>
+      </div>
+
+      <form class="consultation-form" id="consultationForm">
+        <div class="form-group">
+          <label for="clientName">الاسم الكريم</label>
+          <input type="text" id="clientName" placeholder="مثال: أحمد محمد" required />
+        </div>
+
+        <div class="form-group">
+          <label for="clientContact">البريد الإلكتروني أو الواتساب</label>
+          <input type="text" id="clientContact" placeholder="name@example.com أو +966..." required />
+        </div>
+
+        <div class="form-group">
+          <label for="projectType">نوع المشروع</label>
+          <select id="projectType">
+            <option value="uiux">تصميم تجربة وواجهة مستخدم كاملة (UI/UX Design)</option>
+            <option value="mobile">تطبيق هاتف ذكي (Mobile App)</option>
+            <option value="web">موقع ويب / منصة SaaS (Web App / Platform)</option>
+            <option value="redesign">إعادة تصميم وتطوير منتج حالي (Product Redesign)</option>
+            <option value="system">نظام تصميم متكامل (Design System)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="projectDetails">نبذة عن المشروع أو الهدف</label>
+          <textarea id="projectDetails" rows="3" placeholder="اشرح باختصار فكرة المشروع والتحديات التي ترغب في حلها..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>إرسال الطلب</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Studio X-Style Fullscreen Navigation Menu Overlay -->
+  <div class="menu-overlay" id="menuDrawer" aria-hidden="true">
+    <div class="menu-fullscreen-content">
+      <!-- Top Bar: Logo & Close Button -->
+      <div class="menu-top-bar">
+        <a href="index.html" class="menu-logo-link" aria-label="محمود عربي">
+          <img src="Logo.png" alt="عربي" class="menu-logo-img" />
+        </a>
+        <button class="menu-close-btn" id="closeMenuBtn" aria-label="إغلاق القائمة">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Center: Main Navigation Links -->
+      <nav class="fullscreen-nav">
+        <ul class="fullscreen-nav-list">
+          <li class="fullscreen-nav-item">
+            <a href="index.html" class="fullscreen-nav-link active" data-text="الرئيسية">
+              <span class="nav-num">01</span>
+              <span class="nav-label">الرئيسية</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="projects.html" class="fullscreen-nav-link" data-text="جميع المشاريع">
+              <span class="nav-num">02</span>
+              <span class="nav-label">جميع المشاريع</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="index.html#about" class="fullscreen-nav-link" data-text="عن محمود">
+              <span class="nav-num">03</span>
+              <span class="nav-label">عن محمود</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="index.html#services" class="fullscreen-nav-link" data-text="الخدمات">
+              <span class="nav-num">04</span>
+              <span class="nav-label">الخدمات</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="index.html#contact" class="fullscreen-nav-link" data-text="تواصل معي">
+              <span class="nav-num">05</span>
+              <span class="nav-label">تواصل معي</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Bottom Bar: Social & Info -->
+      <div class="menu-bottom-bar">
+        <div class="menu-social-links">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="menu-social-item">LinkedIn</a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="menu-social-item">Behance</a>
+          <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="menu-social-item">Dribbble</a>
+          <a href="https://wa.me/201000000000" target="_blank" rel="noopener noreferrer" class="menu-social-item">WhatsApp</a>
+        </div>
+        <p class="menu-copyright">© 2026 محمود عربي. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Floating Quick Actions (WhatsApp on Top & Scroll to Top Below) -->
+  <aside class="floating-quick-actions" aria-label="أدوات سريعة">
+    <!-- WhatsApp Floating Button (Above Scroll-to-Top) -->
+    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-floating-action btn-whatsapp" id="whatsappBtn" aria-label="تواصل عبر واتساب" title="تواصل عبر واتساب">
+      <img src="Whatsapp-02.svg" alt="WhatsApp" class="whatsapp-icon-img" />
+    </a>
+
+    <!-- Scroll to Top Button (Below WhatsApp) -->
+    <button class="btn-floating-action btn-scroll-top" id="scrollTopBtn" aria-label="العودة لأعلى الصفحة" title="العودة لأعلى الصفحة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
