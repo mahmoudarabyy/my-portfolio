@@ -776,58 +776,97 @@ body {
 
 /* Responsive Adjustments for Mobile / Tablet */
 @media (max-width: 900px) {
+  .site-wrapper {
+    padding-top: 85px;
+  }
+
+  .hero-section {
+    padding: 2.2rem 1.5rem 6.5rem 1.5rem;
+    min-height: auto;
+  }
+
   .hero-sticker-photo,
   .hero-sticker-vibe {
-    bottom: 25px;
+    bottom: 22px;
     left: 20px;
-    width: clamp(125px, 20vw, 175px);
+    width: clamp(140px, 24vw, 190px);
   }
 
   .hero-sticker-component {
-    bottom: 30px;
-    right: 25px;
-    width: clamp(105px, 19vw, 150px);
+    bottom: 25px;
+    right: 20px;
+    width: clamp(125px, 21vw, 170px);
   }
 
   .hero-sticker-me {
-    right: clamp(30px, 5vw, 65px);
-    width: clamp(65px, 10vw, 85px);
+    right: clamp(25px, 4vw, 55px);
+    width: clamp(68px, 11vw, 90px);
+    display: block;
   }
 }
 
 @media (max-width: 640px) {
+  .site-wrapper {
+    padding-top: 60px;
+  }
+
   .hero-section {
-    padding-top: 2rem;
-    padding-bottom: 5rem;
+    padding: 0.2rem 1rem 8.5rem 1rem;
+    min-height: 560px;
+    height: auto;
+  }
+
+  .hero-container {
+    margin-top: -55px;
+    padding-bottom: 0;
+  }
+
+  .hero-title-wrapper {
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 7.5vw, 2.5rem);
+    line-height: 1.42;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: 92%;
+    margin-bottom: 0;
   }
 
   .hero-sticker-fire {
-    top: -38px;
-    width: 68px;
+    top: -42px;
+    width: 78px;
   }
 
   .hero-sticker-me {
-    display: none; /* Hide on small mobile to keep text legible */
+    display: block;
+    top: 30%;
+    right: clamp(6px, 2vw, 18px);
+    width: clamp(52px, 13vw, 65px);
   }
 
   .hero-sticker-photo,
   .hero-sticker-vibe {
-    bottom: 12px;
-    left: 10px;
-    width: 110px;
-    opacity: 0.9;
+    bottom: 20px;
+    left: 8px;
+    width: clamp(130px, 38vw, 160px);
+    opacity: 1;
   }
 
   .hero-sticker-component {
-    bottom: 12px;
-    right: 15px;
-    width: 100px;
-    opacity: 0.85;
+    bottom: 22px;
+    right: 8px;
+    width: clamp(120px, 35vw, 150px);
+    opacity: 1;
   }
 
   .hero-sticker-duck {
-    bottom: 10px;
-    width: 44px;
+    bottom: 14px;
+    width: 50px;
   }
 }
 
