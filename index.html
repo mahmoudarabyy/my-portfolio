@@ -35,8 +35,8 @@
         
         <!-- Right side: CTA Button -->
         <div class="header-right">
-          <button class="btn-consultation" id="openConsultationBtn" aria-label="تواصل معي">
-            <span>تواصل معي</span>
+          <button class="btn-consultation" id="openConsultationBtn" aria-label="اطلب استشارة">
+            <span>اطلب استشارة</span>
           </button>
         </div>
 
@@ -59,39 +59,51 @@
 
     <!-- Main Hero Section -->
     <main class="hero-section">
+      
+      <!-- Floating Sticker: Photo Polaroid + Vibe Check (Bottom Left) -->
+      <div class="hero-sticker hero-sticker-photo" aria-hidden="true">
+        <img src="Hero/صورتي.png" alt="محمود عربي" class="sticker-img" />
+      </div>
+
+      <!-- Floating Sticker: Component (Bottom Right) -->
+      <div class="hero-sticker hero-sticker-component" aria-hidden="true">
+        <img src="Hero/Component.png" alt="Component You & Me" class="sticker-img" />
+      </div>
+
       <div class="hero-container">
         
-        <!-- Large Display Headline -->
-        <h1 class="hero-title">
-          <span class="purple-highlight">أصمّم</span> تجارب رقمية تجمع
-          <br class="title-break" />
-          بين البساطة، الوظيفة، <span class="green-highlight">والتأثير.</span>
-        </h1>
+        <!-- Hero Title Block with Fire and Me Stickers -->
+        <div class="hero-title-wrapper">
+          
+          <!-- Floating Sticker: Fire (Top Center) -->
+          <div class="hero-sticker hero-sticker-fire" aria-hidden="true">
+            <img src="Hero/Fire.png" alt="Fire" class="sticker-img" />
+          </div>
+
+          <!-- Floating Sticker: Me 3-Cards (Adjacent to title) -->
+          <div class="hero-sticker hero-sticker-me" aria-hidden="true">
+            <img src="Hero/Me.png" alt="Me" class="sticker-img" />
+          </div>
+
+          <!-- Large Display Headline -->
+          <h1 class="hero-title">
+            <span class="purple-highlight">أصمّم</span> تجارب رقمية تجمع
+            <br class="title-break" />
+            بين البساطة، الوظيفة، <span class="green-highlight">والتأثير.</span>
+          </h1>
+
+        </div>
 
         <!-- Subtitle Description -->
         <p class="hero-description">
           مصمم UX/UI بخبرة أكثر من 4 سنوات، أساعد في تحويل الأفكار إلى مواقع وتطبيقات ومنتجات رقمية واضحة، سهلة الاستخدام، ومصممة بعناية.
         </p>
 
-        <!-- Hero Services (Pure text centered side by side) -->
-        <div class="hero-services-center">
-          <a href="#services" class="hero-service-link">تصميم تجربة المستخدم</a>
-          <span class="hero-service-sep">•</span>
-          <a href="#services" class="hero-service-link">تصميم واجهة المستخدم</a>
-        </div>
-
       </div>
 
-      <!-- Bottom Mouse Scroll Indicator -->
-      <div class="scroll-indicator-container">
-        <a href="#projects" class="scroll-indicator" aria-label="التمرير للأسفل">
-          <div class="mouse-wrapper">
-            <svg class="mouse-icon" width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="22" height="30" rx="11" stroke="#D6D6D6" stroke-width="1.8"/>
-              <circle class="mouse-wheel-dot" cx="12" cy="9" r="3.5" fill="#D6D6D6"/>
-            </svg>
-          </div>
-        </a>
+      <!-- Floating Sticker: Duck (Bottom Center) -->
+      <div class="hero-sticker hero-sticker-duck" aria-hidden="true">
+        <img src="Hero/duck.png" alt="Duck" class="sticker-img" />
       </div>
 
     </main>
@@ -657,6 +669,14 @@
         </ul>
       </nav>
 
+      <!-- Menu Action CTA Button -->
+      <div class="menu-cta-section">
+        <button class="btn-menu-consultation" id="menuConsultationBtn" aria-label="اطلب استشارة مجانية">
+          <span>اطلب استشارة مجانية</span>
+          <img src="arrow big.svg" alt="سهم" class="btn-arrow-img" />
+        </button>
+      </div>
+
       <!-- Bottom Bar: Social & Info -->
       <div class="menu-bottom-bar">
         <div class="menu-social-links">
@@ -673,14 +693,9 @@
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <!-- Floating Quick Actions (WhatsApp on Top & Scroll to Top Below) -->
+  <!-- Floating Quick Actions (Scroll to Top) -->
   <aside class="floating-quick-actions" aria-label="أدوات سريعة">
-    <!-- WhatsApp Floating Button (Above Scroll-to-Top) -->
-    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-floating-action btn-whatsapp" id="whatsappBtn" aria-label="تواصل عبر واتساب" title="تواصل عبر واتساب">
-      <img src="Whatsapp-02.svg" alt="WhatsApp" class="whatsapp-icon-img" />
-    </a>
-
-    <!-- Scroll to Top Button (Below WhatsApp) -->
+    <!-- Scroll to Top Button -->
     <button class="btn-floating-action btn-scroll-top" id="scrollTopBtn" aria-label="العودة لأعلى الصفحة" title="العودة لأعلى الصفحة">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
         <path d="m18 15-6-6-6 6"/>

@@ -35,9 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  if (openConsultationBtn) {
-    openConsultationBtn.addEventListener('click', openModal);
-  }
+  const allConsultationTriggers = document.querySelectorAll('#openConsultationBtn, #menuConsultationBtn, .btn-consultation, .btn-menu-consultation, [data-open-consultation]');
+  allConsultationTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (menuDrawer && menuDrawer.classList.contains('active')) {
+        closeMenu();
+        setTimeout(openModal, 250);
+      } else {
+        openModal();
+      }
+    });
+  });
 
   if (closeConsultationBtn) {
     closeConsultationBtn.addEventListener('click', closeModal);
