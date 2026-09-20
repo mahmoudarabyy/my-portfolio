@@ -771,18 +771,26 @@ body {
   min-width: 0;
 }
 
-/* Wide Cards: Proportional 556px */
+/* Wide Cards: Proportional 556px (Matches Engineers Syndicate 1920x1261 ratio) */
 .program-card.card-wide {
   flex: 1.26 1 0;
   max-width: 556px;
   width: 100%;
 }
 
-/* Tall Card: Proportional 440px */
+.program-card.card-wide .program-preview-wrapper {
+  aspect-ratio: 1920 / 1261;
+}
+
+/* Tall Card: Proportional 440px (Matches Prosecution App 1920x2588 ratio) */
 .program-card.card-tall {
   flex: 1 1 0;
   max-width: 440px;
   width: 100%;
+}
+
+.program-card.card-tall .program-preview-wrapper {
+  aspect-ratio: 1920 / 2588;
 }
 
 .program-card:hover {
@@ -800,12 +808,15 @@ body {
   align-items: center;
   justify-content: center;
   transition: var(--transition-smooth);
+  position: relative;
 }
 
-/* Images (Corner radius 0) */
+/* Images (Corner radius 0, fill preview wrapper seamlessly) */
 .project-card-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
   border-radius: 0 !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
