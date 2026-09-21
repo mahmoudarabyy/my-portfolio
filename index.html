@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" href="Logo.png" />
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=3.8" />
+  <link rel="stylesheet" href="style.css?v=7.0" />
 </head>
 <body>
   <!-- Ambient Lighting Effects -->
@@ -60,14 +60,24 @@
     <!-- Main Hero Section -->
     <main class="hero-section">
       
-      <!-- Floating Sticker: Photo Polaroid + Vibe Check (Bottom Left) -->
-      <div class="hero-sticker hero-sticker-photo" aria-hidden="true">
-        <img src="Hero/صورتي.png" alt="محمود عربي" class="sticker-img" />
-      </div>
+      <!-- Side Ruler Stripes & Floating Stickers matching 1400px frame -->
+      <div class="hero-frame-container">
+        <div class="hero-stripe hero-stripe-right" aria-hidden="true">
+          <img src="Hero/شريط جانبي rightt.svg" alt="" class="stripe-svg" />
+        </div>
+        <div class="hero-stripe hero-stripe-left" aria-hidden="true">
+          <img src="Hero/شريط جانبي laft.svg" alt="" class="stripe-svg" />
+        </div>
 
-      <!-- Floating Sticker: Component (Bottom Right) -->
-      <div class="hero-sticker hero-sticker-component" aria-hidden="true">
-        <img src="Hero/Component.png" alt="Component You & Me" class="sticker-img" />
+        <!-- Floating Sticker: Photo Polaroid + Vibe Check (Bottom Left - Inside Side Stripes) -->
+        <div class="hero-sticker hero-sticker-photo" aria-hidden="true">
+          <img src="Hero/صورتي.png" alt="محمود عربي" class="sticker-img" />
+        </div>
+
+        <!-- Floating Sticker: Component (Bottom Right - Inside Side Stripes) -->
+        <div class="hero-sticker hero-sticker-component" aria-hidden="true">
+          <img src="Hero/Component.png" alt="Component You & Me" class="sticker-img" />
+        </div>
       </div>
 
       <div class="hero-container">
@@ -109,41 +119,41 @@
     </main>
   </div>
 
-  <!-- Programs / Projects Section in its own dedicated container with #000000 background -->
+  <!-- Programs / Projects Section matching exact design mockup -->
   <section class="programs-section" id="projects">
       <div class="programs-container-border">
         
         <!-- Section Header -->
         <div class="programs-header">
-          <h2 class="programs-title">مشاريع كبرى</h2>
-          <p class="programs-subtitle">مجموعة متنوعة من المشاريع المتخصصة التي تلبي اهتمامات مختلفة وتقدم تجربة رقمية هادفة ومميزة</p>
+          <h2 class="programs-title">اهم مشاريعي</h2>
+          <p class="programs-subtitle">مجموعة متنوعة من البرامج المتخصصة التي تلبي اهتمامات مختلفة وتقدم محتوى هادف ومميز</p>
         </div>
 
         <!-- Projects Grid -->
         <div class="programs-grid">
           
-          <!-- Card 1 (Right in RTL): Administrative Prosecution App (Mobile - Tall w440) -->
+          <!-- Card 1 (Right in RTL): تطبيق النيابة الادارية (Phone Tall) -->
           <a href="project-details.html?id=prosecution" class="program-card card-tall">
             <div class="program-preview-wrapper">
-              <img src="صور مشاريع/النيابة الادارية.png" alt="ابلكيشن النيابة الادارية" class="project-card-image" />
+              <img src="كتباتي/FCkTyHkAV9pj8bYHP0WRjHJhGP8.avif" alt="تطبيق النيابة الادارية" class="project-card-image" />
             </div>
 
             <!-- Card Info Footer -->
             <div class="program-info">
               <div class="program-title-row">
-                <h3 class="program-title">ابلكيشن النيابة الادارية</h3>
+                <h3 class="program-title">تطبيق النيابة الادارية</h3>
                 <img src="بادج السنه.png" alt="2026" class="program-badge-img" />
               </div>
               <p class="program-description">
-                منظومة رقمية متكاملة لرقمنة وتيسير إجراءات الشكاوى والخدمات القضائية للمواطنين والموظفين، مع تقليل زمن المعاملات بنسبة تتجاوز 40%.
+                نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري،
               </p>
             </div>
           </a>
 
-          <!-- Card 2 (Middle): Egyptian Engineers Syndicate (Desktop - Wide w556) -->
-          <a href="project-details.html?id=engineers" class="program-card card-wide">
+          <!-- Card 2 (Middle in RTL): الموقع الرسمي لنقابة المهندسين المصرية (Desktop Monitor) -->
+          <a href="project-details.html?id=engineers" class="program-card card-desktop">
             <div class="program-preview-wrapper">
-              <img src="صور مشاريع/نقابه المهندسين المصرية.png" alt="الموقع الرسمي لنقابة المهندسين المصرية" class="project-card-image" />
+              <img src="صور مشاريع/Apply Seo.png" alt="الموقع الرسمي لنقابة المهندسين المصرية" class="project-card-image" />
             </div>
 
             <!-- Card Info Footer -->
@@ -153,25 +163,25 @@
                 <img src="بادج السنه.png" alt="2026" class="program-badge-img" />
               </div>
               <p class="program-description">
-                إعادة تصميم وبناء البوابة الرقمية الرسمية لنقابة المهندسين لتوفير خدمات الاشتراكات والرعاية الصحية والمعاملات لأكثر من 800,000 عضو.
+                لمن دواعي سروري العمل علي الموقع الرسمي لنقابة المهندسين المصرية وتحويل جميع خدمات النقابة الا خدمات الكترونية عبر الموقع الخاص
               </p>
             </div>
           </a>
 
-          <!-- Card 3 (Left in RTL): Apply SEO Website (Desktop - Wide w556) -->
-          <a href="project-details.html?id=applyseo" class="program-card card-wide">
+          <!-- Card 3 (Left in RTL): موقع Appy SEO (Desktop Monitor) -->
+          <a href="project-details.html?id=applyseo" class="program-card card-desktop">
             <div class="program-preview-wrapper">
-              <img src="Apply seo/Cover.png" alt="موقع Apply SEO" class="project-card-image" />
+              <img src="صور مشاريع/Apply Seo.png" alt="موقع Appy SEO" class="project-card-image" />
             </div>
 
             <!-- Card Info Footer -->
             <div class="program-info">
               <div class="program-title-row">
-                <h3 class="program-title">موقع Apply SEO</h3>
+                <h3 class="program-title">موقع Appy SEO</h3>
                 <img src="بادج السنه.png" alt="2026" class="program-badge-img" />
               </div>
               <p class="program-description">
-                منصة ذكية لتحليل وتحسين محركات البحث تركز على تبسيط تدفق البيانات والرسوم البيانية المعقدة لتسهيل اتخاذ القرارات السريعة.
+                لمن دواعي سروري العمل علي الموقع الرسمي لنقابة المهندسين المصرية وتحويل جميع خدمات النقابة الا خدمات الكترونية عبر الموقع الخاص
               </p>
             </div>
           </a>
@@ -189,11 +199,22 @@
       </div>
     </section>
 
-  <!-- About Me ("من أنا") Section matching exact design mockup from تصميم القسم.png -->
+  <!-- About Me ("من أنا") Section matching design from media_1790024422490.png -->
   <section class="about-section" id="about">
-    <div class="about-container-border">
+    
+    <!-- Side Ruler Stripes matching Hero frame margin (1400px) -->
+    <div class="about-frame-container" aria-hidden="true">
+      <div class="about-stripe about-stripe-right">
+        <img src="Hero/شريط جانبي rightt.svg" alt="" class="stripe-svg" />
+      </div>
+      <div class="about-stripe about-stripe-left">
+        <img src="Hero/شريط جانبي laft.svg" alt="" class="stripe-svg" />
+      </div>
+    </div>
+
+    <div class="about-container">
       
-      <!-- Right Content Column (Logo, Bio, 3 Stats) -->
+      <!-- Right Content Column (Logo, Bio Statements, Stats) -->
       <div class="about-content-column">
         
         <!-- Top: Logo Mark (عربي) -->
@@ -201,60 +222,45 @@
           <img src="Logo.png" alt="عربي" class="about-brand-logo" />
         </div>
 
-        <!-- Middle: Large Statement Text -->
-        <div class="about-statement-wrapper">
-          <div class="about-statement-text">
-            <p class="about-statement-lead">
-              أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب الرقمية، من المواقع الإلكترونية وتطبيقات الموبايل إلى لوحات التحكم والأنظمة الرقمية.
-            </p>
-            <p class="about-statement-desc">
-              أحب تحويل الأفكار والمشكلات المعقدة إلى تجارب بسيطة، واضحة وسهلة الاستخدام، مع الاهتمام بالتفاصيل البصرية وجودة تجربة المستخدم.
-            </p>
-            <p class="about-statement-desc">
-              بالنسبة لي، التصميم ليس مجرد شكل، لكنه طريقة لخلق منتج يخدم المستخدم ويحقق أهدافه بشكل فعّال.
-            </p>
-          </div>
+        <!-- Middle: Bio Statements -->
+        <div class="about-statement-text">
+          <p class="about-statement-lead">
+            أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب الرقمية، من المواقع الإلكترونية وتطبيقات الموبايل إلى لوحات التحكم والأنظمة الرقمية.
+          </p>
+          <p class="about-statement-desc">
+            أحب تحويل الأفكار والمشكلات المعقدة إلى تجارب بسيطة، واضحة وسهلة الاستخدام، مع الاهتمام بالتفاصيل البصرية وجودة تجربة المستخدم.
+          </p>
         </div>
 
-        <!-- Bottom: 3 Key Metrics / Stats Row & CV Action Button -->
-        <div class="about-bottom-actions-wrap">
-          <div class="about-stats-row">
-            
-            <!-- Stat 1: 20 عميل سعيد -->
-            <div class="about-stat-item">
-              <span class="stat-number">20</span>
-              <span class="stat-label">عميل سعيد</span>
-            </div>
-
-            <!-- Stat 2: 25 مشروع مكتمل -->
-            <div class="about-stat-item">
-              <span class="stat-number">25</span>
-              <span class="stat-label">مشروع مكتمل</span>
-            </div>
-
-            <!-- Stat 3: +4 سنوات خبرة -->
-            <div class="about-stat-item">
-              <span class="stat-number">+4</span>
-              <span class="stat-label">سنوات خبرة</span>
-            </div>
-
+        <!-- Bottom: Stats Row -->
+        <div class="about-stats-row">
+          
+          <!-- Stat 1: 20 عميل سعيد (Right in RTL) -->
+          <div class="about-stat-item">
+            <span class="stat-number">20</span>
+            <span class="stat-label">عميل سعيد</span>
           </div>
 
-          <!-- CV Action Button (زر السيرة الذاتية) -->
-          <div class="about-cv-btn-wrapper">
-            <a href="https://arabyux.tabbio.com/" target="_blank" rel="noopener noreferrer" class="btn-about-cv" aria-label="عرض السيرة الذاتية - محمود عربي">
-              <span>السيرة الذاتية</span>
-              <img src="arrow big.svg" alt="سهم" class="btn-arrow-img" />
-            </a>
+          <!-- Stat 2: 25 مشروع مكتمل (Middle in RTL) -->
+          <div class="about-stat-item">
+            <span class="stat-number">25</span>
+            <span class="stat-label">مشروع مكتمل</span>
           </div>
+
+          <!-- Stat 3: +4 سنوات خبرة (Left in RTL) -->
+          <div class="about-stat-item">
+            <span class="stat-number">+4</span>
+            <span class="stat-label">سنوات خبرة</span>
+          </div>
+
         </div>
 
       </div>
 
-      <!-- Left Visual Column (Portrait Photo sticking to Left Border) -->
+      <!-- Left Visual Column (Portrait Photo Card) -->
       <div class="about-visual-column">
-        <div class="about-portrait-wrapper">
-          <img src="Container.png" alt="محمود عربي - UX/UI Designer" class="about-portrait-img" />
+        <div class="about-portrait-card">
+          <img src="من انا/Container.png" alt="محمود عربي - UX/UI Designer" class="about-portrait-img" />
         </div>
       </div>
 
@@ -263,78 +269,81 @@
 
   <!-- Services ("خدماتي") Section matching Figma design -->
   <section class="services-section" id="services">
-    <div class="services-container">
-      
-      <!-- Side Ruler Stripes (SVG) -->
-      <div class="services-stripe services-stripe-right" aria-hidden="true">
+    
+    <!-- Side Ruler Stripes matching 1400px frame -->
+    <div class="services-frame-container" aria-hidden="true">
+      <div class="services-stripe services-stripe-right">
         <img src="خدماتي/شريط جانبي rightt.svg" alt="" class="stripe-svg" />
       </div>
-      <div class="services-stripe services-stripe-left" aria-hidden="true">
+      <div class="services-stripe services-stripe-left">
         <img src="خدماتي/شريط جانبي laft.svg" alt="" class="stripe-svg" />
       </div>
+    </div>
 
+    <div class="services-container">
+      
       <!-- Section Header -->
       <div class="services-header">
         <h2 class="services-title">خدماتي</h2>
         <p class="services-subtitle">مجموعة متنوعة من البرامج المتخصصة التي تلبي اهتمامات مختلفة وتقدم محتوى هادف ومميز</p>
       </div>
 
-      <!-- Services Stacked Cards List -->
-      <div class="services-list">
+      <!-- Services 2x2 Grid matching media_1790025443706.png -->
+      <div class="services-grid">
         
-        <!-- Service 1: تصميم تجربة المستخدم (01) -->
+        <!-- Service 1: تصميم تجربة المستخدم (01 - Top Right in RTL) -->
         <article class="service-card" data-service="1">
           <div class="service-badge">01</div>
-          <div class="service-content">
-            <h3 class="service-title">تصميم تجربة المستخدم</h3>
-            <p class="service-description">
-              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
-            </p>
-          </div>
           <div class="service-mockup-wrap">
             <img src="خدماتي/Pro Display XDR6547567.png" alt="تصميم تجربة المستخدم" class="service-mockup-img" loading="lazy" />
           </div>
-        </article>
-
-        <!-- Service 2: تصميم واجهة المستخدم (02) -->
-        <article class="service-card" data-service="2">
-          <div class="service-badge">02</div>
           <div class="service-content">
-            <h3 class="service-title">تصميم واجهة المستخدم</h3>
+            <h3 class="service-title">تصميم تجربة المستخدم</h3>
             <p class="service-description">
-              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان، من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
             </p>
           </div>
+        </article>
+
+        <!-- Service 2: تصميم واجهة المستخدم (02 - Top Left in RTL) -->
+        <article class="service-card" data-service="2">
+          <div class="service-badge">02</div>
           <div class="service-mockup-wrap">
             <img src="خدماتي/Pro Display XDR.png" alt="تصميم واجهة المستخدم" class="service-mockup-img" loading="lazy" />
           </div>
-        </article>
-
-        <!-- Service 3: تصميم الهوية البصرية (03) -->
-        <article class="service-card" data-service="3">
-          <div class="service-badge">03</div>
           <div class="service-content">
-            <h3 class="service-title">تصميم الهوية البصرية</h3>
+            <h3 class="service-title">تصميم واجهة المستخدم</h3>
             <p class="service-description">
-              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان، من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
             </p>
           </div>
+        </article>
+
+        <!-- Service 3: تصميم الهوية البصرية (03 - Bottom Right in RTL) -->
+        <article class="service-card" data-service="3">
+          <div class="service-badge">03</div>
           <div class="service-mockup-wrap">
             <img src="خدماتي/Pro Display XDR7568.png" alt="تصميم الهوية البصرية" class="service-mockup-img" loading="lazy" />
           </div>
+          <div class="service-content">
+            <h3 class="service-title">تصميم الهوية البصرية</h3>
+            <p class="service-description">
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان، من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+            </p>
+          </div>
         </article>
 
-        <!-- Service 4: التطوير (04) -->
+        <!-- Service 4: التطوير (04 - Bottom Left in RTL) -->
         <article class="service-card" data-service="4">
           <div class="service-badge">04</div>
+          <div class="service-mockup-wrap">
+            <img src="خدماتي/90890-ب.png" alt="التطوير البرمجي" class="service-mockup-img" loading="lazy" />
+          </div>
           <div class="service-content">
             <h3 class="service-title">التطوير</h3>
             <p class="service-description">
-              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان. من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
+              نحن نصنع هويات علامات تجارية تتجاوز الشعارات والألوان، من نبرة الصوت إلى التوجيه البصري، نشكل العلامات التجارية التي تبرز.
             </p>
-          </div>
-          <div class="service-mockup-wrap">
-            <img src="خدماتي/90890-ب.png" alt="التطوير البرمجي" class="service-mockup-img" loading="lazy" />
           </div>
         </article>
 
@@ -343,130 +352,82 @@
     </div>
   </section>
 
-  <!-- Testimonials ("كلمات من عملائي") Section -->
-  <section class="testimonials-section" id="testimonials">
-    <div class="testimonials-container">
+
+  <!-- Articles / My Writings ("كتاباتي") Section matching media_1790027385731.png -->
+  <section class="articles-section" id="articles">
+    
+    <!-- Side Ruler Stripes matching 1400px frame margin -->
+    <div class="articles-frame-container" aria-hidden="true">
+      <div class="articles-stripe articles-stripe-right">
+        <img src="Hero/شريط جانبي rightt.svg" alt="" class="stripe-svg" />
+      </div>
+      <div class="articles-stripe articles-stripe-left">
+        <img src="Hero/شريط جانبي laft.svg" alt="" class="stripe-svg" />
+      </div>
+    </div>
+
+    <div class="articles-container">
       
-      <!-- Side Ruler Stripes (SVG) matching Services Section -->
-      <div class="testimonials-stripe testimonials-stripe-right" aria-hidden="true">
-        <img src="خدماتي/شريط جانبي rightt.svg" alt="" class="stripe-svg" />
-      </div>
-      <div class="testimonials-stripe testimonials-stripe-left" aria-hidden="true">
-        <img src="خدماتي/شريط جانبي laft.svg" alt="" class="stripe-svg" />
-      </div>
-
-      <!-- 3x2 Flush Cards Grid (5 Cards + 1 Center-Top Header Cell) -->
-      <div class="testimonials-grid">
-        
-        <!-- Card 1 (Top-Right in RTL) -->
-        <article class="testimonial-card card-side-right">
-          <div class="testimonial-top">
-            <img src="كلمات من القلب/Vector.png" alt="اقتباس" class="testimonial-quote-icon" />
-          </div>
-          <p class="testimonial-text">
-            أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجاربأنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب
-          </p>
-          <div class="testimonial-author">
-            <img src="كلمات من القلب/avatar.png" alt="عبدالله القحطاني" class="author-avatar" />
-            <div class="author-info">
-              <h4 class="author-name">عبدالله القحطاني</h4>
-              <p class="author-title">مؤسس متجر نقطة</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Top-Center Header Block ("كلمات من عملائي" + Hearts + 5 Stars + "+99 عميل سعيد") -->
-        <div class="testimonials-center-cell">
-          <h2 class="testimonials-center-title">
-            <span>كلمات من</span>
-            <span class="title-sub">عملائي</span>
-          </h2>
-          <div class="testimonials-rating-badge">
-            <div class="rating-hearts-wrap">
-              <img src="كلمات من القلب/Hart.png" alt="تقييمات قلوب" class="rating-hearts-img" />
-            </div>
-            <div class="rating-stars-col">
-              <div class="rating-stars-row">
-                <img src="كلمات من القلب/Srat.png" alt="★" class="rating-star-icon" />
-                <img src="كلمات من القلب/Srat.png" alt="★" class="rating-star-icon" />
-                <img src="كلمات من القلب/Srat.png" alt="★" class="rating-star-icon" />
-                <img src="كلمات من القلب/Srat.png" alt="★" class="rating-star-icon" />
-                <img src="كلمات من القلب/Srat.png" alt="★" class="rating-star-icon" />
-              </div>
-              <span class="rating-count-text">+99 عميل سعيد</span>
-            </div>
-          </div>
+      <!-- Section Header (Centered with Animated Say Less Sticker) -->
+      <div class="articles-header">
+        <h2 class="articles-title">كتاباتي</h2>
+        <div class="article-sticker-sayless" aria-hidden="true">
+          <img src="كتباتي/say less.png" alt="Say less" class="sayless-img" />
         </div>
+      </div>
 
-        <!-- Card 2 (Top-Left in RTL) -->
-        <article class="testimonial-card card-side-left">
-          <div class="testimonial-top">
-            <img src="كلمات من القلب/Vector.png" alt="اقتباس" class="testimonial-quote-icon" />
-          </div>
-          <p class="testimonial-text">
-            أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجاربأنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب
-          </p>
-          <div class="testimonial-author">
-            <img src="كلمات من القلب/avatar.png" alt="عبدالله القحطاني" class="author-avatar" />
-            <div class="author-info">
-              <h4 class="author-name">عبدالله القحطاني</h4>
-              <p class="author-title">مؤسس متجر نقطة</p>
+      <!-- 3 Articles Grid -->
+      <div class="articles-grid">
+        
+        <!-- Article 1: Wearable Interaction (Link.png - Right in RTL) -->
+        <article class="article-card">
+          <a href="#" class="article-card-link" aria-label="اسم المقال">
+            <div class="article-cover-wrap">
+              <img src="كتباتي/Link.png" alt="تصميم تجارب الأجهزة القابلة للارتداء" class="article-cover-img" loading="lazy" />
             </div>
+            <div class="article-body">
+              <span class="article-category">تجربة المستخدم</span>
+              <h3 class="article-heading">اسم المقاال هنااااااااااااااا</h3>
+              <span class="article-date">2025 ,6 اكتوبر</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Article 2: Emotional Design (Link-1.png - Middle in RTL) -->
+        <article class="article-card card-middle-article">
+          <a href="#" class="article-card-link" aria-label="اسم المقال">
+            <div class="article-cover-wrap">
+              <img src="كتباتي/Link-1.png" alt="التصميم العاطفي والارتباط بالمنتج" class="article-cover-img" loading="lazy" />
+            </div>
+            <div class="article-body">
+              <span class="article-category">تجربة المستخدم</span>
+              <h3 class="article-heading">اسم المقاال هنااااااااااااااا</h3>
+              <span class="article-date">2025 ,6 اكتوبر</span>
+            </div>
+          </a>
+          <div class="article-middle-btn-wrap">
+            <a href="#" class="btn-all-articles">
+              <span>جميع كتاباتي</span>
+            </a>
           </div>
         </article>
 
-        <!-- Card 3 (Bottom-Right in RTL) -->
-        <article class="testimonial-card card-side-right">
-          <div class="testimonial-top">
-            <img src="كلمات من القلب/Vector.png" alt="اقتباس" class="testimonial-quote-icon" />
-          </div>
-          <p class="testimonial-text">
-            أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجاربأنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب
-          </p>
-          <div class="testimonial-author">
-            <img src="كلمات من القلب/avatar.png" alt="عبدالله القحطاني" class="author-avatar" />
-            <div class="author-info">
-              <h4 class="author-name">عبدالله القحطاني</h4>
-              <p class="author-title">مؤسس متجر نقطة</p>
+        <!-- Article 3: Micro-interactions (FCkTyHkAV9pj8bYHP0WRjHJhGP8.avif - Left in RTL) -->
+        <article class="article-card">
+          <a href="#" class="article-card-link" aria-label="اسم المقال">
+            <div class="article-cover-wrap">
+              <img src="كتباتي/FCkTyHkAV9pj8bYHP0WRjHJhGP8.avif" alt="تبسيط رحلات المستخدم المعقدة" class="article-cover-img" loading="lazy" />
             </div>
-          </div>
-        </article>
-
-        <!-- Card 4 (Bottom-Center in RTL) -->
-        <article class="testimonial-card card-center">
-          <div class="testimonial-top">
-            <img src="كلمات من القلب/Vector.png" alt="اقتباس" class="testimonial-quote-icon" />
-          </div>
-          <p class="testimonial-text">
-            أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجاربأنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب
-          </p>
-          <div class="testimonial-author">
-            <img src="كلمات من القلب/avatar.png" alt="عبدالله القحطاني" class="author-avatar" />
-            <div class="author-info">
-              <h4 class="author-name">عبدالله القحطاني</h4>
-              <p class="author-title">مؤسس متجر نقطة</p>
+            <div class="article-body">
+              <span class="article-category">تجربة المستخدم</span>
+              <h3 class="article-heading">اسم المقاال هنااااااااااااااا</h3>
+              <span class="article-date">2025 ,6 اكتوبر</span>
             </div>
-          </div>
-        </article>
-
-        <!-- Card 5 (Bottom-Left in RTL) -->
-        <article class="testimonial-card card-side-left">
-          <div class="testimonial-top">
-            <img src="كلمات من القلب/Vector.png" alt="اقتباس" class="testimonial-quote-icon" />
-          </div>
-          <p class="testimonial-text">
-            أنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجاربأنا محمود عربي، مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب
-          </p>
-          <div class="testimonial-author">
-            <img src="كلمات من القلب/avatar.png" alt="عبدالله القحطاني" class="author-avatar" />
-            <div class="author-info">
-              <h4 class="author-name">عبدالله القحطاني</h4>
-              <p class="author-title">مؤسس متجر نقطة</p>
-            </div>
-          </div>
+          </a>
         </article>
 
       </div>
+
     </div>
   </section>
 
@@ -497,6 +458,7 @@
             <li><a href="projects.html" class="footer-nav-link">جميع المشاريع</a></li>
             <li><a href="#about" class="footer-nav-link">عن محمود</a></li>
             <li><a href="#services" class="footer-nav-link">الخدمات والتخصصات</a></li>
+            <li><a href="#articles" class="footer-nav-link">كتاباتي</a></li>
             <li><a href="https://arabyux.tabbio.com/" target="_blank" rel="noopener noreferrer" class="footer-nav-link">السيرة الذاتية (CV)</a></li>
           </ul>
         </div>
@@ -796,8 +758,14 @@
             </a>
           </li>
           <li class="fullscreen-nav-item">
-            <a href="index.html#contact" class="fullscreen-nav-link" data-text="تواصل معي">
+            <a href="index.html#articles" class="fullscreen-nav-link" data-text="كتاباتي">
               <span class="nav-num">05</span>
+              <span class="nav-label">كتاباتي</span>
+            </a>
+          </li>
+          <li class="fullscreen-nav-item">
+            <a href="index.html#contact" class="fullscreen-nav-link" data-text="تواصل معي">
+              <span class="nav-num">06</span>
               <span class="nav-label">تواصل معي</span>
             </a>
           </li>
