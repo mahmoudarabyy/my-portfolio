@@ -252,15 +252,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     8. Hero Title Typewriter Animation
+     8. Hero Title Typewriter Animation (Fast, Consistent & Smooth)
      -------------------------------------------------------------------------- */
   const heroTitle = document.querySelector('.hero-title');
   if (heroTitle) {
     const parts = [
       { text: 'أصمّم', isPurple: true },
-      { text: ' تجارب رقمية تجمع', isPurple: false, isGreen: false },
+      { text: ' تجارب رقمية تجمع', isPurple: false },
       { isBreak: true },
-      { text: 'بين البساطة، الوظيفة، ', isPurple: false, isGreen: false },
+      { text: 'بين البساطة، الوظيفة، ', isPurple: false },
       { text: 'والتأثير.', isGreen: true }
     ];
 
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentPartIndex >= parts.length) {
         setTimeout(() => {
           if (cursor) cursor.classList.add('finished');
-        }, 2200);
+        }, 1500);
         return;
       }
 
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
         br.className = 'title-break';
         heroTitle.insertBefore(br, cursor);
         currentPartIndex++;
-        setTimeout(typeNextChar, 110);
+        setTimeout(typeNextChar, 45);
         return;
       }
 
@@ -318,12 +318,12 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPartIndex++;
         currentCharIndex = 0;
         currentContainer = null;
-        setTimeout(typeNextChar, part.text.endsWith('،') || part.text.endsWith('تجمع') ? 140 : 45);
+        setTimeout(typeNextChar, 55);
       } else {
-        setTimeout(typeNextChar, 42);
+        setTimeout(typeNextChar, 30);
       }
     }
 
-    setTimeout(typeNextChar, 350);
+    setTimeout(typeNextChar, 250);
   }
 });
