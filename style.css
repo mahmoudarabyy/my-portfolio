@@ -1634,34 +1634,37 @@ body {
 
 @media (max-width: 640px) {
   .programs-section {
-    padding: clamp(2.5rem, 5vw, 3.5rem) 1rem !important;
+    padding: clamp(3.5rem, 7vw, 5rem) 1.25rem !important;
+    margin: 0 auto !important;
   }
 
   .programs-header {
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem !important;
+    padding: 0 0.25rem !important;
   }
 
   .programs-title {
-    font-size: clamp(2rem, 7vw, 2.6rem);
+    font-size: clamp(2.1rem, 7vw, 2.6rem) !important;
   }
 
   .programs-subtitle {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
   }
 
   .programs-grid {
     grid-template-columns: 1fr !important;
     max-width: 100% !important;
-    gap: 2.25rem !important;
+    gap: 2.75rem !important;
+    padding: 0 0.25rem !important;
   }
 
   .program-card {
-    gap: 1rem;
+    gap: 1.15rem !important;
   }
 
   .program-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem !important;
   }
 }
 
@@ -2113,6 +2116,50 @@ body {
   color: rgba(255, 255, 255, 0.72);
 }
 
+/* CV Button in About Section matching media_1790039806816.jpg */
+.about-cv-wrapper {
+  margin-top: clamp(1.4rem, 2.4vw, 2.2rem);
+  width: 100%;
+}
+
+.btn-about-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff !important;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.9rem 2.4rem;
+  border-radius: 9999px;
+  text-decoration: none !important;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.btn-about-cv:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.btn-about-cv .cv-arrow-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-about-cv:hover .cv-arrow-icon {
+  transform: translateX(-4px);
+}
+
 /* Left Visual Column (Portrait Photo Card) - Stuck to the left stripe, 0 corner radius */
 .about-visual-column {
   flex: 0 0 clamp(320px, 36vw, 490px);
@@ -2147,79 +2194,155 @@ body {
   border-radius: 0 !important;
 }
 
-/* Responsive Media Queries */
+/* Responsive Media Queries for About Section matching media_1790039806817.jpg & media_1790039806816.jpg */
 @media (max-width: 1024px) {
   .about-section {
-    padding: clamp(3.5rem, 5vw, 5rem) 0;
+    padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(3.5rem, 6vw, 5rem) 0 !important;
   }
 
+  .about-frame-container,
+  .about-stripe {
+    display: none !important;
+  }
+
+  /* Full Bleed: 0 padding on container so portrait photo touches screen edges completely */
   .about-container {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-    gap: 3.5rem;
-    padding: 0 2.5rem;
+    flex-direction: column-reverse !important;
+    align-items: stretch !important;
+    text-align: right !important;
+    gap: 2.25rem !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
+  /* Image takes the entire frame width edge-to-edge on mobile */
   .about-visual-column {
-    max-width: 420px;
-    width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
   }
 
+  .about-portrait-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 1 / 1.08 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+
+  .about-portrait-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 0 !important;
+  }
+
+  /* Content Column has generous side padding so text and button don't touch screen edges */
   .about-content-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
+    width: 100% !important;
+    padding: 0 clamp(1.25rem, 5vw, 2rem) !important;
+    box-sizing: border-box !important;
+    align-items: flex-start !important;
+    text-align: right !important;
+    gap: 1.65rem !important;
   }
 
   .about-logo-wrapper {
-    justify-content: center;
+    justify-content: flex-start !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .about-brand-logo {
+    height: 48px !important;
+  }
+
+  .about-statement-text {
+    gap: 1.35rem !important;
+    text-align: right !important;
   }
 
   .about-statement-lead,
   .about-statement-desc {
-    text-align: center;
+    text-align: right !important;
+    font-size: clamp(1.15rem, 4.4vw, 1.28rem) !important;
+    line-height: 1.85 !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
   }
 
   .about-stats-row {
-    justify-content: center;
-    gap: clamp(2rem, 4vw, 3.5rem);
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+    margin-top: 1rem !important;
+    flex-wrap: nowrap !important;
   }
 
   .about-stat-item {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start !important;
+    text-align: right !important;
+    flex: 1 1 0 !important;
+  }
+
+  .about-stat-item .stat-number {
+    font-size: clamp(2.8rem, 8.5vw, 3.8rem) !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+  }
+
+  .about-stat-item .stat-label {
+    font-size: clamp(0.92rem, 3vw, 1.08rem) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  .about-cv-wrapper {
+    width: 100% !important;
+    margin-top: 1.75rem !important;
+  }
+
+  .btn-about-cv {
+    width: 100% !important;
+    height: 54px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    font-size: 1.1rem !important;
+    padding: 0 !important;
   }
 }
 
 @media (max-width: 640px) {
   .about-section {
-    padding: 3rem 0;
+    padding: 2rem 0 clamp(3rem, 5vw, 4rem) 0 !important;
   }
 
   .about-container {
-    padding: 0 1.5rem;
-    gap: 2.2rem;
+    padding: 0 !important;
+    gap: 1.85rem !important;
   }
 
-  .about-visual-column {
-    max-width: 300px;
+  .about-content-column {
+    padding: 0 1.25rem !important;
   }
 
   .about-statement-lead,
   .about-statement-desc {
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  .about-stats-row {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.8rem 2.2rem;
+    font-size: 1.18rem !important;
+    line-height: 1.85 !important;
   }
 
   .about-stat-item .stat-number {
-    font-size: 2.6rem;
+    font-size: 3rem !important;
   }
 }
 
@@ -2667,15 +2790,15 @@ body {
   transform: scale(1.035);
 }
 
-/* Outer cards (Right & Left in RTL) - exactly matching media_1790028929950.png */
+/* First child (Smartwatch) & Middle child (Phone mockup) are tall cards */
 .articles-grid > .article-card:first-child .article-cover-wrap,
-.articles-grid > .article-card:last-child .article-cover-wrap {
+.articles-grid > .article-card:nth-child(2) .article-cover-wrap {
   width: 100%;
   aspect-ratio: 1 / 1.3;
 }
 
-/* Middle Card (knitted creature) - square matching media_1790028929950.png */
-.articles-grid > .article-card:nth-child(2) .article-cover-wrap {
+/* Last Card (knitted creature - moved to last as requested) is small square card */
+.articles-grid > .article-card:last-child .article-cover-wrap {
   width: 100%;
   aspect-ratio: 1 / 0.98;
 }
@@ -2770,11 +2893,11 @@ body {
   }
 
   .articles-grid > .article-card:first-child .article-cover-wrap,
-  .articles-grid > .article-card:last-child .article-cover-wrap {
+  .articles-grid > .article-card:nth-child(2) .article-cover-wrap {
     aspect-ratio: 1 / 1.3;
   }
 
-  .articles-grid > .article-card:nth-child(2) .article-cover-wrap {
+  .articles-grid > .article-card:last-child .article-cover-wrap {
     aspect-ratio: 1 / 0.98;
   }
 }
@@ -5629,23 +5752,38 @@ body.case-study-body .grid-overlay {
   /* Reset section and container padding on mobile */
   .services-section,
   .testimonials-section,
-  .articles-section,
-  .programs-section {
+  .articles-section {
     padding: 0 1rem !important;
   }
 
   .services-container,
   .testimonials-container,
-  .articles-container,
-  .programs-container-border {
+  .articles-container {
     padding: 2.5rem 0 !important;
   }
 
-  .articles-grid,
-  .programs-grid {
+  /* Projects Section Mobile Margins & Spacing */
+  .programs-section {
+    padding: clamp(3.5rem, 6vw, 4.5rem) 1.25rem !important;
+    margin: 0 !important;
+  }
+
+  .programs-container-border {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .articles-grid {
     grid-template-columns: 1fr !important;
     padding: 0 !important;
     gap: 24px !important;
+    max-width: 100% !important;
+  }
+
+  .programs-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 0.25rem !important;
+    gap: 2.75rem !important;
     max-width: 100% !important;
   }
 
