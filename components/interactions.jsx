@@ -185,6 +185,33 @@ export function InterfaceProvider({ children }) {
   const [showTop, setShowTop] = useState(false);
   const dialogRef = useRef(null);
   const triggerRef = useRef(null);
+  const previousPathRef = useRef(pathname);
+  const historyNavigationRef = useRef(false);
+  useEffect(() => {
+    const onPopState = () => {
+      historyNavigationRef.current = true;
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+  useEffect(() => {
+    const changed = previousPathRef.current !== pathname;
+    previousPathRef.current = pathname;
+    const fromHistory = historyNavigationRef.current;
+    historyNavigationRef.current = false;
+    if (
+      !changed ||
+      fromHistory ||
+      window.location.hash ||
+      !pathname.startsWith("/projects")
+    )
+      return;
+    // Start new project visits above the fixed header; preserve Back/Forward restoration.
+    const frame = requestAnimationFrame(() =>
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" }),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [pathname]);
   const open = useCallback(
     (name) => {
       if (!active) triggerRef.current = document.activeElement;
@@ -195,7 +222,8 @@ export function InterfaceProvider({ children }) {
   const close = useCallback(() => {
     setActive(null);
     requestAnimationFrame(() => {
-      if (triggerRef.current?.isConnected) triggerRef.current.focus();
+      if (triggerRef.current?.isConnected)
+        triggerRef.current.focus({ preventScroll: true });
     });
   }, []);
   useEffect(() => {

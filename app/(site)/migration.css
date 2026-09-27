@@ -1,4 +1,7 @@
 /* React migration: keep the original design while fixing accessibility and filtered rows. */
+#main-content {
+  scroll-margin-top: 85px;
+}
 .sr-only {
   position: absolute;
   width: 1px;
