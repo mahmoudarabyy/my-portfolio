@@ -12,6 +12,7 @@ import { contactEmail } from "../../../../lib/site";
 import "./case-study.css";
 
 import ProjectIcon from "../../../../components/project-icon";
+import ProjectLinks from "../../../../components/project-links";
 import ProjectCard from "../../../../components/project-card";
 import Reveal from "../../../../components/reveal";
 import { ConsultationButton } from "../../../../components/interactions";
@@ -26,6 +27,10 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) notFound();
+  const shareImage =
+    [project.coverImage, project.cardImage].find(
+      (src) => src && !/\.(mp4|webm)(?:[?#]|$)/i.test(src),
+    ) || "/project-placeholder.svg";
   return {
     title: project.mainTitle,
     description: project.summary,
@@ -33,13 +38,13 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: project.mainTitle,
       description: project.summary,
-      images: [{ url: project.coverImage, alt: project.mainTitle }],
+      images: [{ url: shareImage, alt: project.mainTitle }],
     },
     twitter: {
       card: "summary_large_image",
       title: project.mainTitle,
       description: project.summary,
-      images: [project.coverImage],
+      images: [shareImage],
     },
   };
 }
@@ -111,6 +116,7 @@ export default async function ProjectPage({ params }) {
         <Reveal className="study-heading">
           <ProjectIcon project={project} large />
           <h1>{project.mainTitle}</h1>
+          <ProjectLinks project={project} />
         </Reveal>
         <dl className="study-hero-meta">
           {[
@@ -138,29 +144,11 @@ export default async function ProjectPage({ params }) {
       </header>
 
       <div className="study-shell">
-        {project.coverVideo ? (
-          <video
-            className="study-cover-video"
-            src={project.coverVideo}
-            poster={project.coverImage}
-            controls
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label={`${project.mainTitle} — فيديو غلاف المشروع`}
-          >
-            متصفحك لا يدعم تشغيل الفيديو.{" "}
-            <a href={project.coverVideo}>فتح الفيديو</a>
-          </video>
-        ) : (
-          <Media
-            src={project.coverImage}
-            title={`${project.mainTitle} — غلاف المشروع`}
-            cover
-          />
-        )}
+        <Media
+          src={project.coverImage}
+          title={`${project.mainTitle} — غلاف المشروع`}
+          cover
+        />
       </div>
 
       <div className="study-shell">
@@ -322,18 +310,6 @@ export default async function ProjectPage({ params }) {
                 <p>{award.description}</p>
               </div>
             ))}
-          </Editorial>
-        )}
-        {study.websiteUrl && (
-          <Editorial label="رابط المشروع">
-            <a
-              className="study-external"
-              href={study.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              زيارة الموقع <span aria-hidden="true">↖</span>
-            </a>
           </Editorial>
         )}
 

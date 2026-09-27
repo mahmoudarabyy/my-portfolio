@@ -33,7 +33,12 @@ export default function ProjectIcon({ project, large = false }) {
       aria-hidden="true"
     >
       {project.icon ? (
-        <SiteImage src={project.icon} alt="" sizes={large ? "80px" : "52px"} />
+        <SiteImage
+          src={project.icon}
+          alt=""
+          sizes={large ? "80px" : "48px"}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
       ) : (
         <svg
           viewBox="0 0 28 28"

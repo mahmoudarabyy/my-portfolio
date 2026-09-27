@@ -598,7 +598,7 @@ body {
 }
 
 .hero-stripe .stripe-svg,
-.hero-stripe img {
+.hero-stripe :is(img, video) {
   position: absolute;
   top: 0;
   left: 0;
@@ -1822,7 +1822,7 @@ body {
 }
 
 .services-stripe .stripe-svg,
-.services-stripe img {
+.services-stripe :is(img, video) {
   position: absolute;
   top: 0;
   left: 0;
@@ -2133,7 +2133,7 @@ body {
 }
 
 .about-stripe .stripe-svg,
-.about-stripe img {
+.about-stripe :is(img, video) {
   position: absolute;
   top: 0;
   left: 0;
@@ -2789,7 +2789,7 @@ body {
 }
 
 .articles-stripe .stripe-svg,
-.articles-stripe img {
+.articles-stripe :is(img, video) {
   position: absolute;
   top: 0;
   left: 0;
@@ -4518,7 +4518,7 @@ html:has(.case-study-body) {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85);
 }
 
-.case-gallery-card img {
+.case-gallery-card :is(img, video) {
   width: 100%;
   height: auto;
   display: block;
@@ -5862,7 +5862,7 @@ html:has(.case-study-body) {
 }
 
 .articles-stripe .stripe-svg,
-.articles-stripe img {
+.articles-stripe :is(img, video) {
   position: absolute;
   top: 0;
   left: 0;

@@ -9,16 +9,29 @@ const textField = (name, title, group = "story", required = false) =>
     group,
     ...(required ? { validation: (rule) => rule.required() } : {}),
   });
-const imageField = (name, title, required = false, description) =>
+const mediaAccept =
+  "image/jpeg,image/png,image/webp,image/avif,image/gif,image/svg+xml,video/mp4,video/webm";
+const imageField = (name, title, required = false, description = "") => [
+  defineField({ name, title, type: "image", group: "images", hidden: true }),
   defineField({
-    name,
-    title,
-    type: "image",
-    description,
+    name: `${name}Media`,
+    title: title.replaceAll("صورة", "وسائط").replaceAll("الصورة", "الوسائط"),
+    type: "file",
     group: "images",
-    options: { hotspot: true },
-    ...(required ? { validation: (rule) => rule.required() } : {}),
-  });
+    options: { accept: mediaAccept },
+    description: `${description} يقبل صورة أو GIF أو فيديو MP4/WebM. الملف الجديد يستبدل الوسائط الحالية؛ ترك الخانة فارغة يحتفظ بالملف القديم إن وجد.`,
+    ...(required
+      ? {
+          validation: (rule) =>
+            rule.custom((value, context) =>
+              value?.asset || context.document?.[name]?.asset
+                ? true
+                : "ارفع صورة أو فيديو للمشروع",
+            ),
+        }
+      : {}),
+  }),
+];
 
 export const projectSchema = defineType({
   name: "project",
@@ -169,13 +182,20 @@ export const projectSchema = defineType({
     },
     textField("resultTitle", "عنوان النتيجة"),
     textField("resultBody", "وصف النتيجة"),
-    defineField({
-      name: "websiteUrl",
-      title: "رابط الموقع (اختياري)",
-      type: "url",
-      group: "story",
-      validation: (rule) => rule.uri({ scheme: ["http", "https"] }),
-    }),
+    ...[
+      ["websiteUrl", "رابط الموقع"],
+      ["appStoreUrl", "رابط التحميل من App Store — متجر أبل"],
+      ["googlePlayUrl", "رابط التحميل من Google Play — متجر جوجل"],
+    ].map(([name, title]) =>
+      defineField({
+        name,
+        title: `${title} (اختياري)`,
+        type: "url",
+        group: "general",
+        description: "يظهر كزر تحت اسم المشروع. اتركه فارغًا لإخفاء الزر.",
+        validation: (rule) => rule.uri({ scheme: ["http", "https"] }),
+      }),
+    ),
     defineField({
       name: "awards",
       title: "الجوائز (اختياري)",
@@ -200,49 +220,54 @@ export const projectSchema = defineType({
         },
       ],
     }),
-    imageField("icon", "أيقونة المشروع (مربعة، اختياري)"),
-    imageField("cardImage", "صورة الكارت", true),
-    imageField(
+    ...imageField("icon", "أيقونة المشروع (مربعة، اختياري)"),
+    ...imageField("cardImage", "صورة الكارت", true),
+    ...imageField(
       "coverImage",
-      "صورة غلاف دراسة الحالة / معاينة الفيديو",
+      "غلاف دراسة الحالة",
       false,
-      "تظهر قبل تشغيل الفيديو وفي مشاركة رابط المشروع. إذا لم ترفعها، تُستخدم صورة الكارت.",
+      "الغلاف يقبل صورة ثابتة أو متحركة أو فيديو يعمل تلقائيًا بدون صوت ويتكرر.",
     ),
     defineField({
       name: "coverVideo",
-      title: "فيديو غلاف دراسة الحالة (اختياري)",
+      title: "فيديو الغلاف السابق",
       type: "file",
+      hidden: true,
       group: "images",
-      options: { accept: "video/mp4,video/webm" },
-      description:
-        "ارفع MP4 أو WebM ليظهر بدل صورة الغلاف. يعمل تلقائيًا ويتكرر بدون صوت، وبنسبة أبعاده الأصلية، مع أزرار للتحكم. يُفضّل MP4 بترميز H.264 للتوافق مع المتصفحات.",
     }),
-    imageField(
+    ...imageField(
       "aboutImg",
       "الصورة بعد عن المشروع",
       false,
       "تظهر مباشرة بعد النبذة، بنفس نسبة أبعاد الصورة الأصلية.",
     ),
-    imageField(
+    ...imageField(
       "researchImg",
       "الصورة داخل شرح الحل",
       false,
       "تظهر بعد نص كيف تعاملت مع المشروع وقبل متطلبات التجربة.",
     ),
-    imageField("problemImg", "الصورة بعد التحدي"),
-    imageField(
+    ...imageField("problemImg", "الصورة بعد التحدي"),
+    ...imageField(
       "researchSecondImg",
       "الصورة الثانية للحل",
       false,
       "تظهر بجانب الصورة داخل شرح الحل. إذا تركتها فارغة، تُختار صورة أخرى من صور المشروع تلقائيًا.",
     ),
-    imageField("solutionImg", "الصورة بعد خارطة الطريق والنتيجة"),
+    ...imageField("solutionImg", "الصورة بعد خارطة الطريق والنتيجة"),
     defineField({
       name: "gallery",
-      title: "معرض الصور (يمكن تغيير ترتيبها)",
+      title: "معرض الوسائط (صور وفيديو وGIF)",
       type: "array",
       group: "images",
-      of: [{ type: "image", options: { hotspot: true } }],
+      of: [
+        { type: "image", title: "صورة أو GIF", options: { hotspot: true } },
+        {
+          type: "file",
+          title: "صورة أو فيديو أو GIF",
+          options: { accept: mediaAccept },
+        },
+      ],
     }),
   ],
   orderings: [

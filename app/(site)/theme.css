@@ -5,8 +5,8 @@
   --theme-surface: #191621;
   --theme-raised: #24202f;
   --theme-hover: #332c43;
-  --theme-ink: #f7f5fc;
-  --theme-ink-rgb: 247, 245, 252;
+  --theme-ink: #ffffff;
+  --theme-ink-rgb: 255, 255, 255;
   --theme-inverse: #15111f;
   --color-bg-canvas: var(--theme-canvas);
   --color-bg-surface: var(--theme-surface);
@@ -33,8 +33,8 @@
   --primary-green-rgb: 8, 120, 72;
   --color-text-secondary: #51465f;
   --color-text-tertiary: #685c76;
-  --color-text-muted: #62566f;
-  --color-text-subtle: #6e617c;
+  --color-text-muted: #707070;
+  --color-text-subtle: rgb(112 112 112 / 85%);
   --color-border-subtle: #dcdfe4;
   --color-border-default: #dcdfe4;
 }
