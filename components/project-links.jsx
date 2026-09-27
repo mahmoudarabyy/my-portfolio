@@ -40,7 +40,7 @@ export default function ProjectLinks({ project }) {
             </span>
           )}
           <span>{label}</span>
-          {!icon && <span aria-hidden="true">↖</span>}
+          {!icon && <span className="study-arrow-icon" aria-hidden="true" />}
         </a>
       ))}
     </nav>

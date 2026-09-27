@@ -321,10 +321,10 @@ export default async function ProjectPage({ params }) {
           </div>
           <div className="study-contact-options">
             <ConsultationButton className="study-contact-button">
-              اطلب استشارة <span aria-hidden="true">↖</span>
+              اطلب استشارة <span className="study-arrow-icon" aria-hidden="true" />
             </ConsultationButton>
             <a href={`mailto:${contactEmail}`}>
-              تواصل عبر البريد <span aria-hidden="true">↖</span>
+              تواصل عبر البريد <span className="study-arrow-icon" aria-hidden="true" />
             </a>
             <p>
               الاستشارة تفتح نموذج التفاصيل، ويمكنك متابعة الإرسال عبر برنامج

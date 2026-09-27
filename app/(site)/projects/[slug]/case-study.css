@@ -69,10 +69,33 @@
   font-weight: 500;
   line-height: 1.5;
   text-decoration: none;
-  transition: border-color 160ms ease;
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 220ms ease;
 }
-.project-study .study-project-button:hover {
-  border-color: currentColor;
+.project-study .study-project-button > [aria-hidden="true"] {
+  display: inline-flex;
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .project-study .study-project-button:hover {
+    transform: translateY(-3px);
+    border-color: currentColor;
+  }
+  .project-study .study-project-button:hover .study-store-icon {
+    transform: rotate(-8deg) scale(1.1);
+  }
+  .project-study .study-project-button:hover > [aria-hidden="true"]:not(.study-store-icon) {
+    transform: translate(-3px, -3px);
+  }
+}
+.project-study .study-project-button:active {
+  transform: scale(0.96);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-study .study-project-button,
+  .project-study .study-project-button > [aria-hidden="true"] {
+    transition: none;
+    transform: none !important;
+  }
 }
 .project-study .study-project-button:focus-visible {
   outline: 2px solid var(--theme-ink);
@@ -88,6 +111,15 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+}
+.project-study .study-arrow-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  background-color: currentColor;
+  -webkit-mask: url("/store-icons/arrow.svg") center / contain no-repeat;
+  mask: url("/store-icons/arrow.svg") center / contain no-repeat;
 }
 .study-store-icon .store-icon-light {
   display: none;
@@ -176,7 +208,7 @@
 }
 .project-study .study-tags span {
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 999px;
   background: var(--theme-surface);
   border: 1px solid var(--study-line);
   font-size: 0.875rem;
