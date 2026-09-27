@@ -72,7 +72,7 @@ function Media({ src, title, cover = false }) {
 function Editorial({ label, title, children, id, className = "" }) {
   return (
     <section id={id} className={`study-editorial ${className}`}>
-      <p className="study-label">{label}</p>
+      {label && <p className="study-label">{label}</p>}
       <Reveal className="study-editorial-body">
         {title && <h2>{title}</h2>}
         {children}
@@ -201,8 +201,8 @@ export default async function ProjectPage({ params }) {
           </Editorial>
         )}
 
-        <Editorial label="عن المشروع" id="overview" className="study-about">
-          <h2 className="study-lead">{project.summary}</h2>
+        <Editorial title="عن المشروع" id="overview" className="study-about">
+          <p className="study-summary">{project.summary}</p>
         </Editorial>
         <Media
           src={project.aboutImg || study.images[0]}

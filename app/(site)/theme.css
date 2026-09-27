@@ -277,3 +277,31 @@
 :root[data-theme="light"] :is(.logo-img, .menu-icon-img) {
   filter: brightness(0) !important;
 }
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-sans);
+}
+
+/* Typography hierarchy: Medium body, Bold headings, Black page titles. */
+body {
+  font-weight: 500;
+}
+button,
+input,
+select,
+textarea {
+  font-weight: 500;
+}
+h1 {
+  font-weight: 900;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { THEME_KEY } from "../lib/theme.mjs";
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ compact = false }) {
   const [theme, setTheme] = useState("dark");
   useEffect(() => {
     setTheme(
@@ -16,13 +16,22 @@ export default function ThemeToggle() {
       setTheme(next);
     }
     window.addEventListener("storage", sync);
-    return () => window.removeEventListener("storage", sync);
+    const syncLocal = () =>
+      setTheme(
+        document.documentElement.dataset.theme === "light" ? "light" : "dark",
+      );
+    window.addEventListener("portfolio-theme-change", syncLocal);
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener("portfolio-theme-change", syncLocal);
+    };
   }, []);
 
   function toggle() {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     setTheme(next);
+    window.dispatchEvent(new Event("portfolio-theme-change"));
     try {
       localStorage.setItem(THEME_KEY, next);
     } catch {
@@ -33,7 +42,7 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="theme-toggle"
+      className={`theme-toggle${compact ? " theme-toggle-compact" : ""}`}
       role="switch"
       aria-checked={theme === "dark"}
       aria-label="الوضع الداكن"
@@ -57,10 +66,12 @@ export default function ThemeToggle() {
           </>
         )}
       </svg>
-      <span>{theme === "dark" ? "داكن" : "فاتح"}</span>
-      <span className="theme-switch-track" aria-hidden="true">
-        <span />
-      </span>
+      {!compact && <span>{theme === "dark" ? "داكن" : "فاتح"}</span>}
+      {!compact && (
+        <span className="theme-switch-track" aria-hidden="true">
+          <span />
+        </span>
+      )}
     </button>
   );
 }
