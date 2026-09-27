@@ -2,7 +2,7 @@
 :root {
   color-scheme: dark;
   --theme-canvas: #000000;
-  --theme-surface: #191621;
+  --theme-surface: #0f0f0f;
   --theme-raised: #24202f;
   --theme-hover: #332c43;
   --theme-ink: #ffffff;
@@ -21,7 +21,7 @@
 :root[data-theme="light"] {
   color-scheme: light;
   --theme-canvas: #ffffff;
-  --theme-surface: #f0edf6;
+  --theme-surface: #f8fafc;
   --theme-raised: #e8e2f1;
   --theme-hover: #dfd6ed;
   --theme-ink: #0a0a0a;
