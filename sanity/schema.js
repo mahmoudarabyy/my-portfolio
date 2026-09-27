@@ -9,11 +9,12 @@ const textField = (name, title, group = "story", required = false) =>
     group,
     ...(required ? { validation: (rule) => rule.required() } : {}),
   });
-const imageField = (name, title, required = false) =>
+const imageField = (name, title, required = false, description) =>
   defineField({
     name,
     title,
     type: "image",
+    description,
     group: "images",
     options: { hotspot: true },
     ...(required ? { validation: (rule) => rule.required() } : {}),
@@ -37,7 +38,8 @@ export const projectSchema = defineType({
   fields: [
     defineField({
       name: "mainTitle",
-      title: "اسم المشروع",
+      title: "اسم المشروع في صفحة التفاصيل",
+      description: "عنوان واحد، مثل: إعادة تصميم موقع Apply SEO.",
       type: "string",
       group: "general",
       validation: (rule) => rule.required(),
@@ -49,7 +51,7 @@ export const projectSchema = defineType({
       group: "general",
       description:
         "اسم فريد بالحروف الإنجليزية والأرقام والشرطات، مثل maas-store. تجنب تغييره بعد مشاركة الرابط.",
-      options: { source: "mainTitle", maxLength: 80 },
+      options: { maxLength: 80 },
       validation: (rule) =>
         rule
           .required()
@@ -132,19 +134,39 @@ export const projectSchema = defineType({
       defineField({ name, title, type: "string", group: "story" }),
     ),
     textField("summary", "عن المشروع", "story", true),
-    textField("researchLead", "البحث والاستكشاف"),
-    textField("researchExtra", "تفاصيل إضافية عن البحث"),
-    textField("problemLead", "المشكلة والتحديات"),
+    textField("researchLead", "الحل — كيف تعاملت مع المشروع"),
+    textField("researchExtra", "الحل — نص اقرأ المزيد"),
+    textField("problemLead", "التحدي — المشكلة التي يعالجها المشروع"),
     textField("problemExtra", "تفاصيل إضافية عن المشكلة"),
     textField("solutionLead", "الحل المقترح"),
     textField("solutionExtra", "تفاصيل إضافية عن الحل"),
-    textField("caseHeadline", "عنوان مقدمة دراسة الحالة"),
+    {
+      ...textField("caseHeadline", "عنوان مقدمة دراسة الحالة"),
+      hidden: true,
+      readOnly: true,
+    },
     textField("requirements", "متطلبات التجربة"),
     textField("workingModel", "طريقة العمل"),
-    textField("productTitle", "عنوان قسم المنتج"),
-    textField("productBody", "وصف قسم المنتج"),
-    textField("websiteTitle", "عنوان قسم الواجهات"),
-    textField("websiteBody", "وصف قسم الواجهات"),
+    {
+      ...textField("productTitle", "عنوان قسم المنتج"),
+      hidden: true,
+      readOnly: true,
+    },
+    {
+      ...textField("productBody", "وصف قسم المنتج"),
+      hidden: true,
+      readOnly: true,
+    },
+    {
+      ...textField("websiteTitle", "عنوان قسم الواجهات"),
+      hidden: true,
+      readOnly: true,
+    },
+    {
+      ...textField("websiteBody", "وصف قسم الواجهات"),
+      hidden: true,
+      readOnly: true,
+    },
     textField("resultTitle", "عنوان النتيجة"),
     textField("resultBody", "وصف النتيجة"),
     defineField({
@@ -180,11 +202,41 @@ export const projectSchema = defineType({
     }),
     imageField("icon", "أيقونة المشروع (مربعة، اختياري)"),
     imageField("cardImage", "صورة الكارت", true),
-    imageField("coverImage", "صورة غلاف دراسة الحالة", true),
-    imageField("aboutImg", "صورة عن المشروع"),
-    imageField("researchImg", "صورة البحث"),
-    imageField("problemImg", "صورة المشكلة"),
-    imageField("solutionImg", "صورة الحل"),
+    imageField(
+      "coverImage",
+      "صورة غلاف دراسة الحالة / معاينة الفيديو",
+      false,
+      "تظهر قبل تشغيل الفيديو وفي مشاركة رابط المشروع. إذا لم ترفعها، تُستخدم صورة الكارت.",
+    ),
+    defineField({
+      name: "coverVideo",
+      title: "فيديو غلاف دراسة الحالة (اختياري)",
+      type: "file",
+      group: "images",
+      options: { accept: "video/mp4,video/webm" },
+      description:
+        "ارفع MP4 أو WebM ليظهر بدل صورة الغلاف. يُشغّله الزائر بزر التشغيل، وبنسبة أبعاده الأصلية. يُفضّل MP4 بترميز H.264 للتوافق مع المتصفحات.",
+    }),
+    imageField(
+      "aboutImg",
+      "الصورة بعد عن المشروع",
+      false,
+      "تظهر مباشرة بعد النبذة، بنفس نسبة أبعاد الصورة الأصلية.",
+    ),
+    imageField(
+      "researchImg",
+      "الصورة داخل شرح الحل",
+      false,
+      "تظهر بعد نص كيف تعاملت مع المشروع وقبل متطلبات التجربة.",
+    ),
+    imageField("problemImg", "الصورة بعد التحدي"),
+    imageField(
+      "researchSecondImg",
+      "الصورة الثانية للحل",
+      false,
+      "تظهر بجانب الصورة داخل شرح الحل. إذا تركتها فارغة، تُختار صورة أخرى من صور المشروع تلقائيًا.",
+    ),
+    imageField("solutionImg", "الصورة بعد خارطة الطريق والنتيجة"),
     defineField({
       name: "gallery",
       title: "معرض الصور (يمكن تغيير ترتيبها)",

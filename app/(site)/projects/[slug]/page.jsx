@@ -138,11 +138,26 @@ export default async function ProjectPage({ params }) {
       </header>
 
       <div className="study-shell">
-        <Media
-          src={project.coverImage}
-          title={`${project.mainTitle} — غلاف المشروع`}
-          cover
-        />
+        {project.coverVideo ? (
+          <video
+            className="study-cover-video"
+            src={project.coverVideo}
+            poster={project.coverImage}
+            controls
+            playsInline
+            preload="metadata"
+            aria-label={`${project.mainTitle} — فيديو غلاف المشروع`}
+          >
+            متصفحك لا يدعم تشغيل الفيديو.{" "}
+            <a href={project.coverVideo}>فتح الفيديو</a>
+          </video>
+        ) : (
+          <Media
+            src={project.coverImage}
+            title={`${project.mainTitle} — غلاف المشروع`}
+            cover
+          />
+        )}
       </div>
 
       <div className="study-shell">
@@ -210,10 +225,20 @@ export default async function ProjectPage({ params }) {
             <p>{project.researchLead || project.solutionLead}</p>
             <ReadMore text={project.researchExtra} />
           </div>
-          <div className="study-inline-media">
+          <div className="study-inline-media study-image-pair">
             <Media
               src={project.researchImg || study.images[0]}
               title={`${project.mainTitle} — تجربة المستخدم`}
+            />
+            <Media
+              src={
+                project.researchSecondImg ||
+                study.images.find(
+                  (src) => src !== (project.researchImg || study.images[0]),
+                ) ||
+                project.coverImage
+              }
+              title={`${project.mainTitle} — تفاصيل الحل`}
             />
           </div>
           {study.requirements && (
@@ -267,7 +292,7 @@ export default async function ProjectPage({ params }) {
           <ConsultationButton />
         </section>
 
-        <div className="study-mosaic study-mosaic-featured">
+        <div className="study-mosaic study-gallery-paired">
           {study.images.map((src, index) => (
             <Media
               key={`${src}-${index}`}
