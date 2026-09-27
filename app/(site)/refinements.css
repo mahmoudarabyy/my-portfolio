@@ -1,0 +1,101 @@
+/* Additions only: original cards, typography, spacing and year badges live in globals.css and migration.css. */
+.project-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f0ecff;
+  color: #6843c4;
+  border: 1px solid #0000000d;
+}
+.project-icon-mobile {
+  background: #e8f3fc;
+  color: #286397;
+}
+.project-icon-gov {
+  background: #e9f5ef;
+  color: #267052;
+}
+.project-icon-dashboard {
+  background: #fff1e4;
+  color: #985e24;
+}
+.project-icon svg {
+  width: 28px;
+  height: 28px;
+}
+.project-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 21px;
+}
+.project-icon-large svg {
+  width: 40px;
+  height: 40px;
+}
+
+.case-heading-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.case-copy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.case-summary {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+}
+.related-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.portfolio-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.section-eyebrow {
+  margin: 0 0 12px;
+  color: var(--color-text-muted);
+}
+.project-contact-cta {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--theme-surface);
+  border-radius: 24px;
+}
+.project-contact-cta p {
+  margin: 1.5rem 0;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+.project-contact-cta .btn-consultation {
+  display: inline-flex;
+}
+@media (max-width: 768px) {
+  .portfolio-project-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-icon-large {
+    width: 64px;
+    height: 64px;
+    border-radius: 17px;
+  }
+}

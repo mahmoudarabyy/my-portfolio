@@ -1,0 +1,106 @@
+/* React migration: keep the original design while fixing accessibility and filtered rows. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  right: 16px;
+  z-index: 10000;
+  background: #fff;
+  color: #040404;
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+.skip-link:focus {
+  top: 16px;
+}
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #66e299 !important;
+  outline-offset: 5px;
+}
+.hero-title {
+  min-height: 2.5em;
+}
+.project-year {
+  color: #040404;
+  background: #66e299;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transform: rotate(-5deg);
+}
+.projects-row-partial {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+.projects-row-partial .program-card {
+  max-width: none;
+}
+.programs-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.status-page,
+.empty-state {
+  min-height: 50vh;
+  display: grid;
+  place-content: center;
+  gap: 1.5rem;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.status-page h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+.next-project-nav {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+.next-project-nav a {
+  color: #b8a0ff;
+}
+.form-note {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.form-note a {
+  color: #b8a0ff;
+}
+.modal-card {
+  max-height: calc(100dvh - 3rem);
+  overflow-y: auto;
+}
+.menu-close-btn {
+  color: white;
+  font-size: 2.5rem;
+}
+.menu-fullscreen-content {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

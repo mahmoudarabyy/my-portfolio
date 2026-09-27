@@ -1,0 +1,279 @@
+/* Theme colors apply to the site UI only, never to project artwork or Studio. */
+:root {
+  color-scheme: dark;
+  --theme-canvas: #000000;
+  --theme-surface: #191621;
+  --theme-raised: #24202f;
+  --theme-hover: #332c43;
+  --theme-ink: #f7f5fc;
+  --theme-ink-rgb: 247, 245, 252;
+  --theme-inverse: #15111f;
+  --color-bg-canvas: var(--theme-canvas);
+  --color-bg-surface: var(--theme-surface);
+  --color-bg-surface-raised: var(--theme-raised);
+  --color-text-primary: var(--theme-ink);
+  --color-text-secondary: #c7c0d3;
+  --color-text-tertiary: #aba2ba;
+  --color-text-muted: #ffffffb8;
+  --color-text-subtle: #ffffffb8;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --theme-canvas: #ffffff;
+  --theme-surface: #f0edf6;
+  --theme-raised: #e8e2f1;
+  --theme-hover: #dfd6ed;
+  --theme-ink: #0a0a0a;
+  --theme-ink-rgb: 10, 10, 10;
+  --theme-inverse: #ffffff;
+  --primary-purple: #6843c4;
+  --primary-purple-rgb: 104, 67, 196;
+  --primary-green: #087848;
+  --primary-green-rgb: 8, 120, 72;
+  --color-text-secondary: #51465f;
+  --color-text-tertiary: #685c76;
+  --color-text-muted: #62566f;
+  --color-text-subtle: #6e617c;
+  --color-border-subtle: #dcdfe4;
+  --color-border-default: #dcdfe4;
+}
+
+.menu-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-default);
+  background: var(--theme-surface);
+  color: var(--theme-ink);
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  background: var(--theme-hover);
+}
+.theme-switch-track {
+  display: flex;
+  align-items: center;
+  width: 32px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 20px;
+  background: #706478;
+  direction: ltr;
+}
+.theme-switch-track span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+.theme-toggle[aria-checked="true"] .theme-switch-track {
+  background: #8664f7;
+}
+.theme-toggle[aria-checked="true"] .theme-switch-track span {
+  transform: translateX(12px);
+}
+.menu-overlay {
+  background: var(--theme-canvas);
+}
+.menu-close-btn {
+  color: var(--theme-ink);
+}
+.menu-close-btn:hover {
+  color: var(--theme-canvas);
+}
+.menu-logo-img {
+  filter: brightness(0) invert(1);
+}
+.menu-overlay .nav-num,
+.menu-copyright {
+  color: var(--color-text-muted);
+}
+.fullscreen-nav-link.active .nav-label {
+  color: var(--primary-purple);
+}
+.btn-menu-consultation {
+  background: var(--theme-ink);
+  color: var(--theme-inverse);
+}
+.modal-badge {
+  color: #b8a0ff;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  color: var(--theme-ink);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-subtle);
+}
+.submit-btn {
+  background: #6843c4;
+  color: #fff;
+}
+.submit-btn:hover {
+  background: #5934b4;
+}
+.service-badge,
+.program-year-badge {
+  color: #fff;
+}
+.service-card:is(:hover, .active) .service-title {
+  color: #fff;
+}
+.service-card:is(:hover, .active) .service-description {
+  color: #fff;
+}
+.project-year {
+  color: #082619;
+  background: #66e299;
+}
+.next-project-nav {
+  border-color: var(--color-border-default);
+}
+.next-project-nav a,
+.form-note a {
+  color: #b8a0ff;
+}
+:root[data-theme="light"]
+  :is(
+    .logo-img,
+    .about-brand-logo,
+    .footer-logo-img,
+    .menu-logo-img,
+    .menu-icon-img
+  ) {
+  filter: brightness(0);
+}
+:root[data-theme="light"] .hero-title {
+  filter: none;
+}
+:root[data-theme="light"] .hero-title .purple-highlight {
+  background: none;
+  color: #6843c4;
+  -webkit-text-fill-color: currentColor;
+}
+:root[data-theme="light"] .hero-title .green-highlight {
+  background: none;
+  color: #087848;
+  -webkit-text-fill-color: currentColor;
+}
+:root[data-theme="light"]
+  :is(
+    .modal-badge,
+    .next-project-nav a,
+    .form-note a,
+    .article-category,
+    .article-card:hover .article-title
+  ) {
+  color: #6843c4;
+}
+:root[data-theme="light"]
+  :is(.btn-menu-consultation .btn-arrow-img, .btn-view-all .btn-arrow-img) {
+  filter: brightness(0) invert(1);
+}
+:root[data-theme="light"] .service-card {
+  border-color: var(--color-border-subtle);
+}
+:root[data-theme="light"] .service-card:is(:hover, .active) .service-badge {
+  background: #fff !important;
+  color: #0a0a0a !important;
+}
+:root[data-theme="light"] .menu-overlay::before {
+  opacity: 0.25;
+}
+:root[data-theme="light"] .menu-overlay::after {
+  opacity: 0.1;
+}
+@media (max-width: 480px) {
+  .menu-actions {
+    gap: 8px;
+  }
+  .theme-toggle {
+    gap: 7px;
+    padding: 8px 10px;
+  }
+}
+
+/* Light-mode rulers and section separators. */
+
+:root[data-theme="light"]
+  :is(.hero-stripe-right, .about-stripe-right, .articles-stripe-right)
+  .stripe-svg {
+  content: url("/rulers/hero-right-light.svg");
+}
+:root[data-theme="light"]
+  :is(.hero-stripe-left, .about-stripe-left, .articles-stripe-left)
+  .stripe-svg {
+  content: url("/rulers/hero-left-light.svg");
+}
+:root[data-theme="light"] :is(.services-stripe-right) .stripe-svg {
+  content: url("/rulers/services-right-light.svg");
+}
+:root[data-theme="light"] :is(.services-stripe-left) .stripe-svg {
+  content: url("/rulers/services-left-light.svg");
+}
+:root[data-theme="light"]
+  :is(
+    .site-header,
+    .hero-section,
+    .programs-section,
+    .services-section,
+    .about-section,
+    .testimonials-section,
+    .articles-section,
+    .site-footer
+  ) {
+  border-color: #dcdfe4 !important;
+}
+
+.menu-overlay::before,
+.menu-overlay::after {
+  display: none;
+}
+.menu-overlay .fullscreen-nav-link {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+.menu-overlay .fullscreen-nav-link .nav-num {
+  font-size: 0.8rem;
+}
+@media (max-width: 640px) {
+  .menu-overlay .fullscreen-nav-link {
+    font-size: 1.5rem;
+  }
+}
+
+/* Flat light theme, including hover states and decorative pseudo-elements. */
+:root[data-theme="light"] body *,
+:root[data-theme="light"] body *::before,
+:root[data-theme="light"] body *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+:root[data-theme="light"]
+  :is(
+    .hero-title,
+    .hero-sticker,
+    .sticker-img,
+    .service-mockup-img,
+    .article-sticker-sayless,
+    .sayless-img
+  ) {
+  filter: none !important;
+}
+:root[data-theme="light"] :is(.logo-img, .menu-icon-img) {
+  filter: brightness(0) !important;
+}
