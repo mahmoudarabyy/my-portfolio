@@ -215,7 +215,7 @@ export const projectSchema = defineType({
       group: "images",
       options: { accept: "video/mp4,video/webm" },
       description:
-        "ارفع MP4 أو WebM ليظهر بدل صورة الغلاف. يُشغّله الزائر بزر التشغيل، وبنسبة أبعاده الأصلية. يُفضّل MP4 بترميز H.264 للتوافق مع المتصفحات.",
+        "ارفع MP4 أو WebM ليظهر بدل صورة الغلاف. يعمل تلقائيًا ويتكرر بدون صوت، وبنسبة أبعاده الأصلية، مع أزرار للتحكم. يُفضّل MP4 بترميز H.264 للتوافق مع المتصفحات.",
     }),
     imageField(
       "aboutImg",

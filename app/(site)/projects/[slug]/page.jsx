@@ -144,6 +144,9 @@ export default async function ProjectPage({ params }) {
             src={project.coverVideo}
             poster={project.coverImage}
             controls
+            autoPlay
+            muted
+            loop
             playsInline
             preload="metadata"
             aria-label={`${project.mainTitle} — فيديو غلاف المشروع`}
