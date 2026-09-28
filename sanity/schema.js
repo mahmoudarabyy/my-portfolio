@@ -159,6 +159,7 @@ export const projectSchema = defineType({
       readOnly: true,
     },
     textField("requirements", "متطلبات التجربة"),
+    textField("requirementsExtra", "متطلبات التجربة — نص اقرأ المزيد (اختياري)"),
     textField("workingModel", "طريقة العمل"),
     {
       ...textField("productTitle", "عنوان قسم المنتج"),
@@ -248,6 +249,12 @@ export const projectSchema = defineType({
       "تظهر بعد نص كيف تعاملت مع المشروع وقبل متطلبات التجربة.",
     ),
     ...imageField("problemImg", "الصورة بعد التحدي"),
+    ...imageField(
+      "requirementsImg",
+      "الصورة تحت ما الذي احتاجته التجربة؟",
+      false,
+      "تظهر بعد نص متطلبات التجربة وقبل طريقة العمل وخارطة الطريق. عند تركها فارغة تظهر صورة عن المشروع أو الغلاف بدلًا منها. أضف نص متطلبات التجربة لإظهار القسم.",
+    ),
     ...imageField(
       "researchSecondImg",
       "الصورة الثانية للحل",

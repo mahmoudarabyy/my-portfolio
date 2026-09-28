@@ -231,12 +231,22 @@ export default async function ProjectPage({ params }) {
               title={`${project.mainTitle} — تفاصيل الحل`}
             />
           </div>
-          {study.requirements && (
-            <div className="study-prose study-text-block">
-              <h2>ما الذي احتاجته التجربة؟</h2>
-              <p>{study.requirements}</p>
-            </div>
-          )}
+        </Editorial>
+        {(study.requirements || project.requirementsExtra) && (
+          <>
+            <Editorial title="ما الذي احتاجته التجربة؟" id="requirements">
+              <div className="study-prose">
+                {study.requirements && <p>{study.requirements}</p>}
+                <ReadMore text={project.requirementsExtra} />
+              </div>
+            </Editorial>
+            <Media
+              src={project.requirementsImg || project.aboutImg || project.coverImage}
+              title={`${project.mainTitle} — متطلبات التجربة`}
+            />
+          </>
+        )}
+        <Editorial id="process">
           {study.workingModel && (
             <div className="study-prose study-text-block">
               <h2>طريقة العمل</h2>
