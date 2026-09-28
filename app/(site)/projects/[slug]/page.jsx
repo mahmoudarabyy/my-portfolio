@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getProject,
@@ -271,27 +270,8 @@ export default async function ProjectPage({ params }) {
         </Editorial>
         <Media
           src={project.solutionImg || study.images.at(-1)}
-          title={`${project.mainTitle} — الحل المقترح`}
+          title={`${project.mainTitle} — بعد خارطة الطريق`}
         />
-        <CaseGallery images={study.images} title={project.mainTitle} />
-
-        <section className="study-callout">
-          <div>
-            <h2>عندك مشروع مشابه؟</h2>
-            <p>خلّينا نتكلم عن فكرتك في استشارة مجانية.</p>
-          </div>
-          <ConsultationButton />
-        </section>
-
-        <div className="study-mosaic study-gallery-paired">
-          {study.images.map((src, index) => (
-            <Media
-              key={`${src}-${index}`}
-              src={src}
-              title={`${project.mainTitle} — واجهة ${index + 1}`}
-            />
-          ))}
-        </div>
 
         <Editorial label="نتيجة المشروع" title={study.resultTitle} id="result">
           <div className="study-prose">
@@ -299,8 +279,8 @@ export default async function ProjectPage({ params }) {
           </div>
         </Editorial>
         <Media
-          src={project.solutionImg || project.coverImage}
-          title={`${project.mainTitle} — التصميم النهائي`}
+          src={project.resultImg || project.coverImage}
+          title={`${project.mainTitle} — نتيجة المشروع`}
         />
         {study.awards.length > 0 && (
           <Editorial label="الجوائز والتقدير" title="تقدير العمل">
@@ -333,6 +313,11 @@ export default async function ProjectPage({ params }) {
           </div>
         </section>
 
+        <section className="study-all-screens" aria-labelledby="all-screens-heading">
+          <h2 id="all-screens-heading">اكتشف جميع الشاشات</h2>
+          <CaseGallery images={study.images} title={project.mainTitle} />
+        </section>
+
         {related.length > 0 && (
           <section className="study-related">
             <h2>مشاريع أخرى</h2>
@@ -343,13 +328,6 @@ export default async function ProjectPage({ params }) {
             </div>
           </section>
         )}
-        <nav className="study-breadcrumbs" aria-label="مسار التنقل">
-          <Link href="/">الرئيسية</Link>
-          <span>/</span>
-          <Link href="/projects">المشاريع</Link>
-          <span>/</span>
-          <span aria-current="page">{project.mainTitle}</span>
-        </nav>
       </div>
     </main>
   );

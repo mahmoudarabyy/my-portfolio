@@ -458,6 +458,9 @@
 .project-study .study-related {
   padding-block: 72px;
 }
+.project-study .study-all-screens {
+  padding-top: clamp(40px, 6vw, 72px);
+}
 .project-study .study-related > h2 {
   margin-bottom: 40px;
 }
