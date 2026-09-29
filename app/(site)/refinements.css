@@ -838,3 +838,95 @@ a.btn-menu-consultation:hover {
 }
 
 @media (prefers-reduced-motion: reduce) { .faq-mascot-image { animation: none; } }
+
+/* Rounded cards and the updated about section. */
+.program-card .program-preview-wrapper,
+.program-card .project-card-image,
+.articles-grid .article-card .article-cover-wrap,
+.article-card .article-cover-img,
+#services .service-card { border-radius: 20px !important; }
+.program-card .program-preview-wrapper { overflow: hidden; }
+#about .about-visual-column { display: flex; flex-direction: column; }
+#about .about-section-heading { font-size: clamp(26px, 3vw, 36px); font-weight: 700; line-height: 1.5; padding-block: 28px 20px; margin: 0; font-feature-settings: "swsh" 1, "salt" 1; }
+#about .about-portrait-card { flex: 1; width: 100%; }
+.voices-preview-note { display: block; color: var(--color-text-subtle); font-size: 12px; margin-top: 12px; }
+.voices-pagination { display: flex; justify-content: center; gap: 2px; margin-top: 32px; }
+.voices-pagination button { display: grid; place-items: center; width: 32px; height: 32px; background: transparent; border: 0; cursor: pointer; }
+.voices-pagination button span { width: 8px; height: 8px; border-radius: 50%; background: var(--theme-ink); opacity: .25; transition: opacity .2s, transform .2s; }
+.voices-pagination button[aria-pressed="true"] span { opacity: 1; transform: scale(1.15); }
+.voices-pagination button:focus-visible { outline: 2px solid #5f3cbf; outline-offset: 2px; border-radius: 50%; }
+#services .services-grid[data-highlight="1"] .service-card:nth-child(1),
+#services .services-grid[data-highlight="2"] .service-card:nth-child(2),
+#services .services-grid[data-highlight="3"] .service-card:nth-child(3),
+#services .services-grid[data-highlight="4"] .service-card:nth-child(4) { background-color: #5f3cbf !important; box-shadow: none !important; }
+#services .services-grid[data-highlight="1"] .service-card:nth-child(1) :is(.service-title, .service-description),
+#services .services-grid[data-highlight="2"] .service-card:nth-child(2) :is(.service-title, .service-description),
+#services .services-grid[data-highlight="3"] .service-card:nth-child(3) :is(.service-title, .service-description),
+#services .services-grid[data-highlight="4"] .service-card:nth-child(4) :is(.service-title, .service-description) { color: #fff !important; }
+#services .service-card:hover, #services .service-card.active { background-color: #5f3cbf !important; }
+@media (max-width: 768px) {
+  #about .btn-about-cv { width: fit-content !important; min-width: 150px; height: 44px !important; padding: 10px 18px !important; font-size: 14px !important; gap: 12px !important; }
+  #about .about-cv-wrapper { display: flex; justify-content: flex-start; }
+  #about .about-section-heading { padding: 24px 20px 16px; }
+  .faq-layout > .faq-list { margin-top: 32px; }
+}
+
+#about .about-visual-column { justify-content: center; padding-bottom: 32px; }
+.about-social-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; width: 100%; padding-bottom: 16px; }
+.about-social-grid .portrait-social, .about-social-portrait { width: 100%; height: auto; aspect-ratio: 1; min-width: 0; border-radius: 20px; overflow: hidden; }
+.about-social-grid .portrait-social { flex-direction: column; gap: 16px; transition: transform 250ms ease, background-color 250ms ease; }
+.about-social-grid .portrait-social-logo { width: clamp(30px, 3.5vw, 48px); height: clamp(30px, 3.5vw, 48px); }
+.about-social-name { font-size: 14px; font-weight: 500; }
+.about-social-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.about-social-grid .portrait-social:hover { transform: translateY(-4px); background: #6c46d1; }
+.about-social-grid .portrait-social:focus-visible { outline: 2px solid var(--theme-ink); outline-offset: 4px; }
+@media (max-width: 768px) {
+  #about .about-social-grid { padding-inline: 20px; gap: 10px; }
+  .about-social-grid .portrait-social, .about-social-portrait { border-radius: 16px; }
+  .about-social-grid .portrait-social { gap: 10px; }
+  .about-social-name { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .about-social-grid .portrait-social { transition: none; } .about-social-grid .portrait-social:hover { transform: none; } }
+
+#services .service-card,
+.articles-grid .article-card .article-cover-wrap,
+.article-card .article-cover-img { border-radius: 0 !important; }
+
+#about .about-heading-wrap { max-width: min(1400px, calc(100vw - 32px)); margin-inline: auto; padding: 48px clamp(2.5rem, 5vw, 6rem) 24px; }
+#about .about-heading-wrap .about-section-heading { padding: 0; }
+#about .about-container { padding-inline-end: clamp(2.5rem, 5vw, 6rem); padding-bottom: 48px; }
+#about .about-content-column { padding-block: 0; }
+#about .about-visual-column { padding-block: 16px; flex: 0 1 44%; min-width: 0; }
+#about .about-social-grid { padding-bottom: 0; }
+@media (max-width: 1024px) {
+  #about .about-heading-wrap { max-width: 100%; padding: 36px 24px 28px; }
+  #about .about-visual-column { padding: 12px 24px 24px !important; }
+  #about .about-social-grid { padding: 0; }
+}
+
+/* Consistent section heading size, scaled down for mobile. */
+.programs-title,
+.services-title,
+.articles-title,
+#about .about-section-heading,
+.feedback-heading h2,
+.client-voices-heading h2 { font-size: 48px !important; }
+@media (max-width: 768px) {
+  .programs-title,
+  .services-title,
+  .articles-title,
+  #about .about-section-heading,
+  .feedback-heading h2,
+  .client-voices-heading h2 { font-size: 32px !important; }
+}
+
+#about.about-section { padding-top: 48px !important; }
+@media (max-width: 768px) { #about.about-section { padding-top: 32px !important; } }
+
+/* Reserve identical review slots so pagination never shifts the section. */
+.client-voice { display: grid; grid-template-rows: 18px 5.4em 50px; align-content: start; justify-items: center; gap: 24px; font-size: clamp(18px, 1.6vw, 22px); }
+.client-voice-stars { height: 18px; margin: 0; }
+.client-voice blockquote { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; width: 100%; height: 5.4em; min-height: 5.4em; margin: 0; font-size: inherit; line-height: 1.8; flex: none; }
+.client-voice figcaption { width: 100%; height: 50px; overflow: hidden; }
+.client-voice figcaption strong { line-height: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.client-voice figcaption span { line-height: 21px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

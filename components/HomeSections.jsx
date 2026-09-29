@@ -7,7 +7,7 @@ import ClientTestimonials from "./client-testimonials";
 import Reveal from "./reveal";
 import SiteImage from "./site-image";
 import PortraitSocials from "./portrait-socials";
-import { ServiceCard } from "./interactions";
+import { ServiceCard, ServicesGrid } from "./interactions";
 export default async function HomeSections() {
   const [allArticles, homeContent] = await Promise.all([
     getArticles(),
@@ -93,14 +93,7 @@ export default async function HomeSections() {
             </div>
           </div>
           <div className="about-visual-column">
-            <div className="about-portrait-card">
-              <SiteImage
-                src="/من انا/Container.png"
-                alt="محمود عربي - UX/UI Designer"
-                className="about-portrait-img"
-              />
-              <PortraitSocials />
-            </div>
+            <PortraitSocials />
           </div>
         </div>
       </Reveal>
@@ -130,7 +123,7 @@ export default async function HomeSections() {
               }
             </p>
           </div>
-          <div className="services-grid">
+          <ServicesGrid>
             <ServiceCard className="service-card" data-service="1">
               <div className="service-badge">{"01"}</div>
               <div className="service-mockup-wrap">
@@ -203,7 +196,7 @@ export default async function HomeSections() {
                 </p>
               </div>
             </ServiceCard>
-          </div>
+          </ServicesGrid>
         </div>
       </Reveal>
       <ClientTestimonials testimonials={homeContent.testimonials} />

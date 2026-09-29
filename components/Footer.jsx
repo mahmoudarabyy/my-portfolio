@@ -22,7 +22,9 @@ export default async function Footer() {
                 aria-label="محمود عربي"
               >
                 <SiteImage
-                  src="/Logo.png"
+                  src="/araby-logo.png"
+                  width={153}
+                  height={57}
                   alt="عربي"
                   className="footer-logo-img"
                 />

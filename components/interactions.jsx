@@ -52,7 +52,9 @@ function Header() {
           <div className="portfolio-header-logo">
             <Link href="/" className="logo-link" aria-label="الرئيسية">
               <SiteImage
-                src="/Logo.png"
+                src="/araby-logo.png"
+                width={153}
+                height={57}
                 alt="عربي"
                 className="logo-img"
                 sizes="80px"
@@ -61,11 +63,24 @@ function Header() {
           </div>
           <nav className="portfolio-header-nav" aria-label="التنقل الرئيسي">
             {navItems.slice(1, 5).map(([href, label]) => (
-              <Link key={href} href={href} aria-current={href === pathname ? "page" : undefined}>{label}</Link>
+              <Link
+                key={href}
+                href={href}
+                aria-current={href === pathname ? "page" : undefined}
+              >
+                {label}
+              </Link>
             ))}
           </nav>
           <div className="portfolio-header-actions">
-            <a href={whatsappUrl} className="btn-consultation" target="_blank" rel="noopener noreferrer">تواصل معي</a>
+            <a
+              href={whatsappUrl}
+              className="btn-consultation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              تواصل معي
+            </a>
             <ThemeToggle compact />
             <button
               type="button"
@@ -328,7 +343,9 @@ export function InterfaceProvider({ children }) {
                   <div className="menu-top-bar">
                     <Link href="/" className="menu-logo-link" onClick={close}>
                       <SiteImage
-                        src="/Logo.png"
+                        src="/araby-logo.png"
+                        width={153}
+                        height={57}
                         alt="محمود عربي"
                         className="menu-logo-img"
                         sizes="80px"
@@ -370,7 +387,13 @@ export function InterfaceProvider({ children }) {
                     </ul>
                   </nav>
                   <div className="menu-cta-section">
-                    <a href={whatsappUrl} className="btn-menu-consultation" target="_blank" rel="noopener noreferrer" onClick={close}>
+                    <a
+                      href={whatsappUrl}
+                      className="btn-menu-consultation"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={close}
+                    >
                       تواصل معي
                       <SiteImage
                         src="/arrow big.svg"
@@ -447,6 +470,36 @@ export function InterfaceProvider({ children }) {
         </aside>
       </div>
     </InterfaceContext.Provider>
+  );
+}
+
+export function ServicesGrid({ children }) {
+  const [highlight, setHighlight] = useState(0);
+  useEffect(() => {
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let timer;
+    const update = () => {
+      clearInterval(timer);
+      if (motion.matches) {
+        setHighlight(0);
+        return;
+      }
+      setHighlight(1);
+      timer = setInterval(() => {
+        if (!document.hidden) setHighlight((value) => (value % 4) + 1);
+      }, 900);
+    };
+    update();
+    motion.addEventListener("change", update);
+    return () => {
+      clearInterval(timer);
+      motion.removeEventListener("change", update);
+    };
+  }, []);
+  return (
+    <div className="services-grid" data-highlight={highlight}>
+      {children}
+    </div>
   );
 }
 
