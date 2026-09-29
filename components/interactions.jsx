@@ -500,22 +500,8 @@ export function ServicesGrid({ children }) {
 }
 
 export function ServiceCard({ children, className, ...props }) {
-  const [active, setActive] = useState(false);
   return (
-    <article
-      {...props}
-      className={`${className} ${active ? "active" : ""}`}
-      tabIndex={0}
-      role="button"
-      aria-pressed={active}
-      onClick={() => setActive((value) => !value)}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          setActive((value) => !value);
-        }
-      }}
-    >
+    <article {...props} className={className}>
       {children}
     </article>
   );
