@@ -25,12 +25,7 @@ export default function ClientTestimonials({ testimonials }) {
       <div className="feedback-container">
         <header className="client-voices-heading">
           <p>آراء عملائي</p>
-          <h2>ماذا قالوا عن تجربتهم؟</h2>
-          {testimonials.some((item) => item.sample) && (
-            <small className="voices-preview-note">
-              آراء توضيحية لمعاينة التصميم
-            </small>
-          )}
+          <h2>كلمات من القلب</h2>
         </header>
         <div
           className="client-voices-grid"

@@ -52,9 +52,7 @@ function Header() {
           <div className="portfolio-header-logo">
             <Link href="/" className="logo-link" aria-label="الرئيسية">
               <SiteImage
-                src="/araby-logo.png"
-                width={153}
-                height={57}
+                src="/Logo.png"
                 alt="عربي"
                 className="logo-img"
                 sizes="80px"
@@ -343,9 +341,7 @@ export function InterfaceProvider({ children }) {
                   <div className="menu-top-bar">
                     <Link href="/" className="menu-logo-link" onClick={close}>
                       <SiteImage
-                        src="/araby-logo.png"
-                        width={153}
-                        height={57}
+                        src="/Logo.png"
                         alt="محمود عربي"
                         className="menu-logo-img"
                         sizes="80px"

@@ -841,7 +841,7 @@ a.btn-menu-consultation:hover {
 
 /* Rounded cards and the updated about section. */
 .program-card .program-preview-wrapper,
-.program-card .project-card-image,
+.program-card .project-card-image { border-radius: 20px !important; }
 .articles-grid .article-card .article-cover-wrap,
 .article-card .article-cover-img,
 #services .service-card { border-radius: 20px !important; }
