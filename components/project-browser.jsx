@@ -5,12 +5,13 @@ import Reveal from "./reveal";
 import {
   projectCategories,
   filterProjects,
-  groupProjects,
 } from "../lib/project-data.mjs";
 
 export default function ProjectBrowser({ projects }) {
   const [category, setCategory] = useState("all");
-  const visibleProjects = filterProjects(projects, category);
+  const [limit, setLimit] = useState(9);
+  const filteredProjects = filterProjects(projects, category);
+  const visibleProjects = filteredProjects.slice(0, limit);
   return (
     <>
       <Reveal as="section" className="projects-hero-section">
@@ -31,7 +32,10 @@ export default function ProjectBrowser({ projects }) {
                 type="button"
                 className={`filter-btn ${category === item.id ? "active" : ""}`}
                 aria-pressed={category === item.id}
-                onClick={() => setCategory(item.id)}
+                onClick={() => {
+                  setCategory(item.id);
+                  setLimit(9);
+                }}
               >
                 {item.label}
               </button>
@@ -43,16 +47,16 @@ export default function ProjectBrowser({ projects }) {
         </p>
       </Reveal>
       <div className="all-projects-wrapper" id="projectsContainer">
-        {groupProjects(visibleProjects).map((row, index) => (
-          <div
-            key={row.map((p) => p.id).join("-")}
-            className={`projects-row projects-row-${index % 2 ? "inverted" : "standard"} ${row.length < 3 ? "projects-row-partial" : ""}`}
-          >
-            {row.map((project, slot) => (
-              <ProjectCard key={project.id} project={project} slot={slot + 1} />
-            ))}
-          </div>
-        ))}
+        <div className="all-projects-grid" id="all-projects-grid">
+          {visibleProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} slot={(index % 3) + 1} />
+          ))}
+        </div>
+        {visibleProjects.length < filteredProjects.length && (
+          <button className="projects-load-more" type="button" aria-controls="all-projects-grid" onClick={() => setLimit((value) => value + 9)}>
+            عرض المزيد
+          </button>
+        )}
         {!visibleProjects.length && (
           <p className="empty-state">
             لا توجد مشاريع منشورة في هذا التصنيف حاليًا.

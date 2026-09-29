@@ -1,8 +1,12 @@
 import Link from "next/link";
+import ArticleCard from "./article-card";
+import { getArticles } from "../lib/articles";
 import Reveal from "./reveal";
 import SiteImage from "./site-image";
+import PortraitSocials from "./portrait-socials";
 import { ServiceCard } from "./interactions";
-export default function HomeSections() {
+export default async function HomeSections() {
+  const articles = (await getArticles()).slice(0, 3);
   return (
     <>
       <Reveal as="section" className="about-section" id="about">
@@ -24,13 +28,6 @@ export default function HomeSections() {
         </div>
         <div className="about-container">
           <div className="about-content-column">
-            <div className="about-logo-wrapper">
-              <SiteImage
-                src="/Logo.png"
-                alt="عربي"
-                className="about-brand-logo"
-              />
-            </div>
             <div className="about-statement-text">
               <p className="about-statement-lead">
                 {
@@ -95,6 +92,7 @@ export default function HomeSections() {
                 alt="محمود عربي - UX/UI Designer"
                 className="about-portrait-img"
               />
+              <PortraitSocials />
             </div>
           </div>
         </div>
@@ -221,6 +219,10 @@ export default function HomeSections() {
         <div className="articles-container">
           <div className="articles-header">
             <h2 className="articles-title">{"كتاباتي"}</h2>
+            <p className="articles-description">
+              أفكار وتجارب عن تصميم المنتجات الرقمية وتجربة المستخدم، من فهم
+              المشكلة إلى تفاصيل الواجهة.
+            </p>
             <div className="article-sticker-sayless" aria-hidden="true">
               <SiteImage
                 src="/كتباتي/say less.png"
@@ -230,65 +232,17 @@ export default function HomeSections() {
             </div>
           </div>
           <div className="articles-grid">
-            <article className="article-card">
-              <a href="#" className="article-card-link" aria-label="اسم المقال">
-                <div className="article-cover-wrap">
-                  <SiteImage
-                    src="/كتباتي/Link.png"
-                    alt="تصميم تجارب الأجهزة القابلة للارتداء"
-                    className="article-cover-img"
-                  />
-                </div>
-                <div className="article-body">
-                  <span className="article-category">{"تجربة المستخدم"}</span>
-                  <h3 className="article-heading">
-                    {"اسم المقاال هنااااااااااااااا"}
-                  </h3>
-                  <span className="article-date">{"2025 ,6 اكتوبر"}</span>
-                </div>
-              </a>
-            </article>
-            <article className="article-card">
-              <a href="#" className="article-card-link" aria-label="اسم المقال">
-                <div className="article-cover-wrap">
-                  <SiteImage
-                    src="/كتباتي/FCkTyHkAV9pj8bYHP0WRjHJhGP8.avif"
-                    alt="تبسيط رحلات المستخدم المعقدة"
-                    className="article-cover-img"
-                  />
-                </div>
-                <div className="article-body">
-                  <span className="article-category">{"تجربة المستخدم"}</span>
-                  <h3 className="article-heading">
-                    {"اسم المقاال هنااااااااااااااا"}
-                  </h3>
-                  <span className="article-date">{"2025 ,6 اكتوبر"}</span>
-                </div>
-              </a>
-            </article>
-            <article className="article-card card-last-article">
-              <a href="#" className="article-card-link" aria-label="اسم المقال">
-                <div className="article-cover-wrap">
-                  <SiteImage
-                    src="/كتباتي/Link-1.png"
-                    alt="التصميم العاطفي والارتباط بالمنتج"
-                    className="article-cover-img"
-                  />
-                </div>
-                <div className="article-body">
-                  <span className="article-category">{"تجربة المستخدم"}</span>
-                  <h3 className="article-heading">
-                    {"اسم المقاال هنااااااااااااااا"}
-                  </h3>
-                  <span className="article-date">{"2025 ,6 اكتوبر"}</span>
-                </div>
-              </a>
-              <div className="article-middle-btn-wrap">
-                <a href="#" className="btn-all-articles">
-                  <span>{"جميع كتاباتي"}</span>
-                </a>
-              </div>
-            </article>
+            {articles.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </div>
+          {!articles.length && (
+            <p className="writing-empty">كتابات جديدة قريبًا.</p>
+          )}
+          <div className="programs-footer">
+            <Link href="/articles" className="btn-view-all">
+              جميع كتاباتي
+            </Link>
           </div>
         </div>
       </Reveal>

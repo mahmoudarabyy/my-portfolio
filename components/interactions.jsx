@@ -46,13 +46,10 @@ function Header() {
   return (
     <div className="site-wrapper">
       <header
-        className={`site-header ${pathname.startsWith("/projects/") ? "case-site-header" : ""}`}
+        className={`site-header portfolio-header ${pathname.startsWith("/projects/") ? "case-site-header" : ""}`}
       >
         <div className="header-container">
-          <div className="header-right">
-            <ConsultationButton />
-          </div>
-          <div className="header-center">
+          <div className="portfolio-header-logo">
             <Link href="/" className="logo-link" aria-label="الرئيسية">
               <SiteImage
                 src="/Logo.png"
@@ -62,10 +59,17 @@ function Header() {
               />
             </Link>
           </div>
-          <div className="header-left">
+          <nav className="portfolio-header-nav" aria-label="التنقل الرئيسي">
+            {navItems.slice(1, 5).map(([href, label]) => (
+              <Link key={href} href={href} aria-current={href === pathname ? "page" : undefined}>{label}</Link>
+            ))}
+          </nav>
+          <div className="portfolio-header-actions">
+            <ConsultationButton />
+            <ThemeToggle compact />
             <button
               type="button"
-              className="menu-toggle-btn"
+              className="menu-toggle-btn portfolio-mobile-menu"
               aria-label="فتح القائمة الرئيسية"
               aria-haspopup="dialog"
               onClick={() => open("menu")}
