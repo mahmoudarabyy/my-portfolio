@@ -71,7 +71,7 @@ button:focus-visible,
 .next-project-nav {
   padding: 2rem;
   text-align: center;
-  border-top: 1px solid #333;
+  border-top: var(--site-border-width) solid var(--site-border-color);
 }
 .next-project-nav a {
   color: #b8a0ff;

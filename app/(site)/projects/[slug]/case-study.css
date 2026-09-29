@@ -61,7 +61,7 @@
   gap: 10px;
   min-height: 48px;
   padding: 12px 20px;
-  border: 1px solid transparent;
+  border: var(--site-border-width) solid transparent;
   border-radius: 999px;
   background: #ffffff;
   color: #0a0a0a;
@@ -78,7 +78,7 @@
 @media (hover: hover) and (pointer: fine) {
   .project-study .study-project-button:hover {
     transform: translateY(-3px);
-    border-color: currentColor;
+    border-color: var(--site-border-color);
   }
   .project-study .study-project-button:hover .study-store-icon {
     transform: rotate(-8deg) scale(1.1);
@@ -191,7 +191,7 @@
 }
 .project-study .study-overview {
   padding-block: 56px;
-  border-bottom: 1px solid var(--study-line);
+  border-bottom: var(--site-border-width) solid var(--site-border-color);
 }
 .project-study .study-overview-grid {
   display: grid;
@@ -210,11 +210,11 @@
   padding: 8px 12px;
   border-radius: 999px;
   background: var(--theme-surface);
-  border: 1px solid var(--study-line);
+  border: var(--site-border-width) solid var(--site-border-color);
   font-size: 0.875rem;
 }
 .project-study .study-awards {
-  border-bottom: 1px solid var(--study-line);
+  border-bottom: var(--site-border-width) solid var(--site-border-color);
 }
 .project-study .study-lead {
   margin-bottom: 44px;
@@ -236,7 +236,7 @@
   gap: 14px;
   width: fit-content;
   padding: 8px 0;
-  border-bottom: 1px solid var(--study-line);
+  border-bottom: var(--site-border-width) solid var(--site-border-color);
   font-size: 0.875rem;
   list-style: none;
 }
@@ -271,7 +271,7 @@
   gap: 1px;
   margin-top: 32px;
   background: var(--study-line);
-  border: 1px solid var(--study-line);
+  border: var(--site-border-width) solid var(--site-border-color);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -300,7 +300,7 @@
   justify-content: space-between;
   font-size: 0.8125rem;
   padding: 16px 0;
-  border-bottom: 1px solid var(--study-line);
+  border-bottom: var(--site-border-width) solid var(--site-border-color);
 }
 .project-study .study-index {
   padding-top: 32px;
@@ -311,7 +311,7 @@
   align-items: center;
   gap: 20px;
   padding: 18px 0;
-  border-bottom: 1px solid var(--study-line);
+  border-bottom: var(--site-border-width) solid var(--site-border-color);
   color: var(--theme-ink);
   text-decoration: none;
   font-size: 1.0625rem;
@@ -363,7 +363,7 @@
   place-items: center;
   background: var(--theme-surface);
   color: var(--theme-ink);
-  border: 1px solid var(--study-line);
+  border: var(--site-border-width) solid var(--site-border-color);
   border-radius: 50%;
   font-size: 1.2rem;
   cursor: pointer;
@@ -402,7 +402,7 @@
   gap: 32px;
   padding: 48px;
   margin-block: 64px;
-  border: 1px solid var(--study-line);
+  border: var(--site-border-width) solid var(--site-border-color);
   border-radius: 14px;
 }
 .project-study .study-callout h2 {
@@ -418,7 +418,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   padding-block: 112px;
-  border-bottom: 1px solid var(--study-line);
+  border-bottom: var(--site-border-width) solid var(--site-border-color);
 }
 .project-study .study-contact h2 {
   font-size: clamp(2rem, 3.5vw, 2.75rem);
@@ -439,7 +439,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 24px;
-  border: 1px solid var(--study-line);
+  border: var(--site-border-width) solid var(--site-border-color);
   border-radius: 12px;
   font: inherit;
   font-size: 1.125rem;

@@ -15,7 +15,6 @@ export default function ArticleCard({ article }) {
         </div>
         <div className="article-body">
           <span className="article-category">{article.category}</span>
-          {article.sample && <span className="article-category"> · محتوى تجريبي</span>}
           <h3 className="article-heading">{article.title}</h3>
           <time className="article-date" dateTime={article.date}>
             {articleDate(article.date)}

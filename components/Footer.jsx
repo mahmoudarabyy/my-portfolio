@@ -1,6 +1,7 @@
 import { getProjects } from "../lib/projects";
 import Link from "next/link";
 import SiteImage from "./site-image";
+import { whatsappUrl } from "../lib/site";
 
 export default async function Footer() {
   let projects = [];
@@ -116,7 +117,7 @@ export default async function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://wa.me/201000000000"
+                    href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-contact-link"

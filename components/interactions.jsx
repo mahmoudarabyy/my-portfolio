@@ -12,7 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SiteImage from "./site-image";
 import ThemeToggle from "./theme-toggle";
-import { contactEmail } from "../lib/site";
+import { contactEmail, whatsappUrl } from "../lib/site";
 
 const InterfaceContext = createContext(null);
 const navItems = [
@@ -65,7 +65,7 @@ function Header() {
             ))}
           </nav>
           <div className="portfolio-header-actions">
-            <ConsultationButton />
+            <a href={whatsappUrl} className="btn-consultation" target="_blank" rel="noopener noreferrer">تواصل معي</a>
             <ThemeToggle compact />
             <button
               type="button"
@@ -370,15 +370,15 @@ export function InterfaceProvider({ children }) {
                     </ul>
                   </nav>
                   <div className="menu-cta-section">
-                    <ConsultationButton className="btn-menu-consultation">
-                      اطلب استشارة مجانية
+                    <a href={whatsappUrl} className="btn-menu-consultation" target="_blank" rel="noopener noreferrer" onClick={close}>
+                      تواصل معي
                       <SiteImage
                         src="/arrow big.svg"
                         alt=""
                         className="btn-arrow-img"
                         sizes="22px"
                       />
-                    </ConsultationButton>
+                    </a>
                   </div>
                   <div className="menu-bottom-bar">
                     <div className="menu-social-links">

@@ -1,12 +1,19 @@
 import Link from "next/link";
 import ArticleCard from "./article-card";
 import { getArticles } from "../lib/articles";
+import { getHomeContent } from "../lib/home-content";
+import HomeFeedback from "./home-feedback";
+import ClientTestimonials from "./client-testimonials";
 import Reveal from "./reveal";
 import SiteImage from "./site-image";
 import PortraitSocials from "./portrait-socials";
 import { ServiceCard } from "./interactions";
 export default async function HomeSections() {
-  const articles = (await getArticles()).slice(0, 3);
+  const [allArticles, homeContent] = await Promise.all([
+    getArticles(),
+    getHomeContent(),
+  ]);
+  const articles = allArticles.slice(0, 3);
   return (
     <>
       <Reveal as="section" className="about-section" id="about">
@@ -199,6 +206,8 @@ export default async function HomeSections() {
           </div>
         </div>
       </Reveal>
+      <ClientTestimonials testimonials={homeContent.testimonials} />
+      <HomeFeedback {...homeContent} />
       <Reveal as="section" className="articles-section" id="articles">
         <div className="articles-frame-container" aria-hidden="true">
           <div className="articles-stripe articles-stripe-right">
@@ -223,13 +232,6 @@ export default async function HomeSections() {
               أفكار وتجارب عن تصميم المنتجات الرقمية وتجربة المستخدم، من فهم
               المشكلة إلى تفاصيل الواجهة.
             </p>
-            <div className="article-sticker-sayless" aria-hidden="true">
-              <SiteImage
-                src="/كتباتي/say less.png"
-                alt="Say less"
-                className="sayless-img"
-              />
-            </div>
           </div>
           <div className="articles-grid">
             {articles.map((article) => (
