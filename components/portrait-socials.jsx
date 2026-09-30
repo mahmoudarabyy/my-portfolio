@@ -12,7 +12,7 @@ export default function PortraitSocials() {
   return (
     <div className="about-social-grid" role="group" aria-label="صورتي وحساباتي على السوشيال ميديا" dir="rtl">
       <div className="about-social-portrait">
-        <SiteImage src="/من انا/Container.png" alt="محمود عربي" className="about-social-photo" sizes="(max-width: 768px) 30vw, 180px" />
+        <SiteImage src="/about-ui-designer.png" alt="محمود عربي" width={611} height={611} className="about-social-photo" sizes="(max-width: 768px) 30vw, 180px" />
       </div>
       {socials.map(({ name, icon, href }) => {
         const logo = <span className="portrait-social-logo" style={{ "--social-icon": `url('/social-icons/${icon}.svg')` }} aria-hidden="true" />;
