@@ -131,12 +131,6 @@
 .program-year-badge {
   color: #fff;
 }
-.service-card:is(:hover, .active) .service-title {
-  color: #fff;
-}
-.service-card:is(:hover, .active) .service-description {
-  color: #fff;
-}
 .project-year {
   color: #082619;
   background: #66e299;
@@ -187,10 +181,6 @@
 }
 :root[data-theme="light"] .service-card {
   border-color: var(--site-border-color);
-}
-:root[data-theme="light"] .service-card:is(:hover, .active) .service-badge {
-  background: #fff !important;
-  color: #0a0a0a !important;
 }
 :root[data-theme="light"] .menu-overlay::before {
   opacity: 0.25;

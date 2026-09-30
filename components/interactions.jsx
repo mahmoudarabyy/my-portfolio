@@ -348,7 +348,6 @@ export function InterfaceProvider({ children }) {
                       />
                     </Link>
                     <div className="menu-actions">
-                      <ThemeToggle />
                       <button
                         type="button"
                         className="menu-close-btn"

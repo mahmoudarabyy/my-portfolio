@@ -14,7 +14,6 @@ import ProjectIcon from "../../../../components/project-icon";
 import ProjectLinks from "../../../../components/project-links";
 import ProjectCard from "../../../../components/project-card";
 import Reveal from "../../../../components/reveal";
-import { ConsultationButton } from "../../../../components/interactions";
 
 export const revalidate = 60;
 export async function generateStaticParams() {
@@ -310,9 +309,14 @@ export default async function ProjectPage({ params }) {
             <p>اختار الطريقة المناسبة وشاركني تفاصيل فكرتك.</p>
           </div>
           <div className="study-contact-options">
-            <ConsultationButton className="study-contact-button">
-              اطلب استشارة <span className="study-arrow-icon" aria-hidden="true" />
-            </ConsultationButton>
+            <a
+              href="https://cal.com/araby.ux/intro"
+              className="study-contact-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              حجز استشارة <span className="study-arrow-icon" aria-hidden="true" />
+            </a>
             <a href={`mailto:${contactEmail}`}>
               تواصل عبر البريد <span className="study-arrow-icon" aria-hidden="true" />
             </a>
