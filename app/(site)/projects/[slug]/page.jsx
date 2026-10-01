@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import DetailClose from "../../../../components/detail-close";
 import {
   getProject,
   getProjects,
@@ -110,6 +111,7 @@ export default async function ProjectPage({ params }) {
   ];
   return (
     <main id="main-content" className="project-study">
+      <DetailClose href="/projects" label="إغلاق المشروع والعودة إلى جميع المشاريع" />
       <header className="study-hero study-shell">
         <Reveal className="study-heading">
           <ProjectIcon project={project} large />

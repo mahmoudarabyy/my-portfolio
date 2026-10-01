@@ -128,6 +128,9 @@ a.btn-menu-consultation:hover {
 :root:not([data-theme="light"]) :is(#about, #articles) {
   background-color: #0a0a0a !important;
 }
+:root[data-theme="light"] :is(#about, #articles, .client-voices) {
+  background-color: var(--theme-canvas) !important;
+}
 #about.about-section {
   padding-block: 0 !important;
 }
@@ -932,3 +935,29 @@ a.btn-menu-consultation:hover {
 .client-voice figcaption span { line-height: 21px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 #services .service-card { cursor: default; }
+
+/* Persistent exit control for project and article detail pages. */
+.detail-close {
+  position: fixed;
+  top: calc(var(--header-offset, 80px) + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 89;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: var(--site-border-width) solid var(--site-border-color);
+  background: var(--theme-surface);
+  color: var(--theme-ink);
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 35%);
+}
+:root[data-theme="light"] body .detail-close {
+  box-shadow: 0 4px 20px rgb(0 0 0 / 18%) !important;
+}
+.detail-close:focus-visible {
+  outline: 2px solid var(--theme-ink);
+  outline-offset: 4px;
+}

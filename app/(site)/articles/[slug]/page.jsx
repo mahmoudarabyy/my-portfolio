@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import DetailClose from "../../../../components/detail-close";
 import Link from "next/link";
 import SiteImage from "../../../../components/site-image";
 import { getArticles, articleDate } from "../../../../lib/articles";
@@ -14,6 +15,7 @@ export default async function ArticlePage({ params }) {
   const article = (await getArticles()).find(a => a.id === slug);
   if (!article) notFound();
   return <main id="main-content" className="writing-shell">
+    <DetailClose href="/articles" label="إغلاق المقال والعودة إلى جميع كتاباتي" />
     <article>
       <header className="writing-header">
         {article.sample && <p>محتوى تجريبي لمعاينة التصميم</p>}

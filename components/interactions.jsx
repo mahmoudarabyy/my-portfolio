@@ -21,6 +21,7 @@ const navItems = [
   ["/#about", "عن محمود"],
   ["/#services", "الخدمات"],
   ["/#articles", "كتاباتي"],
+  ["/resume", "سيرتي الذاتية"],
   ["/#contact", "تواصل معي"],
 ];
 
@@ -60,7 +61,7 @@ function Header() {
             </Link>
           </div>
           <nav className="portfolio-header-nav" aria-label="التنقل الرئيسي">
-            {navItems.slice(1, 5).map(([href, label]) => (
+            {navItems.slice(1, 6).map(([href, label]) => (
               <Link
                 key={href}
                 href={href}

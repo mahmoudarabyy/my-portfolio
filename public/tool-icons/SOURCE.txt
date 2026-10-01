@@ -1,0 +1,4 @@
+SVG Logos via Iconify, @iconify-json/logos 1.2.12
+https://icon-sets.iconify.design/logos/
+License: CC0-1.0
+Brand marks belong to their respective owners.

@@ -9,6 +9,7 @@ export default async function sitemap() {
     "/",
     "/projects",
     "/articles",
+    "/resume",
     ...articles.map((article) => `/articles/${article.id}`),
     ...projects.map((project) => `/projects/${project.id}`),
   ].map((path) => ({

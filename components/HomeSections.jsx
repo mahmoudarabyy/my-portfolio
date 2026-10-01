@@ -67,11 +67,9 @@ export default async function HomeSections() {
               </div>
             </div>
             <div className="about-cv-wrapper">
-              <a
-                href="https://arabyux.tabbio.com/"
+              <Link
+                href="/resume"
                 className="btn-about-cv"
-                target="_blank"
-                rel="noopener"
                 aria-label="السيرة الذاتية"
               >
                 <span>{"السيرة الذاتية"}</span>
@@ -89,7 +87,7 @@ export default async function HomeSections() {
                   <path d="M19 12H5"></path>
                   <path d="M12 19l-7-7 7-7"></path>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="about-visual-column">
