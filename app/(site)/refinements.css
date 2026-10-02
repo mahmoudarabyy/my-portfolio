@@ -961,3 +961,29 @@ a.btn-menu-consultation:hover {
   outline: 2px solid var(--theme-ink);
   outline-offset: 4px;
 }
+
+@media (max-width: 768px) {
+  .projects-filter-wrapper { min-width: 0; }
+  .projects-filter-bar {
+    max-width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    gap: 6px;
+  }
+  .projects-filter-bar .filter-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 10px 14px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-overlay .fullscreen-nav { justify-content: flex-start; width: 100%; }
+  .menu-overlay .fullscreen-nav-list { width: 100%; align-items: flex-start; text-align: right; direction: rtl; }
+  .menu-overlay .fullscreen-nav-item { width: 100%; }
+  .menu-overlay .fullscreen-nav-link { font-size: 21px; min-height: 44px; align-items: center; padding-inline: 0; }
+  .menu-overlay .fullscreen-nav-link .nav-num { display: none; }
+}

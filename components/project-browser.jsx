@@ -26,7 +26,7 @@ export default function ProjectBrowser({ projects }) {
             role="group"
             aria-label="تصفية المشاريع"
           >
-            {projectCategories.map((item) => (
+            {projectCategories.filter((item) => item.id !== "gov").map((item) => (
               <button
                 key={item.id}
                 type="button"

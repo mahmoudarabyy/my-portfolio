@@ -18,7 +18,6 @@ const InterfaceContext = createContext(null);
 const navItems = [
   ["/", "الرئيسية"],
   ["/projects", "جميع المشاريع"],
-  ["/#about", "عن محمود"],
   ["/#services", "الخدمات"],
   ["/#articles", "كتاباتي"],
   ["/resume", "سيرتي الذاتية"],
@@ -61,7 +60,7 @@ function Header() {
             </Link>
           </div>
           <nav className="portfolio-header-nav" aria-label="التنقل الرئيسي">
-            {navItems.slice(1, 6).map(([href, label]) => (
+            {navItems.slice(1, -1).map(([href, label]) => (
               <Link
                 key={href}
                 href={href}
