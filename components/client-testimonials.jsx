@@ -1,8 +1,10 @@
 "use client";
+import { ui } from "../lib/ui";
 import { useState } from "react";
 import Reveal from "./reveal";
 
-export default function ClientTestimonials({ testimonials }) {
+export default function ClientTestimonials({ testimonials, lang = "ar" }) {
+  const t = (text) => ui(lang, text);
   const [page, setPage] = useState(0);
   if (!testimonials.length) return null;
   const pages =
@@ -24,8 +26,8 @@ export default function ClientTestimonials({ testimonials }) {
     <Reveal as="section" className="client-voices" id="testimonials">
       <div className="feedback-container">
         <header className="client-voices-heading">
-          <p>آراء عملائي</p>
-          <h2>كلمات من القلب</h2>
+          <p>{t("آراء عملائي")}</p>
+          <h2>{t("كلمات من القلب")}</h2>
         </header>
         <div
           className="client-voices-grid"
@@ -47,7 +49,11 @@ export default function ClientTestimonials({ testimonials }) {
                   <div
                     className="client-voice-stars"
                     role="img"
-                    aria-label={`التقييم ${rating} من 5`}
+                    aria-label={
+                      lang === "en"
+                        ? `Rated ${rating} out of 5`
+                        : `التقييم ${rating} من 5`
+                    }
                   >
                     {Array.from({ length: 5 }, (_, index) => (
                       <svg
@@ -60,7 +66,9 @@ export default function ClientTestimonials({ testimonials }) {
                       </svg>
                     ))}
                   </div>
-                ) : <div className="client-voice-stars" aria-hidden="true" />}
+                ) : (
+                  <div className="client-voice-stars" aria-hidden="true" />
+                )}
                 <blockquote>«{item.quote}»</blockquote>
                 <figcaption>
                   <strong>{item.name}</strong>
@@ -69,19 +77,28 @@ export default function ClientTestimonials({ testimonials }) {
               </figure>
             );
           })}
-          {testimonials.length > 1 && items.length === 1 && <div className="client-voice client-voice-placeholder" aria-hidden="true" />}
+          {testimonials.length > 1 && items.length === 1 && (
+            <div
+              className="client-voice client-voice-placeholder"
+              aria-hidden="true"
+            />
+          )}
         </div>
         {pages > 1 && (
           <div
             className="voices-pagination"
             role="group"
-            aria-label="تغيير آراء العملاء"
+            aria-label={t("تغيير آراء العملاء")}
           >
             {Array.from({ length: pages }, (_, index) => (
               <button
                 key={index}
                 type="button"
-                aria-label={`عرض مجموعة الآراء ${index + 1}`}
+                aria-label={
+                  lang === "en"
+                    ? `Show review group ${index + 1}`
+                    : `عرض مجموعة الآراء ${index + 1}`
+                }
                 aria-pressed={currentPage === index}
                 onClick={() => setPage(index)}
               >

@@ -1,13 +1,38 @@
 "use client";
 import { useEffect, useState } from "react";
-const parts = [
+const arabicParts = [
   ["أصمّم", "purple-highlight"],
   [" تجارب رقمية تجمع", ""],
   ["بين البساطة، الوظيفة، ", ""],
   ["والتأثير.", "green-highlight"],
 ];
-const length = parts.reduce((sum, [text]) => sum + text.length, 0);
-export default function HeroTitle() {
+
+export default function HeroTitle({ lang = "ar", title }) {
+  const parts =
+    lang === "ar" &&
+    (!title ||
+      title === "أصمّم تجارب رقمية تجمع بين البساطة، الوظيفة، والتأثير.")
+      ? arabicParts
+      : lang === "en" &&
+          (!title ||
+            title ===
+              "I design digital experiences with simplicity, purpose, and impact.")
+        ? [
+            ["I design", "purple-highlight"],
+            [" digital experiences", ""],
+            [" with simplicity, purpose, and ", ""],
+            ["impact.", "green-highlight"],
+          ]
+        : [
+            [
+              title ||
+                (lang === "en"
+                  ? "I design digital experiences with simplicity, purpose, and impact."
+                  : "أصمّم تجارب رقمية تجمع بين البساطة، الوظيفة، والتأثير."),
+              "",
+            ],
+          ];
+  const length = parts.reduce((sum, [text]) => sum + text.length, 0);
   const [count, setCount] = useState(length);
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -21,12 +46,12 @@ export default function HeroTitle() {
     };
     timer = setTimeout(tick, 250);
     return () => clearTimeout(timer);
-  }, []);
+  }, [length, title, lang]);
   let offset = 0;
   return (
     <h1
       className="hero-title"
-      aria-label="أصمّم تجارب رقمية تجمع بين البساطة، الوظيفة، والتأثير."
+      aria-label={parts.map(([text]) => text).join(" ")}
     >
       {parts.map(([text, className], index) => {
         const visible = text.slice(0, Math.max(0, count - offset));

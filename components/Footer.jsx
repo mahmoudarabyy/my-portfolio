@@ -1,9 +1,12 @@
 import { socials } from "../lib/social-links";
+import { ui } from "../lib/ui";
+import { localePath } from "../lib/localization.mjs";
 import Link from "next/link";
 import SiteImage from "./site-image";
 import { whatsappUrl } from "../lib/site";
 
-export default function Footer() {
+export default function Footer({ lang = "ar" }) {
+  const t = (text) => ui(lang, text);
   return (
     <>
       <footer className="site-footer" id="contact">
@@ -11,50 +14,67 @@ export default function Footer() {
           <div className="footer-main-grid">
             <div className="footer-brand-col">
               <Link
-                href="/"
+                href={localePath("/", lang)}
                 className="footer-logo-link"
-                aria-label="محمود عربي"
+                aria-label={t("محمود عربي")}
               >
                 <SiteImage
                   src="/Logo.png"
-                  alt="عربي"
+                  alt={t("عربي")}
                   className="footer-logo-img"
                 />
               </Link>
               <p className="footer-bio">
-                مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب الرقمية، من المواقع الإلكترونية وتطبيقات الموبايل إلى لوحات التحكم والأنظمة الرقمية.
+                {t(
+                  "مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب الرقمية، من المواقع الإلكترونية وتطبيقات الموبايل إلى لوحات التحكم والأنظمة الرقمية.",
+                )}
               </p>
               <div className="footer-status-pill">
                 <span className="status-pulse-dot"></span>
-                <span>{"متاح للمشاريع الجديدة والاستشارات"}</span>
+                <span>{t("متاح للمشاريع الجديدة والاستشارات")}</span>
               </div>
             </div>
             <div className="footer-col">
-              <h4 className="footer-heading">{"التنقل"}</h4>
+              <h4 className="footer-heading">{t("التنقل")}</h4>
               <ul className="footer-nav-list">
                 <li>
-                  <Link href="/" className="footer-nav-link">
-                    {"الرئيسية"}
+                  <Link
+                    href={localePath("/", lang)}
+                    className="footer-nav-link"
+                  >
+                    {t("الرئيسية")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/projects" className="footer-nav-link">
-                    {"جميع المشاريع"}
+                  <Link
+                    href={localePath("/projects", lang)}
+                    className="footer-nav-link"
+                  >
+                    {t("جميع المشاريع")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#about" className="footer-nav-link">
-                    {"عن محمود"}
+                  <Link
+                    href={localePath("/#about", lang)}
+                    className="footer-nav-link"
+                  >
+                    {t("عن محمود")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="footer-nav-link">
-                    {"الخدمات والتخصصات"}
+                  <Link
+                    href={localePath("/#services", lang)}
+                    className="footer-nav-link"
+                  >
+                    {t("الخدمات والتخصصات")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#articles" className="footer-nav-link">
-                    {"كتاباتي"}
+                  <Link
+                    href={localePath("/#articles", lang)}
+                    className="footer-nav-link"
+                  >
+                    {t("كتاباتي")}
                   </Link>
                 </li>
                 <li>
@@ -64,13 +84,13 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="footer-nav-link"
                   >
-                    {"السيرة الذاتية (CV)"}
+                    {t("السيرة الذاتية (CV)")}
                   </a>
                 </li>
               </ul>
             </div>
             <div className="footer-col">
-              <h4 className="footer-heading">{"تواصل معي"}</h4>
+              <h4 className="footer-heading">{t("تواصل معي")}</h4>
               <ul className="footer-nav-list">
                 <li>
                   <a
@@ -110,14 +130,33 @@ export default function Footer() {
                     >
                       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                     </svg>
-                    <span>{"واتساب (WhatsApp)"}</span>
+                    <span>{t("واتساب (WhatsApp)")}</span>
                   </a>
                 </li>
               </ul>
-              <div className="footer-socials" role="group" aria-label="حساباتي على السوشيال ميديا">
+              <div
+                className="footer-socials"
+                role="group"
+                aria-label={t("حساباتي على السوشيال ميديا")}
+              >
                 {socials.map(({ name, icon, href }) => (
-                  <a key={icon} className="footer-social" href={href} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}>
-                    <span className="footer-social-icon" style={{ "--social-icon": "url('/social-icons/" + icon + ".svg')" }} aria-hidden="true" />
+                  <a
+                    key={icon}
+                    className="footer-social"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={name}
+                    title={name}
+                  >
+                    <span
+                      className="footer-social-icon"
+                      style={{
+                        "--social-icon":
+                          "url('/social-icons/" + icon + ".svg')",
+                      }}
+                      aria-hidden="true"
+                    />
                   </a>
                 ))}
               </div>
@@ -125,12 +164,12 @@ export default function Footer() {
           </div>
           <div className="footer-bottom-bar">
             <p className="footer-copyright">
-              {"© 2026 جميع الحقوق محفوظة لـ "}
-              <strong>{"محمود عربي"}</strong>
+              {t("© 2026 جميع الحقوق محفوظة لـ ")}
+              <strong>{t("محمود عربي")}</strong>
               {"."}
             </p>
             <p className="footer-note">
-              {"صُمم وبُني بعناية فائقة وشغف بتصميم المنتجات الرقمية."}
+              {t("صُمم وبُني بعناية فائقة وشغف بتصميم المنتجات الرقمية.")}
             </p>
           </div>
         </div>

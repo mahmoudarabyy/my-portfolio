@@ -1,7 +1,7 @@
 import SiteImage from "./site-image";
 import HeroTitle from "./hero-title";
 import Reveal from "./reveal";
-export default function HomeHero() {
+export default function HomeHero({ lang = "ar", content }) {
   return (
     <>
       <div className="ambient-glow purple-glow"></div>
@@ -59,12 +59,10 @@ export default function HomeHero() {
             <div className="hero-sticker hero-sticker-me" aria-hidden="true">
               <SiteImage src="/Hero/Me.png" alt="Me" className="sticker-img" />
             </div>
-            <HeroTitle></HeroTitle>
+            <HeroTitle lang={lang} title={content.heroTitle} />
           </div>
           <Reveal as="p" delay={120} className="hero-description">
-            {
-              "\n          مصمم UX/UI بخبرة أكثر من 4 سنوات، أساعد في تحويل الأفكار إلى مواقع وتطبيقات ومنتجات رقمية واضحة، سهلة الاستخدام، ومصممة بعناية.\n        "
-            }
+            {content.heroDescription}
           </Reveal>
         </div>
         <div className="hero-sticker hero-sticker-duck" aria-hidden="true">

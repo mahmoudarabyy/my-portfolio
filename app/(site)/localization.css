@@ -1,0 +1,142 @@
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: var(--site-border-width) solid var(--site-border-color);
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--theme-surface);
+  color: var(--theme-ink);
+  text-decoration: none;
+  flex: 0 0 44px;
+}
+
+@media (max-width: 768px) {
+  html[lang="en"] .hero-section {
+    height: auto !important;
+    min-height: 640px;
+    padding-top: 64px !important;
+    padding-bottom: 210px !important;
+  }
+}
+.language-switch:hover {
+  background: var(--theme-surface);
+}
+.language-switch:focus-visible {
+  outline: 2px solid #5f3cbf;
+  outline-offset: 3px;
+}
+html[lang="en"] .hero-title {
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+}
+html[lang="en"] .hero-description {
+  line-height: 1.7;
+}
+html[lang="en"]
+  :is(
+    .about-content-column,
+    .about-statement-text,
+    .service-content,
+    .program-info,
+    .writing-section-copy,
+    .study-editorial-body,
+    .study-hero-meta,
+    .resume-experience,
+    .footer-column,
+    .menu-nav
+  ) {
+  text-align: left;
+  direction: ltr;
+}
+html[lang="en"]
+  :is(
+    .study-hero,
+    .study-shell,
+    .writing-shell,
+    .resume-page,
+    .feedback-container
+  ) {
+  direction: ltr;
+}
+html[lang="en"] .cv-arrow-icon {
+  transform: rotate(180deg);
+}
+html[lang="en"] .menu-nav-item {
+  direction: ltr;
+  text-align: left;
+}
+html[lang="en"] .portfolio-header-nav {
+  gap: 24px;
+}
+html[lang="en"] .program-title {
+  line-height: 1.4;
+}
+@media (max-width: 768px) {
+  .portfolio-header-actions {
+    gap: 8px !important;
+  }
+  html[lang="en"] .hero-title {
+    font-size: 40px !important;
+  }
+  html[lang="en"] .menu-nav a {
+    text-align: left;
+  }
+  html[lang="en"] .study-heading h1 {
+    overflow-wrap: break-word;
+  }
+}
+
+html[lang="en"] body {
+  direction: ltr;
+  text-align: left;
+}
+html[lang="en"]
+  :is(.portfolio-header-nav, .portfolio-header-actions, .fullscreen-nav-list) {
+  direction: ltr;
+}
+html[lang="en"] :is(.hero-title, .hero-description) {
+  direction: ltr;
+}
+html[lang="en"]
+  :is(
+    .about-container,
+    .about-statement-lead,
+    .about-statement-desc,
+    .about-stat-item,
+    .service-content,
+    .footer-col,
+    .footer-brand-col,
+    .footer-bio,
+    .writing-header,
+    .writing-body,
+    .writing-section-copy,
+    .fullscreen-nav-link
+  ) {
+  text-align: left !important;
+}
+html[lang="en"] .hero-title-wrapper {
+  max-width: 960px;
+  margin-inline: auto;
+}
+html[lang="en"] .hero-sticker-me {
+  right: -40px;
+}
+@media (max-width: 768px) {
+  html[lang="en"] .hero-sticker-me {
+    right: 0;
+  }
+  html[lang="en"] .menu-overlay .fullscreen-nav-list {
+    direction: ltr;
+    text-align: left;
+  }
+  html[lang="en"] .hero-title-wrapper {
+    max-width: 100%;
+  }
+}

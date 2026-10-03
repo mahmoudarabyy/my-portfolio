@@ -6,13 +6,16 @@ export const metadata = {
   title: "جميع مشاريعي",
   description:
     "أعمال محمود عربي في تصميم تجربة وواجهة المستخدم، التطبيقات والمنصات الرقمية.",
-  alternates: { canonical: "/projects" },
+  alternates: {
+    canonical: "/projects",
+    languages: { ar: "/projects", en: "/en/projects" },
+  },
 };
-export default async function ProjectsPage() {
-  const projects = await getProjects();
+export default async function ProjectsPage({ lang = "ar" }) {
+  const projects = await getProjects(lang);
   return (
     <main id="main-content">
-      <ProjectBrowser projects={projects.map(toProjectCard)} />
+      <ProjectBrowser lang={lang} projects={projects.map(toProjectCard)} />
     </main>
   );
 }

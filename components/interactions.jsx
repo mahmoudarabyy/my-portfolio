@@ -12,6 +12,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SiteImage from "./site-image";
 import ThemeToggle from "./theme-toggle";
+import { ui } from "../lib/ui";
+import LanguageSwitch from "./language-switch";
+import { localePath } from "../lib/localization.mjs";
 import { contactEmail, whatsappUrl } from "../lib/site";
 
 const InterfaceContext = createContext(null);
@@ -41,32 +44,43 @@ export function ConsultationButton({
 }
 
 function Header() {
+  const { lang, englishPaths } = useContext(InterfaceContext);
+  const t = (text) => ui(lang, text);
   const { open } = useContext(InterfaceContext);
   const pathname = usePathname();
   return (
     <div className="site-wrapper">
       <header
-        className={`site-header portfolio-header ${pathname.startsWith("/projects/") ? "case-site-header" : ""}`}
+        className={`site-header portfolio-header ${pathname.replace(/^\/en(?=\/|$)/, "").startsWith("/projects/") ? "case-site-header" : ""}`}
       >
         <div className="header-container">
           <div className="portfolio-header-logo">
-            <Link href="/" className="logo-link" aria-label="الرئيسية">
+            <Link
+              href={localePath("/", lang)}
+              className="logo-link"
+              aria-label={t("الرئيسية")}
+            >
               <SiteImage
                 src="/Logo.png"
-                alt="عربي"
+                alt={t("عربي")}
                 className="logo-img"
                 sizes="80px"
               />
             </Link>
           </div>
-          <nav className="portfolio-header-nav" aria-label="التنقل الرئيسي">
+          <nav
+            className="portfolio-header-nav"
+            aria-label={t("التنقل الرئيسي")}
+          >
             {navItems.slice(1, -1).map(([href, label]) => (
               <Link
                 key={href}
-                href={href}
-                aria-current={href === pathname ? "page" : undefined}
+                href={localePath(href, lang)}
+                aria-current={
+                  localePath(href, lang) === pathname ? "page" : undefined
+                }
               >
-                {label}
+                {t(label)}
               </Link>
             ))}
           </nav>
@@ -77,13 +91,14 @@ function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              تواصل معي
+              {t("تواصل معي")}
             </a>
-            <ThemeToggle compact />
+            <ThemeToggle compact lang={lang} />
+            <LanguageSwitch lang={lang} available={englishPaths} />
             <button
               type="button"
               className="menu-toggle-btn portfolio-mobile-menu"
-              aria-label="فتح القائمة الرئيسية"
+              aria-label={t("فتح القائمة الرئيسية")}
               aria-haspopup="dialog"
               onClick={() => open("menu")}
             >
@@ -196,7 +211,12 @@ function ConsultationForm() {
   );
 }
 
-export function InterfaceProvider({ children }) {
+export function InterfaceProvider({
+  children,
+  lang = "ar",
+  englishPaths = [],
+}) {
+  const t = (text) => ui(lang, text);
   const pathname = usePathname();
   const [active, setActive] = useState(null);
   const [showTop, setShowTop] = useState(false);
@@ -220,7 +240,7 @@ export function InterfaceProvider({ children }) {
       !changed ||
       fromHistory ||
       window.location.hash ||
-      !pathname.startsWith("/projects")
+      !pathname.replace(/^\/en(?=\/|$)/, "").startsWith("/projects")
     )
       return;
     // Start new project visits above the fixed header; preserve Back/Forward restoration.
@@ -300,17 +320,19 @@ export function InterfaceProvider({ children }) {
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [active, close]);
-  const pageClass = pathname.startsWith("/projects/")
+  const pageClass = pathname
+    .replace(/^\/en(?=\/|$)/, "")
+    .startsWith("/projects/")
     ? "case-study-body"
-    : pathname === "/projects"
+    : pathname === localePath("/projects", lang)
       ? "projects-page-body"
       : "home-page-body";
   return (
-    <InterfaceContext.Provider value={{ open, close }}>
+    <InterfaceContext.Provider value={{ open, close, lang, englishPaths }}>
       <div className={pageClass}>
         <div id="site-content" inert={active ? true : undefined}>
           <a href="#main-content" className="skip-link">
-            انتقل إلى المحتوى
+            {t("انتقل إلى المحتوى")}
           </a>
           <Header />
           {children}
@@ -339,10 +361,14 @@ export function InterfaceProvider({ children }) {
               {active === "menu" ? (
                 <>
                   <div className="menu-top-bar">
-                    <Link href="/" className="menu-logo-link" onClick={close}>
+                    <Link
+                      href={localePath("/", lang)}
+                      className="menu-logo-link"
+                      onClick={close}
+                    >
                       <SiteImage
                         src="/Logo.png"
-                        alt="محمود عربي"
+                        alt={t("محمود عربي")}
                         className="menu-logo-img"
                         sizes="80px"
                       />
@@ -352,30 +378,30 @@ export function InterfaceProvider({ children }) {
                         type="button"
                         className="menu-close-btn"
                         onClick={close}
-                        aria-label="إغلاق القائمة"
+                        aria-label={t("إغلاق القائمة")}
                       >
                         ×
                       </button>
                     </div>
                   </div>
                   <h2 id="dialog-title" className="sr-only">
-                    القائمة الرئيسية
+                    {t("القائمة الرئيسية")}
                   </h2>
                   <nav className="fullscreen-nav">
                     <ul className="fullscreen-nav-list">
                       {navItems.map(([url, label], index) => (
                         <li key={url} className="fullscreen-nav-item">
                           <Link
-                            href={url}
+                            href={localePath(url, lang)}
                             onClick={close}
-                            className={`fullscreen-nav-link ${url === pathname ? "active" : ""}`}
+                            className={`fullscreen-nav-link ${localePath(url, lang) === pathname ? "active" : ""}`}
                             aria-current={url === pathname ? "page" : undefined}
-                            data-text={label}
+                            data-text={t(label)}
                           >
                             <span className="nav-num">
                               {String(index + 1).padStart(2, "0")}
                             </span>
-                            <span className="nav-label">{label}</span>
+                            <span className="nav-label">{t(label)}</span>
                           </Link>
                         </li>
                       ))}
@@ -389,7 +415,7 @@ export function InterfaceProvider({ children }) {
                       rel="noopener noreferrer"
                       onClick={close}
                     >
-                      تواصل معي
+                      {t("تواصل معي")}
                       <SiteImage
                         src="/arrow big.svg"
                         alt=""
@@ -412,11 +438,11 @@ export function InterfaceProvider({ children }) {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        روابط التواصل
+                        {t("روابط التواصل")}
                       </a>
                     </div>
                     <p className="menu-copyright">
-                      © 2026 محمود عربي. جميع الحقوق محفوظة.
+                      {t("© 2026 محمود عربي. جميع الحقوق محفوظة.")}
                     </p>
                   </div>
                 </>
@@ -436,11 +462,11 @@ export function InterfaceProvider({ children }) {
             </div>
           </div>
         )}
-        <aside className="floating-quick-actions" aria-label="أدوات سريعة">
+        <aside className="floating-quick-actions" aria-label={t("أدوات سريعة")}>
           <button
             type="button"
             className={`btn-floating-action btn-scroll-top ${showTop ? "visible" : ""}`}
-            aria-label="العودة لأعلى الصفحة"
+            aria-label={t("العودة لأعلى الصفحة")}
             onClick={() =>
               window.scrollTo({
                 top: 0,

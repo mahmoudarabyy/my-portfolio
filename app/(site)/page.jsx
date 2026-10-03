@@ -1,3 +1,6 @@
+import { getSiteContent } from "../../lib/site-content";
+import { ui } from "../../lib/ui";
+import { localePath } from "../../lib/localization.mjs";
 import Link from "next/link";
 import HomeHero from "../../components/HomeHero";
 import HomeSections from "../../components/HomeSections";
@@ -7,33 +10,52 @@ import { getProjects } from "../../lib/projects";
 import { getFeaturedProjects } from "../../lib/project-data.mjs";
 
 export const revalidate = 60;
-export const metadata = { alternates: { canonical: "/" } };
-export default async function HomePage() {
-  const featured = getFeaturedProjects(await getProjects());
+export const metadata = {
+  alternates: { canonical: "/", languages: { ar: "/", en: "/en" } },
+};
+export default async function HomePage({ lang = "ar" }) {
+  const t = (text) => ui(lang, text);
+  const [content, projects] = await Promise.all([
+    getSiteContent(lang),
+    getProjects(lang),
+  ]);
+  const featured = getFeaturedProjects(projects);
   return (
     <main id="main-content">
-      <HomeHero />
+      <HomeHero lang={lang} content={content} />
       <section className="programs-section" id="projects">
         <div className="programs-container-border">
           <Reveal className="programs-header">
-            <h2 className="programs-title">اهم مشاريعي</h2>
+            <h2 className="programs-title">{t("اهم مشاريعي")}</h2>
             <p className="programs-subtitle">
-              مجموعة مختارة من المشاريع وتجارب المنتجات الرقمية التي عملت عليها.
+              {t(
+                "مجموعة مختارة من المشاريع وتجارب المنتجات الرقمية التي عملت عليها.",
+              )}
             </p>
           </Reveal>
           <div className="programs-grid">
             {featured.map((project) => (
-              <ProjectCard key={project.id} project={project} featured />
+              <ProjectCard
+                lang={lang}
+                key={project.id}
+                project={project}
+                featured
+              />
             ))}
           </div>
+          {!featured.length && lang === "en" && (
+            <p className="writing-empty">
+              Case studies in English are coming soon.
+            </p>
+          )}
           <div className="programs-footer">
-            <Link href="/projects" className="btn-view-all">
-              عرض جميع المشاريع
+            <Link href={localePath("/projects", lang)} className="btn-view-all">
+              {t("عرض جميع المشاريع")}
             </Link>
           </div>
         </div>
       </section>
-      <HomeSections />
+      <HomeSections lang={lang} content={content} />
     </main>
   );
 }

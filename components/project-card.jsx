@@ -3,10 +3,15 @@ import SiteImage from "./site-image";
 import ProjectIcon from "./project-icon";
 import Reveal from "./reveal";
 
-export default function ProjectCard({ project, slot = 1, featured = false }) {
+export default function ProjectCard({
+  project,
+  slot = 1,
+  featured = false,
+  lang = "ar",
+}) {
   return (
     <Link
-      href={`/projects/${project.id}`}
+      href={`${lang === "en" ? "/en" : ""}/projects/${project.id}`}
       className={`program-card ${project.cardLayout === "tall" ? "card-tall" : featured ? "card-desktop" : "card-wide"} card-slot-${slot}`}
     >
       <Reveal className="program-preview-wrapper" delay={(slot - 1) * 80}>

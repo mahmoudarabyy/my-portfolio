@@ -1,4 +1,6 @@
-export default function ProjectLinks({ project }) {
+import { ui } from "../lib/ui";
+export default function ProjectLinks({ project, lang = "ar" }) {
+  const t = (text) => ui(lang, text);
   const links = [
     { href: project.websiteUrl, label: "زيارة الموقع" },
     { href: project.appStoreUrl, label: "متجر أبل", icon: "apple" },
@@ -12,7 +14,7 @@ export default function ProjectLinks({ project }) {
   });
   if (!links.length) return null;
   return (
-    <nav className="study-project-links" aria-label="روابط المشروع">
+    <nav className="study-project-links" aria-label={t("روابط المشروع")}>
       {links.map(({ href, label, icon }) => (
         <a
           className="study-project-button"
@@ -39,7 +41,7 @@ export default function ProjectLinks({ project }) {
               />
             </span>
           )}
-          <span>{label}</span>
+          <span>{t(label)}</span>
           {!icon && <span className="study-arrow-icon" aria-hidden="true" />}
         </a>
       ))}
