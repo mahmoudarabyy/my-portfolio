@@ -913,7 +913,7 @@ a.btn-menu-consultation:hover {
 .articles-title,
 #about .about-section-heading,
 .feedback-heading h2,
-.client-voices-heading h2 { font-size: 48px !important; }
+.client-voices-heading h2 { font-size: 40px !important; }
 @media (max-width: 768px) {
   .programs-title,
   .services-title,

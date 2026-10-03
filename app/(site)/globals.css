@@ -645,7 +645,7 @@ body {
     "salt" 1,
     "calt" 1,
     "liga" 1;
-  font-size: clamp(2.4rem, 5.2vw, 4.9rem);
+  font-size: 62px;
   font-weight: 900;
   line-height: 1.55;
   letter-spacing: -0.015em;
