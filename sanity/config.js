@@ -4,6 +4,7 @@ import { projectSchema } from "./schema";
 import { articleSchema } from "./article";
 import { faqSchema, testimonialSchema } from "./home-content";
 import { resumeSchema } from "./resume";
+import ImportContent from "./import-content";
 
 export default defineConfig({
   name: "portfolio",
@@ -11,6 +12,7 @@ export default defineConfig({
   basePath: "/studio",
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  tools: [{ name: "import-content", title: "استيراد محتوى الموقع", component: ImportContent }],
   plugins: [structureTool({
     structure: (S) => S.list().title("إدارة المحتوى").items([
       ...S.documentTypeListItems().filter(item => item.getId() !== "resumeContent"),
