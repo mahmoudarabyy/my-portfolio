@@ -53,20 +53,31 @@ export default function HeroTitle({ lang = "ar", title }) {
       className="hero-title"
       aria-label={parts.map(([text]) => text).join(" ")}
     >
-      {parts.map(([text, className], index) => {
-        const visible = text.slice(0, Math.max(0, count - offset));
-        offset += text.length;
-        return (
-          <span key={index} aria-hidden="true">
+      <span className="hero-title-space" aria-hidden="true">
+        {parts.map(([text, className], index) => (
+          <span key={index}>
             {index === 2 && <br className="title-break" />}
-            <span className={className}>{visible}</span>
+            <span className={className}>{text}</span>
           </span>
-        );
-      })}
-      <span
-        aria-hidden="true"
-        className={`typing-cursor ${count === length ? "finished" : ""}`}
-      />
+        ))}
+        <span className="typing-cursor finished" />
+      </span>
+      <span className="hero-title-animated" aria-hidden="true">
+        {parts.map(([text, className], index) => {
+          const visible = text.slice(0, Math.max(0, count - offset));
+          offset += text.length;
+          return (
+            <span key={index} aria-hidden="true">
+              {index === 2 && <br className="title-break" />}
+              <span className={className}>{visible}</span>
+            </span>
+          );
+        })}
+        <span
+          aria-hidden="true"
+          className={`typing-cursor ${count === length ? "finished" : ""}`}
+        />
+      </span>
     </h1>
   );
 }

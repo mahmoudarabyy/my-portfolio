@@ -6260,3 +6260,7 @@ html:has(.case-study-body) {
   .footer-social-icon { transition: none; }
   .footer-social:hover .footer-social-icon { transform: none; }
 }
+
+/* Keep headline and stickers stable while typing. */
+.hero-title-space { display: block; visibility: hidden; pointer-events: none; }
+.hero-title-animated { position: absolute; inset: 0; }

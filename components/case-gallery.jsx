@@ -6,10 +6,10 @@ import SiteImage from "./site-image";
 export default function CaseGallery({ images, title, lang = "ar" }) {
   const [index, setIndex] = useState(0);
   if (!images.length) return null;
-  const pageCount = Math.ceil(images.length / 2);
+  const pageCount = images.length;
   const page = index % pageCount;
-  const firstImage = page * 2;
-  const visibleImages = images.slice(firstImage, firstImage + 2);
+  const firstImage = page;
+  const visibleImages = images.slice(firstImage, firstImage + 1);
   const move = (direction) =>
     setIndex(
       (value) => ((value % pageCount) + direction + pageCount) % pageCount,
@@ -33,13 +33,13 @@ export default function CaseGallery({ images, title, lang = "ar" }) {
       }}
     >
       <div
-        className="study-slide-pair"
+        className="study-slide-single"
         role="group"
         aria-roledescription={lang === "en" ? "slide" : "شريحة"}
         aria-label={
           lang === "en"
-            ? `Group ${page + 1} of ${pageCount}`
-            : `المجموعة ${page + 1} من ${pageCount}`
+            ? `Screen ${page + 1} of ${pageCount}`
+            : `الصورة ${page + 1} من ${pageCount}`
         }
       >
         {visibleImages.map((src, offset) => (
@@ -47,7 +47,7 @@ export default function CaseGallery({ images, title, lang = "ar" }) {
             <SiteImage
               src={src}
               alt={`${title} — ${lang === "en" ? "Screen" : "شاشة"} ${firstImage + offset + 1}`}
-              sizes="(max-width: 1200px) 50vw, 588px"
+              sizes="(max-width: 1200px) 100vw, 1200px"
             />
           </figure>
         ))}
@@ -57,7 +57,7 @@ export default function CaseGallery({ images, title, lang = "ar" }) {
           <button
             type="button"
             onClick={() => move(-1)}
-            aria-label={lang === "en" ? "Previous group" : "المجموعة السابقة"}
+            aria-label={lang === "en" ? "Previous screen" : "الصورة السابقة"}
           >
             {lang === "en" ? "←" : "→"}
           </button>
@@ -67,9 +67,7 @@ export default function CaseGallery({ images, title, lang = "ar" }) {
                 key={i}
                 type="button"
                 aria-label={
-                  lang === "en"
-                    ? `Show group ${i + 1}`
-                    : `عرض المجموعة ${i + 1}`
+                  lang === "en" ? `Show screen ${i + 1}` : `عرض الصورة ${i + 1}`
                 }
                 aria-current={page === i ? "true" : undefined}
                 onClick={() => setIndex(i)}
@@ -87,7 +85,7 @@ export default function CaseGallery({ images, title, lang = "ar" }) {
           <button
             type="button"
             onClick={() => move(1)}
-            aria-label={lang === "en" ? "Next group" : "المجموعة التالية"}
+            aria-label={lang === "en" ? "Next screen" : "الصورة التالية"}
           >
             {lang === "en" ? "→" : "←"}
           </button>

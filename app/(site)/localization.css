@@ -228,3 +228,8 @@ html[lang="en"] .hero-sticker-me {
     max-width: 100%;
   }
 }
+
+html[lang="en"] :is(.article-card, .article-body, .article-heading) {
+  text-align: left;
+  direction: ltr;
+}
