@@ -1,15 +1,9 @@
-import { getProjects } from "../lib/projects";
+import { socials } from "../lib/social-links";
 import Link from "next/link";
 import SiteImage from "./site-image";
 import { whatsappUrl } from "../lib/site";
 
-export default async function Footer() {
-  let projects = [];
-  try {
-    projects = await getProjects();
-  } catch {
-    /* Keep navigation available while the page shows its load error. */
-  }
+export default function Footer() {
   return (
     <>
       <footer className="site-footer" id="contact">
@@ -28,9 +22,7 @@ export default async function Footer() {
                 />
               </Link>
               <p className="footer-bio">
-                {
-                  "\n            محمود عربي — مصمم تجربة وواجهة مستخدم (UX/UI Lead) بخبرة تمتد لأكثر من 8 سنوات في بناء الأنظمة الرقمية المتقنة، تطبيقات الهاتف، ومنصات SaaS الحكومية والخاصة.\n          "
-                }
+                مصمم UX/UI بخبرة أكثر من 4 سنوات في تصميم المنتجات والتجارب الرقمية، من المواقع الإلكترونية وتطبيقات الموبايل إلى لوحات التحكم والأنظمة الرقمية.
               </p>
               <div className="footer-status-pill">
                 <span className="status-pulse-dot"></span>
@@ -78,21 +70,6 @@ export default async function Footer() {
               </ul>
             </div>
             <div className="footer-col">
-              <h4 className="footer-heading">{"أبرز المشاريع"}</h4>
-              <ul className="footer-nav-list">
-                {projects.slice(0, 6).map((project) => (
-                  <li key={project.id}>
-                    <Link
-                      href={`/projects/${project.id}`}
-                      className="footer-nav-link"
-                    >
-                      {project.cardTitle}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="footer-col">
               <h4 className="footer-heading">{"تواصل معي"}</h4>
               <ul className="footer-nav-list">
                 <li>
@@ -136,78 +113,14 @@ export default async function Footer() {
                     <span>{"واتساب (WhatsApp)"}</span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-contact-link"
-                  >
-                    <svg
-                      className="footer-link-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect x="2" y="9" width="4" height="12"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    <span>{"LinkedIn"}</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://behance.net"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-contact-link"
-                  >
-                    <svg
-                      className="footer-link-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M3 8h6a3 3 0 0 1 3 3 3 3 0 0 1-3 3H3V8z"></path>
-                      <path d="M3 14h7a3 3 0 0 1 3 3 3 3 0 0 1-3 3H3V14z"></path>
-                      <path d="M15 13a4 4 0 1 0 7.8 1.5H15"></path>
-                      <line x1="16" y1="9" x2="21" y2="9"></line>
-                    </svg>
-                    <span>{"Behance"}</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://dribbble.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-contact-link"
-                  >
-                    <svg
-                      className="footer-link-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path>
-                      <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path>
-                      <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path>
-                    </svg>
-                    <span>{"Dribbble"}</span>
-                  </a>
-                </li>
               </ul>
+              <div className="footer-socials" role="group" aria-label="حساباتي على السوشيال ميديا">
+                {socials.map(({ name, icon, href }) => (
+                  <a key={icon} className="footer-social" href={href} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}>
+                    <span className="footer-social-icon" style={{ "--social-icon": "url('/social-icons/" + icon + ".svg')" }} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
           <div className="footer-bottom-bar">

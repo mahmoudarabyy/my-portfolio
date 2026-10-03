@@ -4784,7 +4784,7 @@ html:has(.case-study-body) {
 /* Footer Main Grid */
 .footer-main-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.25fr 1.25fr;
+  grid-template-columns: 2fr 1fr 1.25fr;
   gap: clamp(2rem, 4vw, 4.5rem);
   align-items: start;
 }
@@ -6248,4 +6248,15 @@ html:has(.case-study-body) {
     font-size: 0.95rem !important;
     line-height: 1.7 !important;
   }
+}
+
+/* Compact versions of the About section social icons. */
+.footer-socials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.footer-social { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 12px; background: #5f3cbf; color: #fff; }
+.footer-social-icon { display: block; width: 22px; height: 22px; background: currentColor; -webkit-mask: var(--social-icon) center / contain no-repeat; mask: var(--social-icon) center / contain no-repeat; transition: transform 0.4s ease; }
+.footer-social:hover .footer-social-icon { transform: rotate(360deg); }
+.footer-social:focus-visible { outline: 2px solid var(--theme-ink); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .footer-social-icon { transition: none; }
+  .footer-social:hover .footer-social-icon { transform: none; }
 }
