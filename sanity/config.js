@@ -7,6 +7,7 @@ import { articleSchema } from "./article";
 import { faqSchema, testimonialSchema } from "./home-content";
 import { resumeSchema } from "./resume";
 import ImportContent from "./import-content";
+import ImportEnglish from "./import-english";
 
 export default defineConfig({
   name: "portfolio",
@@ -15,6 +16,11 @@ export default defineConfig({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   tools: [
+    {
+      name: "import-english",
+      title: "ترجمة المحتوى الحالي",
+      component: ImportEnglish,
+    },
     {
       name: "import-content",
       title: "استيراد محتوى الموقع",

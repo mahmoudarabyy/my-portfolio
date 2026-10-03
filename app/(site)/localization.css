@@ -1,3 +1,91 @@
+html[lang="en"] body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+html[lang="en"] :is(h1, h2, h3, h4, .hero-title, .program-title, .stat-number) {
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  font-feature-settings: normal;
+}
+
+html[lang="en"]
+  :is(
+    .hero-description,
+    .programs-subtitle,
+    .projects-hero-subtitle,
+    .about-statement-lead,
+    .about-statement-desc,
+    .services-subtitle,
+    .service-description,
+    .articles-description,
+    .writing-header > p,
+    .writing-body p,
+    .writing-section p,
+    .study-summary,
+    .study-prose,
+    .study-prose p,
+    .study-more p,
+    .study-overview-grid > div > p:not(.study-label),
+    .study-hero-meta dd,
+    .study-roadmap li,
+    .study-contact p:not(.study-label),
+    .feedback-heading > p,
+    .faq-item p,
+    .resume-intro > p,
+    .resume-experience p,
+    .resume-tool p,
+    .resume-highlights p,
+    .footer-bio
+  ) {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.7;
+}
+
+html[lang="en"] :is(.program-description) {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.6;
+}
+
+html[lang="en"]
+  :is(
+    .article-category,
+    .article-date,
+    .project-year,
+    .study-label,
+    .study-hero-meta dt,
+    .writing-meta,
+    .resume-date,
+    .client-voice figcaption span,
+    .stat-label,
+    .footer-note,
+    .footer-copyright,
+    .study-tags span,
+    .filter-btn,
+    .study-more summary,
+    .writing-read-more summary
+  ) {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.6;
+}
+
+html[lang="en"]
+  :is(
+    .btn-consultation,
+    .btn-view-all,
+    .study-contact-button,
+    .faq-contact,
+    .study-project-button,
+    .resume-pdf,
+    .writing-action-button
+  ) {
+  font-weight: 600;
+}
+
 .language-switch {
   display: inline-flex;
   align-items: center;
