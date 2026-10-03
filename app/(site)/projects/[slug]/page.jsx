@@ -71,15 +71,16 @@ function ReadMore({ text, lang = "ar" }) {
 }
 function Media({ src, title, cover = false }) {
   if (!src) return null;
+  const Wrapper = cover ? "div" : Reveal;
   return (
-    <Reveal className={`study-media ${cover ? "study-cover" : ""}`}>
+    <Wrapper className={`study-media ${cover ? "study-cover" : ""}`}>
       <SiteImage
         src={src}
         alt={title}
-        sizes={cover ? "100vw" : "(max-width: 1200px) 100vw, 1120px"}
+        sizes="(max-width: 1200px) calc(100vw - 40px), 1200px"
         preload={cover}
       />
-    </Reveal>
+    </Wrapper>
   );
 }
 function Editorial({ label, title, children, id, className = "" }) {

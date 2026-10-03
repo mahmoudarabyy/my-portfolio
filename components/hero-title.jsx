@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useSiteReady } from "./site-loader";
 const arabicParts = [
   ["أصمّم", "purple-highlight"],
   [" تجارب رقمية تجمع", ""],
@@ -32,10 +33,18 @@ export default function HeroTitle({ lang = "ar", title }) {
               "",
             ],
           ];
+  const ready = useSiteReady();
   const length = parts.reduce((sum, [text]) => sum + text.length, 0);
   const [count, setCount] = useState(length);
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!ready) {
+      setCount(0);
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(length);
+      return;
+    }
     let timer;
     let current = 0;
     setCount(0);
@@ -46,7 +55,7 @@ export default function HeroTitle({ lang = "ar", title }) {
     };
     timer = setTimeout(tick, 250);
     return () => clearTimeout(timer);
-  }, [length, title, lang]);
+  }, [length, title, lang, ready]);
   let offset = 0;
   return (
     <h1

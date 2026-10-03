@@ -1,3 +1,5 @@
+import SiteLoader from "../../../components/site-loader";
+import "../../(site)/loader.css";
 import { getEnglishPaths } from "../../../lib/english-paths";
 import { InterfaceProvider } from "../../../components/interactions";
 import Footer from "../../../components/Footer";
@@ -39,10 +41,12 @@ export default async function SiteLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>
       <body>
-        <InterfaceProvider lang="en" englishPaths={await getEnglishPaths()}>
-          {children}
-          <Footer lang="en" />
-        </InterfaceProvider>
+        <SiteLoader lang="en">
+          <InterfaceProvider lang="en" englishPaths={await getEnglishPaths()}>
+            {children}
+            <Footer lang="en" />
+          </InterfaceProvider>
+        </SiteLoader>
       </body>
     </html>
   );

@@ -24,8 +24,7 @@ export default function SiteImage({
       />
     );
   }
-  // Files uploaded through the unified CMS field lack Sanity image dimensions.
-  // Native images preserve their real aspect ratio and animated GIF frames.
+  // File uploads and GIFs are served directly, without a server transformation.
   if (src.includes("cdn.sanity.io/files/") || /\.gif(?:[?#]|$)/i.test(src)) {
     return (
       <img
