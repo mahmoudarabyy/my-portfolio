@@ -131,3 +131,21 @@ test("CMS retains original fields and exposes matching bilingual groups and nest
   assert.notEqual(validate(true, { document: {} }), true);
   assert.equal(validate(true, { document: project }), true);
 });
+
+
+test("new case-study media slots share Arabic assets and allow English overrides", () => {
+  const keys = ["aboutSecondImg", "solutionFullImg", "workingImg", "workingSecondImg", "resultSecondImg", "resultFullImg"];
+  const shared = Object.fromEntries(keys.map(key => [key, "/" + key + ".webp"]));
+  const doc = { ...project, ...shared };
+  const localized = localizeProject(doc);
+  const schema = localizedSchema(projectSchema);
+  const englishFields = schema.fields.find(field => field.name === "en").fields;
+  for (const key of keys) {
+    assert.equal(localized[key], shared[key]);
+    assert.ok(schema.fields.some(field => field.name === key + "Media"));
+    assert.ok(englishFields.some(field => field.name === key + "Media"));
+    const translated = localizeProject({ ...doc, en: { ...doc.en, [key]: "/override.webp" } });
+    assert.equal(translated[key], "/override.webp");
+    assert.equal(doc[key], shared[key]);
+  }
+});

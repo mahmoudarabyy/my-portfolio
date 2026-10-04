@@ -83,6 +83,20 @@ function Media({ src, title, cover = false }) {
     </Wrapper>
   );
 }
+function MediaPair({ first, second, title }) {
+  if (!first && !second) return null;
+  return (
+    <div
+      className={
+        "study-inline-media study-image-pair" +
+        (!first || !second ? " study-image-pair-single" : "")
+      }
+    >
+      <Media src={first} title={title + " — 1"} />
+      <Media src={second} title={title + " — 2"} />
+    </div>
+  );
+}
 function Editorial({ label, title, children, id, className = "" }) {
   return (
     <section id={id} className={`study-editorial ${className}`}>
@@ -212,8 +226,9 @@ export default async function ProjectPage({ params, lang = "ar" }) {
         >
           <p className="study-summary">{project.summary}</p>
         </Editorial>
-        <Media
-          src={project.aboutImg || study.images[0]}
+        <MediaPair
+          first={project.aboutImg || study.images[0]}
+          second={project.aboutSecondImg}
           title={`${project.mainTitle} — ${t("عن المشروع")}`}
         />
         {(project.problemLead || project.problemExtra) && (
@@ -259,6 +274,10 @@ export default async function ProjectPage({ params, lang = "ar" }) {
               title={`${project.mainTitle} — ${lang === "en" ? "Solution details" : "تفاصيل الحل"}`}
             />
           </div>
+          <Media
+            src={project.solutionFullImg}
+            title={project.mainTitle + " — " + t("الحل")}
+          />
         </Editorial>
         {(study.requirements || project.requirementsExtra) && (
           <>
@@ -285,6 +304,11 @@ export default async function ProjectPage({ params, lang = "ar" }) {
               <p>{study.workingModel}</p>
             </div>
           )}
+          <MediaPair
+            first={project.workingImg}
+            second={project.workingSecondImg}
+            title={project.mainTitle + " — " + t("طريقة العمل")}
+          />
           <div className="study-text-block">
             <h2>{t("خارطة الطريق")}</h2>
             <p className="study-prose">
@@ -324,9 +348,14 @@ export default async function ProjectPage({ params, lang = "ar" }) {
             <p>{study.resultBody}</p>
           </div>
         </Editorial>
-        <Media
-          src={project.resultImg || project.coverImage}
+        <MediaPair
+          first={project.resultImg || project.coverImage}
+          second={project.resultSecondImg}
           title={`${project.mainTitle} — ${t("نتيجة المشروع")}`}
+        />
+        <Media
+          src={project.resultFullImg}
+          title={project.mainTitle + " — " + t("نتيجة المشروع")}
         />
         {study.awards.length > 0 && (
           <Editorial label={t("الجوائز والتقدير")} title={t("تقدير العمل")}>

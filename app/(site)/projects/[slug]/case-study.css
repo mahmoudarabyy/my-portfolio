@@ -649,3 +649,5 @@
 .project-study .study-slide-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; }
 .project-study .study-slide-pair .study-slide { min-width: 0; }
 @media (max-width: 600px) { .project-study .study-slide-pair { gap: 12px; } }
+
+.project-study .study-image-pair-single { grid-template-columns: minmax(0, 1fr); width: 100%; }
