@@ -149,3 +149,10 @@ test("new case-study media slots share Arabic assets and allow English overrides
     assert.equal(doc[key], shared[key]);
   }
 });
+
+test("legacy home URLs and trailing slashes produce valid language targets", () => {
+  for (const path of ["/index", "/index/", "/index.html", "/index.html/"]) assert.equal(languageTarget(path), "/en");
+  for (const path of ["/en/index", "/en/index/", "/en/index.html", "/en/"]) assert.equal(languageTarget(path), "/");
+  assert.equal(languageTarget("/projects/sample/"), "/en/projects");
+  assert.equal(languageTarget("/projects/sample/", ["/en/projects/sample"]), "/en/projects/sample");
+});

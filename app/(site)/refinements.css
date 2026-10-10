@@ -817,8 +817,10 @@ a.btn-menu-consultation:hover {
 .faq-mascot-image { display: block; width: 100%; height: auto; transform-origin: bottom center; animation: faq-mascot-sway 6s ease-in-out infinite; }
 .faq-mascot-bubble { position: absolute; top: 0; inset-inline-start: 12px; z-index: 1; background: #5f3cbf; color: #fff; border-radius: 18px 18px 4px 18px; padding: 12px 20px; font-size: 16px; font-weight: 700; white-space: nowrap; transform-origin: bottom center; animation: faq-mascot-chat 8s ease-in-out infinite; }
 .faq-mascot-bubble::after { content: ""; position: absolute; bottom: -7px; inset-inline-start: 28px; width: 14px; height: 14px; background: #5f3cbf; transform: rotate(45deg); }
+@media (hover: hover) and (pointer: fine) {
 .faq-mascot:is(:hover, :focus-visible) .faq-mascot-bubble { animation: none; opacity: 1; transform: translateY(-3px) scale(1.04); }
 .faq-mascot:is(:hover, :focus-visible) .faq-mascot-image { animation-play-state: paused; }
+}
 .faq-mascot:focus-visible { outline: 2px solid #8664f7; outline-offset: 6px; border-radius: 20px; }
 @keyframes faq-mascot-chat { 0%, 8%, 72%, 100% { opacity: 0; transform: translateY(10px) scale(.85); } 15%, 62% { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes faq-mascot-sway { 0%, 100% { transform: skewX(0deg) scaleY(1); } 30% { transform: skewX(-1.5deg) scaleY(.99); } 65% { transform: skewX(1.5deg) scaleY(1); } }
@@ -988,3 +990,21 @@ a.btn-menu-consultation:hover {
   .menu-overlay .fullscreen-nav-link .nav-num { display: none; }
 }
 
+
+/* Keep mobile artwork animation independent from sticker positioning. */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .hero-sticker { animation: none; }
+  .hero-sticker .sticker-img { animation: mobile-sticker-float 4s ease-in-out infinite; will-change: transform; }
+  .hero-sticker-photo .sticker-img { animation-duration: 5.2s; }
+  .hero-sticker-component .sticker-img { animation-delay: -.8s; }
+  .hero-sticker-me .sticker-img { animation-delay: -1.6s; }
+  .hero-sticker-duck .sticker-img { animation-duration: 3.6s; }
+}
+@keyframes mobile-sticker-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg); }
+  50% { transform: translate3d(0, -8px, 0) rotate(2deg); }
+}
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  .faq-mascot:is(:hover, :focus-visible) .faq-mascot-image { animation-play-state: running; }
+  .faq-mascot:is(:hover, :focus-visible) .faq-mascot-bubble { animation: faq-mascot-chat 8s ease-in-out infinite; }
+}
