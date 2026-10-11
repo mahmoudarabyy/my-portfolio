@@ -3,7 +3,12 @@ import "../../(site)/loader.css";
 import { getEnglishPaths } from "../../../lib/english-paths";
 import { InterfaceProvider } from "../../../components/interactions";
 import Footer from "../../../components/Footer";
-import { siteName, siteDescription, siteUrl } from "../../../lib/site";
+import {
+  siteName,
+  siteDescription,
+  siteUrl,
+  socialMetadata,
+} from "../../../lib/site";
 import "../../(site)/globals.css";
 import "../../(site)/migration.css";
 import "../../(site)/theme.css";
@@ -19,15 +24,7 @@ export const metadata = {
   },
   description: "UX/UI designer creating clear, thoughtful digital experiences.",
   icons: { icon: "/Logo.png" },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "Mahmoud Araby",
-    title: "Mahmoud Araby",
-    description:
-      "UX/UI designer creating clear, thoughtful digital experiences.",
-  },
-  twitter: { card: "summary_large_image" },
+  ...socialMetadata("en"),
 };
 export const viewport = {
   width: "device-width",

@@ -3,7 +3,12 @@ import "./loader.css";
 import { getEnglishPaths } from "../../lib/english-paths";
 import { InterfaceProvider } from "../../components/interactions";
 import Footer from "../../components/Footer";
-import { siteName, siteDescription, siteUrl } from "../../lib/site";
+import {
+  siteName,
+  siteDescription,
+  siteUrl,
+  socialMetadata,
+} from "../../lib/site";
 import "./globals.css";
 import "./migration.css";
 import "./theme.css";
@@ -19,14 +24,7 @@ export const metadata = {
   },
   description: siteDescription,
   icons: { icon: "/Logo.png" },
-  openGraph: {
-    type: "website",
-    locale: "ar_EG",
-    siteName,
-    title: siteName,
-    description: siteDescription,
-  },
-  twitter: { card: "summary_large_image" },
+  ...socialMetadata("ar"),
 };
 export const viewport = {
   width: "device-width",

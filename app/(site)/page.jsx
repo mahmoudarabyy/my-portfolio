@@ -1,3 +1,4 @@
+import { socialMetadata } from "../../lib/site";
 import { getSiteContent } from "../../lib/site-content";
 import { ui } from "../../lib/ui";
 import { localePath } from "../../lib/localization.mjs";
@@ -11,6 +12,7 @@ import { getFeaturedProjects } from "../../lib/project-data.mjs";
 
 export const revalidate = 60;
 export const metadata = {
+  openGraph: { ...socialMetadata("ar").openGraph, url: "/" },
   alternates: { canonical: "/", languages: { ar: "/", en: "/en" } },
 };
 export default async function HomePage({ lang = "ar" }) {
