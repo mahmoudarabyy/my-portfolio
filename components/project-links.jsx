@@ -3,6 +3,7 @@ export default function ProjectLinks({ project, lang = "ar" }) {
   const t = (text) => ui(lang, text);
   const links = [
     { href: project.websiteUrl, label: "زيارة الموقع" },
+    { href: project.behanceUrl, label: "عرض على بيهانس", icon: "behance" },
     { href: project.appStoreUrl, label: "متجر أبل", icon: "apple" },
     { href: project.googlePlayUrl, label: "متجر جوجل", icon: "google" },
   ].filter(({ href }) => {

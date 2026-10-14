@@ -223,6 +223,7 @@ export const projectSchema = defineType({
     textField("resultBody", "نتيجة المشروع — النص"),
     ...[
       ["websiteUrl", "رابط الموقع"],
+      ["behanceUrl", "رابط المشروع على Behance — بيهانس"],
       ["appStoreUrl", "رابط التحميل من App Store — متجر أبل"],
       ["googlePlayUrl", "رابط التحميل من Google Play — متجر جوجل"],
     ].map(([name, title]) =>
