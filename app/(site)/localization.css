@@ -109,7 +109,7 @@ html[lang="en"]
   html[lang="en"] .hero-section {
     height: auto !important;
     min-height: 640px;
-    padding-top: 64px !important;
+    padding-top: 80px !important;
     padding-bottom: 210px !important;
   }
 }
@@ -171,7 +171,7 @@ html[lang="en"] .program-title {
     gap: 8px !important;
   }
   html[lang="en"] .hero-title {
-    font-size: 40px !important;
+    font-size: clamp(32px, 9vw, 38px) !important;
   }
   html[lang="en"] .menu-nav a {
     text-align: left;
@@ -232,4 +232,20 @@ html[lang="en"] .hero-sticker-me {
 html[lang="en"] :is(.article-card, .article-body, .article-heading) {
   text-align: left;
   direction: ltr;
+}
+
+/* Reserve space for the fixed navigation and the floating fire sticker. */
+@media (max-width: 768px) {
+  .site-wrapper {
+    padding-top: var(--header-offset, 80px);
+  }
+
+  .hero-section {
+    justify-content: flex-start;
+    padding-top: 80px;
+  }
+
+  .hero-container {
+    margin-top: 0;
+  }
 }
