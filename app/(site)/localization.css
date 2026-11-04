@@ -249,3 +249,11 @@ html[lang="en"] :is(.article-card, .article-body, .article-heading) {
     margin-top: 0;
   }
 }
+@media (max-width: 768px) {
+  .hero-description {
+    width: calc(100vw - 32px);
+    max-width: none;
+    flex-shrink: 0;
+    text-wrap: pretty;
+  }
+}
