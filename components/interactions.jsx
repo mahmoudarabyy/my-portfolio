@@ -68,18 +68,10 @@ function Header() {
               />
             </Link>
           </div>
-          <nav
-            className="portfolio-header-nav"
-            aria-label={t("التنقل الرئيسي")}
-          >
+          <nav className="portfolio-header-nav" aria-label={t("التنقل الرئيسي")}>
             {navItems.slice(1, -1).map(([href, label]) => (
-              <Link
-                key={href}
-                href={localePath(href, lang)}
-                aria-current={
-                  localePath(href, lang) === pathname ? "page" : undefined
-                }
-              >
+              <Link key={href} href={localePath(href, lang)}
+                aria-current={localePath(href, lang) === pathname ? "page" : undefined}>
                 {t(label)}
               </Link>
             ))}
@@ -97,17 +89,12 @@ function Header() {
             <LanguageSwitch lang={lang} available={englishPaths} />
             <button
               type="button"
-              className="menu-toggle-btn portfolio-mobile-menu"
+              className="menu-toggle-btn portfolio-mobile-menu luna-menu-toggle"
               aria-label={t("فتح القائمة الرئيسية")}
               aria-haspopup="dialog"
               onClick={() => open("menu")}
             >
-              <SiteImage
-                src="/Menu Icon.svg"
-                alt=""
-                className="menu-icon-img"
-                sizes="28px"
-              />
+<span>{lang === "en" ? "Menu" : "القائمة"}</span><span className="luna-menu-plus" aria-hidden="true">+</span>
             </button>
           </div>
         </div>
@@ -341,7 +328,7 @@ export function InterfaceProvider({
           <div
             className={
               active === "menu"
-                ? "menu-overlay active"
+                ? "menu-overlay luna-menu-overlay active"
                 : "modal-backdrop active"
             }
             onClick={(event) => {

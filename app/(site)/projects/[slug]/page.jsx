@@ -83,13 +83,13 @@ function Media({ src, title, cover = false }) {
     </Wrapper>
   );
 }
-function MediaPair({ first, second, title }) {
+function MediaPair({ first, second, title, layout }) {
   if (!first && !second) return null;
   return (
     <div
       className={
         "study-inline-media study-image-pair" +
-        (!first || !second ? " study-image-pair-single" : "")
+        (layout === "stacked" || !first || !second ? " study-image-pair-single" : "")
       }
     >
       <Media src={first} title={title + " — 1"} />
@@ -227,6 +227,7 @@ export default async function ProjectPage({ params, lang = "ar" }) {
           <p className="study-summary">{project.summary}</p>
         </Editorial>
         <MediaPair
+          layout={project.aboutMediaLayout}
           first={project.aboutImg || study.images[0]}
           second={project.aboutSecondImg}
           title={`${project.mainTitle} — ${t("عن المشروع")}`}
@@ -258,7 +259,7 @@ export default async function ProjectPage({ params, lang = "ar" }) {
             <p>{project.researchLead || project.solutionLead}</p>
             <ReadMore lang={lang} text={project.researchExtra} />
           </div>
-          <div className="study-inline-media study-image-pair">
+          <div className={`study-inline-media study-image-pair${project.solutionMediaLayout === "stacked" ? " study-image-pair-single" : ""}`}>
             <Media
               src={project.researchImg || study.images[0]}
               title={`${project.mainTitle} — ${t("تجربة المستخدم")}`}
@@ -305,7 +306,8 @@ export default async function ProjectPage({ params, lang = "ar" }) {
             </div>
           )}
           <MediaPair
-            first={project.workingImg}
+            layout={project.workingMediaLayout}
+          first={project.workingImg}
             second={project.workingSecondImg}
             title={project.mainTitle + " — " + t("طريقة العمل")}
           />
@@ -349,6 +351,7 @@ export default async function ProjectPage({ params, lang = "ar" }) {
           </div>
         </Editorial>
         <MediaPair
+          layout={project.resultMediaLayout}
           first={project.resultImg || project.coverImage}
           second={project.resultSecondImg}
           title={`${project.mainTitle} — ${t("نتيجة المشروع")}`}

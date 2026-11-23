@@ -13,7 +13,7 @@ export default function HomeHero({ lang = "ar", content }) {
         <div className="grid-line"></div>
         <div className="grid-line"></div>
       </div>
-      <section className="hero-section">
+      <section className="hero-section hero-section-simple">
         <div className="hero-frame-container">
           <div className="hero-stripe hero-stripe-right" aria-hidden="true">
             <SiteImage
@@ -29,36 +29,16 @@ export default function HomeHero({ lang = "ar", content }) {
               className="stripe-svg"
             />
           </div>
-          <div className="hero-sticker hero-sticker-photo" aria-hidden="true">
-            <SiteImage
-              src="/Hero/صورتي.png"
-              alt="محمود عربي"
-              className="sticker-img"
-            />
-          </div>
-          <div
-            className="hero-sticker hero-sticker-component"
-            aria-hidden="true"
-          >
-            <SiteImage
-              src="/Hero/Component.png"
-              alt="Component You & Me"
-              className="sticker-img"
-            />
-          </div>
+
+
         </div>
         <div className="hero-container">
+          <div className="hero-portrait">
+            <SiteImage src="/Hero/صورتي.png" alt={lang === "en" ? "Mahmoud Araby" : "محمود عربي"} sizes="(max-width: 768px) 150px, 180px" preload />
+          </div>
           <div className="hero-title-wrapper">
-            <div className="hero-sticker hero-sticker-fire" aria-hidden="true">
-              <SiteImage
-                src="/Hero/Fire.png"
-                alt="Fire"
-                className="sticker-img"
-              />
-            </div>
-            <div className="hero-sticker hero-sticker-me" aria-hidden="true">
-              <SiteImage src="/Hero/Me.png" alt="Me" className="sticker-img" />
-            </div>
+
+
             <HeroTitle lang={lang} title={content.heroTitle} />
           </div>
           <Reveal as="p" delay={120} className="hero-description">

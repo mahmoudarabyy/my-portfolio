@@ -33,6 +33,17 @@ const imageField = (name, title, required = false, description = "") => [
   }),
 ];
 
+const mediaLayoutField = (name, title) => defineField({
+  name, title: title + " — ترتيب الصور", type: "string", group: "images",
+  initialValue: "paired",
+  options: { layout: "radio", list: [
+    { title: "جنب بعض — المقاس الحالي", value: "paired" },
+    { title: "تحت بعض — كل صورة بعرض كامل مثل التحدي", value: "stacked" },
+  ] },
+  description: "يطبق على الموبايل والديسكتوب واللغتين. الافتراضي جنب بعض. الصورة الثالثة إن وجدت تظل بعرض كامل.",
+  validation: (rule) => rule.valid("paired", "stacked"),
+});
+
 export const projectSchema = defineType({
   name: "project",
   title: "المشاريع",
@@ -275,6 +286,7 @@ export const projectSchema = defineType({
       hidden: true,
       group: "images",
     }),
+    mediaLayoutField("aboutMediaLayout", "عن المشروع"),
     ...imageField(
       "aboutImg",
       "عن المشروع — الصورة الأولى",
@@ -285,7 +297,7 @@ export const projectSchema = defineType({
       "aboutSecondImg",
       "عن المشروع — الصورة الثانية",
       false,
-      "تظهر بجانب الصورة الأولى بنفس المقاس.",
+      "تظهر بجانب الصورة الأولى أو تحتها بعرض كامل حسب اختيار ترتيب الصور.",
     ),
     ...imageField(
       "problemImg",
@@ -293,6 +305,7 @@ export const projectSchema = defineType({
       false,
       "تظهر تحت نص القسم حسب ترتيب خانات الوسائط. كل الخانات الجديدة اختيارية.",
     ),
+    mediaLayoutField("solutionMediaLayout", "الحل"),
     ...imageField(
       "researchImg",
       "الحل — الصورة الأولى",
@@ -303,13 +316,13 @@ export const projectSchema = defineType({
       "researchSecondImg",
       "الحل — الصورة الثانية",
       false,
-      "تظهر بجانب الصورة الأولى بنفس المقاس.",
+      "تظهر بجانب الصورة الأولى أو تحتها بعرض كامل حسب اختيار ترتيب الصور.",
     ),
     ...imageField(
       "solutionFullImg",
       "الحل — الصورة الثالثة (بعرض كامل)",
       false,
-      "تظهر مباشرة تحت الصورتين المتجاورتين بعرض المحتوى الكامل.",
+      "تظهر مباشرة بعد أول صورتين بعرض المحتوى الكامل.",
     ),
     ...imageField(
       "requirementsImg",
@@ -317,6 +330,7 @@ export const projectSchema = defineType({
       false,
       "تظهر تحت نص القسم حسب ترتيب خانات الوسائط. كل الخانات الجديدة اختيارية.",
     ),
+    mediaLayoutField("workingMediaLayout", "طريقة العمل"),
     ...imageField(
       "workingImg",
       "طريقة العمل — الصورة الأولى",
@@ -327,7 +341,7 @@ export const projectSchema = defineType({
       "workingSecondImg",
       "طريقة العمل — الصورة الثانية",
       false,
-      "تظهر بجانب الصورة الأولى بنفس المقاس.",
+      "تظهر بجانب الصورة الأولى أو تحتها بعرض كامل حسب اختيار ترتيب الصور.",
     ),
     ...imageField(
       "solutionImg",
@@ -335,6 +349,7 @@ export const projectSchema = defineType({
       false,
       "تظهر تحت نص القسم حسب ترتيب خانات الوسائط. كل الخانات الجديدة اختيارية.",
     ),
+    mediaLayoutField("resultMediaLayout", "نتيجة المشروع"),
     ...imageField(
       "resultImg",
       "نتيجة المشروع — الصورة الأولى",
@@ -345,13 +360,13 @@ export const projectSchema = defineType({
       "resultSecondImg",
       "نتيجة المشروع — الصورة الثانية",
       false,
-      "تظهر بجانب الصورة الأولى بنفس المقاس.",
+      "تظهر بجانب الصورة الأولى أو تحتها بعرض كامل حسب اختيار ترتيب الصور.",
     ),
     ...imageField(
       "resultFullImg",
       "نتيجة المشروع — الصورة الثالثة (بعرض كامل)",
       false,
-      "تظهر مباشرة تحت الصورتين المتجاورتين بعرض المحتوى الكامل.",
+      "تظهر مباشرة بعد أول صورتين بعرض المحتوى الكامل.",
     ),
     defineField({
       name: "gallery",
