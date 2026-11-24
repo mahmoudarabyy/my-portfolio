@@ -1,3 +1,4 @@
+import { improveStudioSchema } from "./studio-ux.mjs";
 import { siteContentSchema } from "./site-content";
 import { localizedSchema } from "./localized";
 import { defineConfig } from "sanity";
@@ -11,27 +12,29 @@ import ImportEnglish from "./import-english";
 
 export default defineConfig({
   name: "portfolio",
-  title: "إدارة مشاريع محمود عربي",
+  title: "إدارة موقعي",
   basePath: "/studio",
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  tools: [
+  tools: (previous) => [
+    ...previous,
     {
       name: "import-english",
-      title: "ترجمة المحتوى الحالي",
+      title: "أدوات الإعداد — الترجمة",
       component: ImportEnglish,
     },
     {
       name: "import-content",
-      title: "استيراد محتوى الموقع",
+      title: "أدوات الإعداد — الاستيراد",
       component: ImportContent,
     },
   ],
   plugins: [
     structureTool({
+      title: "المحتوى",
       structure: (S) =>
         S.list()
-          .title("إدارة المحتوى")
+          .title("محتوى الموقع")
           .items([
             S.listItem()
               .id("site-content")
@@ -41,10 +44,12 @@ export default defineConfig({
                   .schemaType("siteContent")
                   .documentId("site-content"),
               ),
-            ...S.documentTypeListItems().filter(
-              (item) =>
-                !["resumeContent", "siteContent"].includes(item.getId()),
-            ),
+            S.divider(),
+            S.documentTypeListItem("project").title("المشاريع ودراسات الحالة"),
+            S.documentTypeListItem("article").title("كتاباتي — المقالات"),
+            S.divider(),
+            S.documentTypeListItem("faq").title("الأسئلة الشائعة"),
+            S.documentTypeListItem("testimonial").title("آراء العملاء"),
             S.listItem()
               .id("resume-content")
               .title("سيرتي الذاتية")
@@ -66,7 +71,7 @@ export default defineConfig({
         faqSchema,
         testimonialSchema,
         resumeSchema,
-      ].map(localizedSchema),
+      ].map((schema) => improveStudioSchema(localizedSchema(schema))),
     ],
     templates: (templates) =>
       templates.filter(

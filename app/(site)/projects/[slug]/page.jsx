@@ -276,7 +276,7 @@ export default async function ProjectPage({ params, lang = "ar" }) {
             />
           </div>
           <Media
-            src={project.solutionFullImg}
+            src={project.solutionMediaLayout === "stacked" ? null : project.solutionFullImg}
             title={project.mainTitle + " — " + t("الحل")}
           />
         </Editorial>
@@ -357,7 +357,7 @@ export default async function ProjectPage({ params, lang = "ar" }) {
           title={`${project.mainTitle} — ${t("نتيجة المشروع")}`}
         />
         <Media
-          src={project.resultFullImg}
+          src={project.resultMediaLayout === "stacked" ? null : project.resultFullImg}
           title={project.mainTitle + " — " + t("نتيجة المشروع")}
         />
         {study.awards.length > 0 && (

@@ -11,10 +11,11 @@ const textField = (name, title, group = "story", required = false) =>
   });
 const mediaAccept =
   "image/jpeg,image/png,image/webp,image/avif,image/gif,image/svg+xml,video/mp4,video/webm";
-const imageField = (name, title, required = false, description = "") => [
+const imageField = (name, title, required = false, description = "", layoutField) => [
   defineField({ name, title, type: "image", group: "images", hidden: true }),
   defineField({
     name: `${name}Media`,
+    ...(layoutField ? { hidden: ({ document }) => document?.[layoutField] === "stacked" } : {}),
     title: title.replaceAll("صورة", "وسائط").replaceAll("الصورة", "الوسائط"),
     type: "file",
     group: "images",
@@ -33,14 +34,14 @@ const imageField = (name, title, required = false, description = "") => [
   }),
 ];
 
-const mediaLayoutField = (name, title) => defineField({
+const mediaLayoutField = (name, title, hasThird = false) => defineField({
   name, title: title + " — ترتيب الصور", type: "string", group: "images",
   initialValue: "paired",
   options: { layout: "radio", list: [
-    { title: "جنب بعض — المقاس الحالي", value: "paired" },
-    { title: "تحت بعض — كل صورة بعرض كامل مثل التحدي", value: "stacked" },
+    { title: hasThird ? "٣ صور — اتنين جنب بعض وصورة بعرض كامل تحتهم" : "صورتين جنب بعض — المقاس الحالي", value: "paired" },
+    { title: "صورتين تحت بعض — عرض كامل وارتفاع حسب أبعاد كل صورة", value: "stacked" },
   ] },
-  description: "يطبق على الموبايل والديسكتوب واللغتين. الافتراضي جنب بعض. الصورة الثالثة إن وجدت تظل بعرض كامل.",
+  description: hasThird ? "في وضع صورتين تُعرض الوسائط الأولى والثانية فقط. الثالثة تُخفى من القسم دون حذف ملفها، وتظهر مجددًا عند اختيار ٣ صور. يطبق على اللغتين والموبايل والديسكتوب." : "اختيار تحت بعض يعرض كل صورة بعرض المحتوى الكامل وارتفاعها الطبيعي بدون قص. يطبق على اللغتين والموبايل والديسكتوب.",
   validation: (rule) => rule.valid("paired", "stacked"),
 });
 
@@ -305,7 +306,7 @@ export const projectSchema = defineType({
       false,
       "تظهر تحت نص القسم حسب ترتيب خانات الوسائط. كل الخانات الجديدة اختيارية.",
     ),
-    mediaLayoutField("solutionMediaLayout", "الحل"),
+    mediaLayoutField("solutionMediaLayout", "الحل", true),
     ...imageField(
       "researchImg",
       "الحل — الصورة الأولى",
@@ -323,6 +324,7 @@ export const projectSchema = defineType({
       "الحل — الصورة الثالثة (بعرض كامل)",
       false,
       "تظهر مباشرة بعد أول صورتين بعرض المحتوى الكامل.",
+      "solutionMediaLayout",
     ),
     ...imageField(
       "requirementsImg",
@@ -349,7 +351,7 @@ export const projectSchema = defineType({
       false,
       "تظهر تحت نص القسم حسب ترتيب خانات الوسائط. كل الخانات الجديدة اختيارية.",
     ),
-    mediaLayoutField("resultMediaLayout", "نتيجة المشروع"),
+    mediaLayoutField("resultMediaLayout", "نتيجة المشروع", true),
     ...imageField(
       "resultImg",
       "نتيجة المشروع — الصورة الأولى",
@@ -367,6 +369,7 @@ export const projectSchema = defineType({
       "نتيجة المشروع — الصورة الثالثة (بعرض كامل)",
       false,
       "تظهر مباشرة بعد أول صورتين بعرض المحتوى الكامل.",
+      "resultMediaLayout",
     ),
     defineField({
       name: "gallery",

@@ -29,9 +29,15 @@ export const siteContentSchema = {
     title: lang === "ar" ? "العربية" : "English",
     type: "object",
     group: lang,
+    fieldsets: [
+      {name:"hero",title:"المقدمة — الهيرو"},
+      {name:"about",title:"عني",options:{collapsible:true,collapsed:true}},
+      {name:"services",title:"الخدمات",options:{collapsible:true,collapsed:true}},
+    ],
     fields: Object.keys(labels).map((name) => ({
       name,
       title: labels[name],
+      fieldset: name.startsWith("hero") ? "hero" : name.startsWith("about") ? "about" : "services",
       type: name.endsWith("Title") ? "string" : "text",
       rows: 3,
     })),
