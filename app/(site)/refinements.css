@@ -1008,3 +1008,19 @@ a.btn-menu-consultation:hover {
   .faq-mascot:is(:hover, :focus-visible) .faq-mascot-image { animation-play-state: running; }
   .faq-mascot:is(:hover, :focus-visible) .faq-mascot-bubble { animation: faq-mascot-chat 8s ease-in-out infinite; }
 }
+
+/* Give the home projects and about sections a little more breathing room. */
+#projects.programs-section {
+  padding-top: calc(clamp(3rem, 5vw, 5rem) + 24px) !important;
+  padding-bottom: calc(clamp(2.5rem, 4vw, 4rem) + 24px) !important;
+}
+#about.about-section { padding-top: 72px !important; }
+#about .about-container { padding-bottom: 72px; }
+
+@media (max-width: 768px) {
+  #projects.programs-section {
+    padding-block: calc(clamp(3.5rem, 6vw, 4.5rem) + 16px) !important;
+  }
+  #about.about-section { padding-top: 48px !important; }
+  #about .about-container { padding-bottom: 64px; }
+}
